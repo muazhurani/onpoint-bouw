@@ -8,6 +8,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import { createPortal } from "react-dom";
 
 type InquiryKind = "quote" | "report";
 
@@ -165,6 +166,167 @@ export default function InquiryButton({
     }
   }
 
+  const modal = (
+    <div
+      role="presentation"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/55 px-4 py-6 backdrop-blur-sm"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) setOpen(false);
+      }}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={`${id}-title`}
+        className="max-h-full w-full max-w-[560px] overflow-y-auto border border-grid-line bg-paper p-6 shadow-[0_24px_70px_rgb(16_20_24/0.22)] sm:p-8"
+      >
+        <div className="flex items-start justify-between gap-6 border-b border-grid-line pb-5">
+          <div>
+            <p className="eyebrow text-slate">
+              <span aria-hidden="true" className="mr-2 text-survey-yellow">
+                +
+              </span>
+              {copy.eyebrow}
+            </p>
+            <h2
+              id={`${id}-title`}
+              className="mt-3 font-display text-[1.6rem] font-bold leading-tight tracking-[-0.02em] text-ink"
+            >
+              {copy.title}
+            </h2>
+          </div>
+          <button
+            type="button"
+            aria-label="Close"
+            onClick={() => setOpen(false)}
+            className="flex h-9 w-9 shrink-0 items-center justify-center border border-grid-line text-ink transition-colors duration-150 hover:border-ink"
+          >
+            <svg viewBox="0 0 16 16" className="h-4 w-4" aria-hidden="true">
+              <path
+                d="M3 3l10 10M13 3L3 13"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            className="hidden"
+            aria-hidden="true"
+          />
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field id={`${id}-name`} label="Name">
+              <input
+                id={`${id}-name`}
+                name="name"
+                autoComplete="name"
+                required={isQuote}
+                autoFocus
+                className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
+              />
+            </Field>
+            <Field id={`${id}-company`} label="Company">
+              <input
+                id={`${id}-company`}
+                name="company"
+                autoComplete="organization"
+                className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
+              />
+            </Field>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field id={`${id}-email`} label="Email">
+              <input
+                id={`${id}-email`}
+                name="email"
+                type="email"
+                autoComplete="email"
+                required
+                className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
+              />
+            </Field>
+            <Field id={`${id}-phone`} label="Phone">
+              <input
+                id={`${id}-phone`}
+                name="phone"
+                type="tel"
+                autoComplete="tel"
+                required={isQuote}
+                className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
+              />
+            </Field>
+          </div>
+
+          {isQuote && (
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Field id={`${id}-projectType`} label="Project type">
+                <select
+                  id={`${id}-projectType`}
+                  name="projectType"
+                  required
+                  defaultValue={PROJECT_TYPES[0]}
+                  className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
+                >
+                  {PROJECT_TYPES.map((type) => (
+                    <option key={type}>{type}</option>
+                  ))}
+                </select>
+              </Field>
+              <Field id={`${id}-siteDate`} label="Site date">
+                <input
+                  id={`${id}-siteDate`}
+                  name="siteDate"
+                  type="date"
+                  className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
+                />
+              </Field>
+            </div>
+          )}
+
+          <Field id={`${id}-message`} label={isQuote ? "Message" : "Notes"}>
+            <textarea
+              id={`${id}-message`}
+              name="message"
+              rows={5}
+              required={isQuote}
+              className="w-full resize-y border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
+            />
+          </Field>
+
+          <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button
+              type="submit"
+              disabled={submitState.status === "sending"}
+              className="bg-survey-yellow px-6 py-3 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange disabled:cursor-wait disabled:opacity-70"
+            >
+              {submitState.status === "sending" ? "Sending..." : copy.submit}
+            </button>
+            <p
+              role="status"
+              className={`font-mono text-[0.75rem] leading-relaxed tracking-[0.04em] ${
+                submitState.status === "error"
+                  ? "text-signal-orange"
+                  : submitState.status === "success"
+                    ? "text-ink"
+                    : "text-slate"
+              }`}
+            >
+              {submitState.message || copy.note}
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <button
@@ -178,166 +340,7 @@ export default function InquiryButton({
         {children}
       </button>
 
-      {open && (
-        <div
-          role="presentation"
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/55 px-4 py-6 backdrop-blur-sm"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) setOpen(false);
-          }}
-        >
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={`${id}-title`}
-            className="max-h-full w-full max-w-[560px] overflow-y-auto border border-grid-line bg-paper p-6 shadow-[0_24px_70px_rgb(16_20_24/0.22)] sm:p-8"
-          >
-            <div className="flex items-start justify-between gap-6 border-b border-grid-line pb-5">
-              <div>
-                <p className="eyebrow text-slate">
-                  <span aria-hidden="true" className="mr-2 text-survey-yellow">
-                    +
-                  </span>
-                  {copy.eyebrow}
-                </p>
-                <h2
-                  id={`${id}-title`}
-                  className="mt-3 font-display text-[1.6rem] font-bold leading-tight tracking-[-0.02em] text-ink"
-                >
-                  {copy.title}
-                </h2>
-              </div>
-              <button
-                type="button"
-                aria-label="Close"
-                onClick={() => setOpen(false)}
-                className="flex h-9 w-9 shrink-0 items-center justify-center border border-grid-line text-ink transition-colors duration-150 hover:border-ink"
-              >
-                <svg viewBox="0 0 16 16" className="h-4 w-4" aria-hidden="true">
-                  <path
-                    d="M3 3l10 10M13 3L3 13"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
-              <input
-                type="text"
-                name="website"
-                tabIndex={-1}
-                autoComplete="off"
-                className="hidden"
-                aria-hidden="true"
-              />
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Field id={`${id}-name`} label="Name">
-                  <input
-                    id={`${id}-name`}
-                    name="name"
-                    autoComplete="name"
-                    required={isQuote}
-                    autoFocus
-                    className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
-                  />
-                </Field>
-                <Field id={`${id}-company`} label="Company">
-                  <input
-                    id={`${id}-company`}
-                    name="company"
-                    autoComplete="organization"
-                    className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
-                  />
-                </Field>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <Field id={`${id}-email`} label="Email">
-                  <input
-                    id={`${id}-email`}
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
-                  />
-                </Field>
-                <Field id={`${id}-phone`} label="Phone">
-                  <input
-                    id={`${id}-phone`}
-                    name="phone"
-                    type="tel"
-                    autoComplete="tel"
-                    required={isQuote}
-                    className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
-                  />
-                </Field>
-              </div>
-
-              {isQuote && (
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Field id={`${id}-projectType`} label="Project type">
-                    <select
-                      id={`${id}-projectType`}
-                      name="projectType"
-                      required
-                      defaultValue={PROJECT_TYPES[0]}
-                      className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
-                    >
-                      {PROJECT_TYPES.map((type) => (
-                        <option key={type}>{type}</option>
-                      ))}
-                    </select>
-                  </Field>
-                  <Field id={`${id}-siteDate`} label="Site date">
-                    <input
-                      id={`${id}-siteDate`}
-                      name="siteDate"
-                      type="date"
-                      className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
-                    />
-                  </Field>
-                </div>
-              )}
-
-              <Field id={`${id}-message`} label={isQuote ? "Message" : "Notes"}>
-                <textarea
-                  id={`${id}-message`}
-                  name="message"
-                  rows={5}
-                  required={isQuote}
-                  className="w-full resize-y border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
-                />
-              </Field>
-
-              <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <button
-                  type="submit"
-                  disabled={submitState.status === "sending"}
-                  className="bg-survey-yellow px-6 py-3 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange"
-                >
-                  {submitState.status === "sending" ? "Sending..." : copy.submit}
-                </button>
-                <p
-                  role="status"
-                  className={`font-mono text-[0.75rem] leading-relaxed tracking-[0.04em] ${
-                    submitState.status === "error"
-                      ? "text-signal-orange"
-                      : submitState.status === "success"
-                        ? "text-ink"
-                        : "text-slate"
-                  }`}
-                >
-                  {submitState.message || copy.note}
-                </p>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      {open ? createPortal(modal, document.body) : null}
     </>
   );
 }

@@ -43,7 +43,10 @@ export async function POST(request: Request) {
 
   const parsed = quoteSchema.safeParse(body);
   if (!parsed.success) {
-    return badRequest("Please check the form fields.", parsed.error.flatten());
+    return badRequest(
+      "Please enter your name, a valid email, phone number, project type, and a message of at least 10 characters.",
+      parsed.error.flatten(),
+    );
   }
 
   const data = parsed.data;

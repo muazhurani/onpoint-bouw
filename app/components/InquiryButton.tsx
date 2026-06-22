@@ -228,6 +228,7 @@ export default function InquiryButton({
                 name="name"
                 autoComplete="name"
                 required={isQuote}
+                minLength={isQuote ? 2 : undefined}
                 autoFocus
                 className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
               />
@@ -260,6 +261,7 @@ export default function InquiryButton({
                 type="tel"
                 autoComplete="tel"
                 required={isQuote}
+                minLength={isQuote ? 6 : undefined}
                 className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
               />
             </Field>
@@ -297,6 +299,7 @@ export default function InquiryButton({
               name="message"
               rows={5}
               required={isQuote}
+              minLength={isQuote ? 10 : undefined}
               className="w-full resize-y border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
             />
           </Field>

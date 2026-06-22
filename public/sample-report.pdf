@@ -1,0 +1,1385 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 3 /Kids [6 0 R 8 0 R 10 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 4317 >>
+stream
+q
+0.973 0.980 0.988 rg
+0.00 0.00 595.00 842.00 re f
+Q
+q
+0.059 0.090 0.165 rg
+0.00 652.00 595.00 190.00 re f
+Q
+q
+0.957 0.706 0.000 rg
+0.00 644.00 595.00 8.00 re f
+Q
+BT
+0.957 0.706 0.000 rg
+/F2 12.00 Tf
+42.00 788.00 Td
+(ONPOINT GEOMATICS) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 34.00 Tf
+42.00 724.00 Td
+(Sample Construction) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 34.00 Tf
+42.00 685.00 Td
+(Survey Report) Tj
+ET
+BT
+0.886 0.910 0.941 rg
+/F1 11.00 Tf
+42.00 665.00 Td
+(Layout, as-built verification, concrete slabs and steel works) Tj
+ET
+q
+0.957 0.706 0.000 rg
+0.957 0.706 0.000 RG 1 w
+407.00 773.00 126.00 27.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 9.00 Tf
+417.00 784.00 Td
+(SAMPLE REPORT) Tj
+ET
+q
+1.000 1.000 1.000 rg
+0.886 0.910 0.941 RG 1 w
+42.00 474.00 511.00 132.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 18.00 Tf
+62.00 566.00 Td
+(Report Overview) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 10.50 Tf
+62.00 539.50 Td
+(This sample shows the structure and level of detail OnPoint can provide for) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 10.50 Tf
+62.00 524.50 Td
+(construction survey deliverables. Values, project names and checks shown here are) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 10.50 Tf
+62.00 509.50 Td
+(demonstration data only.) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+62.00 498.50 Td
+(Prepared by) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 10.50 Tf
+62.00 480.50 Td
+(OnPoint Geomatics - Eindhoven, NL) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+335.00 498.50 Td
+(Contact) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 10.50 Tf
+335.00 480.50 Td
+(info@onpointgeo.nl  |  +31 6 1468 6059) Tj
+ET
+q
+1.000 1.000 1.000 rg
+0.886 0.910 0.941 RG 1 w
+42.00 292.00 245.00 148.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 15.00 Tf
+62.00 403.00 Td
+(Project Snapshot) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+62.00 378.50 Td
+(Project) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 9.50 Tf
+154.00 377.50 Td
+(Industrial slab / steel layout) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+62.00 357.50 Td
+(Location) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 9.50 Tf
+154.00 356.50 Td
+(Eindhoven, NL) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+62.00 336.50 Td
+(Date) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 9.50 Tf
+154.00 335.50 Td
+(22 June 2026) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+62.00 315.50 Td
+(Coordinate basis) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 9.50 Tf
+154.00 314.50 Td
+(Local site grid) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+62.00 294.50 Td
+(Instrument) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 9.50 Tf
+154.00 293.50 Td
+(Trimble S5 + TSC7) Tj
+ET
+q
+1.000 1.000 1.000 rg
+0.886 0.910 0.941 RG 1 w
+308.00 292.00 245.00 148.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 15.00 Tf
+328.00 403.00 Td
+(Included Deliverables) Tj
+ET
+q
+0.957 0.706 0.000 rg
+328.00 380.00 5.00 5.00 re f
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 9.50 Tf
+342.00 377.50 Td
+(Control network verification) Tj
+ET
+q
+0.957 0.706 0.000 rg
+328.00 360.00 5.00 5.00 re f
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 9.50 Tf
+342.00 357.50 Td
+(Concrete slab layout and stakeout notes) Tj
+ET
+q
+0.957 0.706 0.000 rg
+328.00 340.00 5.00 5.00 re f
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 9.50 Tf
+342.00 337.50 Td
+(Steel grid / base plate verification) Tj
+ET
+q
+0.957 0.706 0.000 rg
+328.00 320.00 5.00 5.00 re f
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 9.50 Tf
+342.00 317.50 Td
+(As-built point schedule with tolerances) Tj
+ET
+q
+0.957 0.706 0.000 rg
+328.00 300.00 5.00 5.00 re f
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 9.50 Tf
+342.00 297.50 Td
+(QA notes and recommended actions) Tj
+ET
+q
+0.059 0.090 0.165 rg
+42.00 130.00 511.00 128.00 re f
+Q
+BT
+1.000 1.000 1.000 rg
+/F2 16.00 Tf
+62.00 216.00 Td
+(Accuracy Statement) Tj
+ET
+BT
+0.886 0.910 0.941 rg
+/F1 10.50 Tf
+62.00 187.50 Td
+(Field observations are controlled against verified site control and reported with) Tj
+ET
+BT
+0.886 0.910 0.941 rg
+/F1 10.50 Tf
+62.00 172.50 Td
+(practical construction tolerances. Final accuracy depends on control quality, site) Tj
+ET
+BT
+0.886 0.910 0.941 rg
+/F1 10.50 Tf
+62.00 157.50 Td
+(access, atmospheric conditions and the requested deliverable.) Tj
+ET
+BT
+0.957 0.706 0.000 rg
+/F2 10.00 Tf
+62.00 141.00 Td
+(Typical use: high accuracy layout, as-built verification and civil works coordination.) Tj
+ET
+q
+0.886 0.910 0.941 RG 1 w
+36.00 46.00 m 559.00 46.00 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+36.00 22.50 Td
+(Sample data for demonstration only. Not a certified project record.) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+526.00 22.50 Td
+(Page 1) Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 8750 >>
+stream
+q
+1.000 1.000 1.000 rg
+0.00 0.00 595.00 842.00 re f
+Q
+q
+0.910 0.925 0.940 rg
+BT /F2 76 Tf 0.766 0.643 -0.643 0.766 142 365 Tm (SAMPLE) Tj ET
+Q
+q
+0.059 0.090 0.165 rg
+0.00 768.00 595.00 74.00 re f
+Q
+q
+0.957 0.706 0.000 rg
+0.00 763.00 595.00 5.00 re f
+Q
+BT
+1.000 1.000 1.000 rg
+/F2 15.00 Tf
+36.00 803.00 Td
+(OnPoint Geomatics) Tj
+ET
+BT
+0.886 0.910 0.941 rg
+/F1 9.50 Tf
+36.00 787.50 Td
+(Sample Construction Survey Report) Tj
+ET
+BT
+0.886 0.910 0.941 rg
+/F1 9.50 Tf
+405.00 787.50 Td
+(Measurement Summary) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 20.00 Tf
+36.00 714.00 Td
+(Survey Control and Site Grid) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 10.00 Tf
+36.00 695.00 Td
+(Control points were checked before stakeout and again after the measurement run. The sample grid) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 10.00 Tf
+36.00 681.00 Td
+(below illustrates how critical slab and steel points are reported for quick site review.) Tj
+ET
+q
+0.973 0.980 0.988 rg
+0.796 0.835 0.882 RG 1 w
+58.00 433.00 300.00 214.00 re B
+Q
+q
+0.796 0.835 0.882 RG 1.2 w
+58.00 647.00 m 58.00 433.00 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+85.00 410.50 Td
+(1) Tj
+ET
+q
+0.796 0.835 0.882 RG 0.7 w
+118.00 647.00 m 118.00 433.00 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+145.00 410.50 Td
+(2) Tj
+ET
+q
+0.796 0.835 0.882 RG 0.7 w
+178.00 647.00 m 178.00 433.00 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+205.00 410.50 Td
+(3) Tj
+ET
+q
+0.796 0.835 0.882 RG 0.7 w
+238.00 647.00 m 238.00 433.00 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+265.00 410.50 Td
+(4) Tj
+ET
+q
+0.796 0.835 0.882 RG 0.7 w
+298.00 647.00 m 298.00 433.00 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+325.00 410.50 Td
+(5) Tj
+ET
+q
+0.796 0.835 0.882 RG 1.2 w
+358.00 647.00 m 358.00 433.00 l S
+Q
+q
+0.796 0.835 0.882 RG 1.2 w
+58.00 647.00 m 358.00 647.00 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+38.00 615.75 Td
+(A) Tj
+ET
+q
+0.796 0.835 0.882 RG 0.7 w
+58.00 593.50 m 358.00 593.50 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+38.00 562.25 Td
+(B) Tj
+ET
+q
+0.796 0.835 0.882 RG 0.7 w
+58.00 540.00 m 358.00 540.00 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+38.00 508.75 Td
+(C) Tj
+ET
+q
+0.796 0.835 0.882 RG 0.7 w
+58.00 486.50 m 358.00 486.50 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+38.00 455.25 Td
+(D) Tj
+ET
+q
+0.796 0.835 0.882 RG 1.2 w
+58.00 433.00 m 358.00 433.00 l S
+Q
+q
+0.133 0.773 0.369 rg
+0.059 0.090 0.165 RG 0.4 w
+92.00 610.00 8.00 8.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 7.50 Tf
+104.00 614.50 Td
+(P01) Tj
+ET
+q
+0.133 0.773 0.369 rg
+0.059 0.090 0.165 RG 0.4 w
+172.00 586.00 8.00 8.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 7.50 Tf
+184.00 590.50 Td
+(P04) Tj
+ET
+q
+0.133 0.773 0.369 rg
+0.059 0.090 0.165 RG 0.4 w
+279.00 600.00 8.00 8.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 7.50 Tf
+291.00 604.50 Td
+(P08) Tj
+ET
+q
+0.133 0.773 0.369 rg
+0.059 0.090 0.165 RG 0.4 w
+118.00 508.00 8.00 8.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 7.50 Tf
+130.00 512.50 Td
+(P12) Tj
+ET
+q
+0.918 0.345 0.047 rg
+0.059 0.090 0.165 RG 0.4 w
+245.00 495.00 8.00 8.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 7.50 Tf
+257.00 499.50 Td
+(P16) Tj
+ET
+q
+0.133 0.773 0.369 rg
+0.059 0.090 0.165 RG 0.4 w
+314.00 542.00 8.00 8.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 7.50 Tf
+326.00 546.50 Td
+(P19) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+58.00 407.50 Td
+(Illustrative site grid - not to scale) Tj
+ET
+q
+0.973 0.980 0.988 rg
+0.796 0.835 0.882 RG 1 w
+392.00 433.00 145.00 214.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 14.00 Tf
+412.00 612.00 Td
+(Tolerance Summary) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 19.00 Tf
+412.00 573.00 Td
+(42) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+412.00 558.50 Td
+(points checked) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 19.00 Tf
+412.00 531.00 Td
+(39) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+412.00 516.50 Td
+(within tolerance) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 19.00 Tf
+412.00 489.00 Td
+(7 mm) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+412.00 474.50 Td
+(max horizontal delta) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 19.00 Tf
+412.00 447.00 Td
+(5 mm) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+412.00 432.50 Td
+(max vertical delta) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 17.00 Tf
+36.00 357.00 Td
+(Sample As-Built Point Schedule) Tj
+ET
+q
+0.059 0.090 0.165 rg
+36.00 317.00 522.00 24.00 re f
+Q
+BT
+1.000 1.000 1.000 rg
+/F2 7.80 Tf
+42.00 325.20 Td
+(Point) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 7.80 Tf
+100.00 325.20 Td
+(Item) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 7.80 Tf
+212.00 325.20 Td
+(Design X) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 7.80 Tf
+282.00 325.20 Td
+(Design Y) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 7.80 Tf
+352.00 325.20 Td
+(Delta X) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 7.80 Tf
+404.00 325.20 Td
+(Delta Y) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 7.80 Tf
+456.00 325.20 Td
+(Delta Z) Tj
+ET
+BT
+1.000 1.000 1.000 rg
+/F2 7.80 Tf
+508.00 325.20 Td
+(Status) Tj
+ET
+q
+0.973 0.980 0.988 rg
+0.886 0.910 0.941 RG 0.5 w
+36.00 292.00 522.00 25.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+42.00 301.00 Td
+(P01) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+100.00 301.00 Td
+(Grid A/1) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+212.00 301.00 Td
+(100.000) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+282.00 301.00 Td
+(200.000) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+352.00 301.00 Td
+(+2) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+404.00 301.00 Td
+(-1) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+456.00 301.00 Td
+(+1) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 8.00 Tf
+508.00 301.00 Td
+(OK) Tj
+ET
+q
+1.000 1.000 1.000 rg
+0.886 0.910 0.941 RG 0.5 w
+36.00 267.00 522.00 25.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+42.00 276.00 Td
+(P04) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+100.00 276.00 Td
+(Slab edge) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+212.00 276.00 Td
+(112.500) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+282.00 276.00 Td
+(200.000) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+352.00 276.00 Td
+(+3) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+404.00 276.00 Td
+(+2) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+456.00 276.00 Td
+(0) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 8.00 Tf
+508.00 276.00 Td
+(OK) Tj
+ET
+q
+0.973 0.980 0.988 rg
+0.886 0.910 0.941 RG 0.5 w
+36.00 242.00 522.00 25.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+42.00 251.00 Td
+(P08) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+100.00 251.00 Td
+(Anchor group) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+212.00 251.00 Td
+(125.000) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+282.00 251.00 Td
+(212.500) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+352.00 251.00 Td
+(-4) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+404.00 251.00 Td
+(+1) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+456.00 251.00 Td
+(+2) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 8.00 Tf
+508.00 251.00 Td
+(OK) Tj
+ET
+q
+1.000 1.000 1.000 rg
+0.886 0.910 0.941 RG 0.5 w
+36.00 217.00 522.00 25.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+42.00 226.00 Td
+(P12) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+100.00 226.00 Td
+(Control check) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+212.00 226.00 Td
+(100.000) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+282.00 226.00 Td
+(225.000) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+352.00 226.00 Td
+(+1) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+404.00 226.00 Td
+(-2) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+456.00 226.00 Td
+(+1) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 8.00 Tf
+508.00 226.00 Td
+(OK) Tj
+ET
+q
+0.973 0.980 0.988 rg
+0.886 0.910 0.941 RG 0.5 w
+36.00 192.00 522.00 25.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+42.00 201.00 Td
+(P16) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+100.00 201.00 Td
+(Base plate) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+212.00 201.00 Td
+(125.000) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+282.00 201.00 Td
+(225.000) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+352.00 201.00 Td
+(+7) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+404.00 201.00 Td
+(+3) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+456.00 201.00 Td
+(+5) Tj
+ET
+BT
+0.918 0.345 0.047 rg
+/F2 8.00 Tf
+508.00 201.00 Td
+(Review) Tj
+ET
+q
+1.000 1.000 1.000 rg
+0.886 0.910 0.941 RG 0.5 w
+36.00 167.00 522.00 25.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+42.00 176.00 Td
+(P19) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+100.00 176.00 Td
+(Steel grid) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+212.00 176.00 Td
+(137.500) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+282.00 176.00 Td
+(212.500) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+352.00 176.00 Td
+(-2) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+404.00 176.00 Td
+(+2) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 8.00 Tf
+456.00 176.00 Td
+(+2) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 8.00 Tf
+508.00 176.00 Td
+(OK) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+36.00 145.50 Td
+(Coordinate values and deltas are sample millimetre/site-grid values for demonstration.) Tj
+ET
+q
+0.886 0.910 0.941 RG 1 w
+36.00 46.00 m 559.00 46.00 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+36.00 22.50 Td
+(Sample data for demonstration only. Not a certified project record.) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+526.00 22.50 Td
+(Page 2) Tj
+ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 5670 >>
+stream
+q
+1.000 1.000 1.000 rg
+0.00 0.00 595.00 842.00 re f
+Q
+q
+0.910 0.925 0.940 rg
+BT /F2 76 Tf 0.766 0.643 -0.643 0.766 142 365 Tm (SAMPLE) Tj ET
+Q
+q
+0.059 0.090 0.165 rg
+0.00 768.00 595.00 74.00 re f
+Q
+q
+0.957 0.706 0.000 rg
+0.00 763.00 595.00 5.00 re f
+Q
+BT
+1.000 1.000 1.000 rg
+/F2 15.00 Tf
+36.00 803.00 Td
+(OnPoint Geomatics) Tj
+ET
+BT
+0.886 0.910 0.941 rg
+/F1 9.50 Tf
+36.00 787.50 Td
+(Sample Construction Survey Report) Tj
+ET
+BT
+0.886 0.910 0.941 rg
+/F1 9.50 Tf
+405.00 787.50 Td
+(Methodology and Deliverables) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 20.00 Tf
+36.00 714.00 Td
+(Methodology) Tj
+ET
+q
+0.957 0.706 0.000 rg
+0.957 0.706 0.000 RG 1 w
+36.00 668.00 28.00 28.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 11.00 Tf
+46.00 677.00 Td
+(1) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 12.50 Tf
+78.00 682.50 Td
+(Verify control) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 9.50 Tf
+78.00 664.50 Td
+(Site control is checked against known points before layout or as-built work starts. Any) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 9.50 Tf
+78.00 651.50 Td
+(movement or inconsistency is flagged before production measurements.) Tj
+ET
+q
+0.957 0.706 0.000 rg
+0.957 0.706 0.000 RG 1 w
+36.00 600.00 28.00 28.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 11.00 Tf
+46.00 609.00 Td
+(2) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 12.50 Tf
+78.00 614.50 Td
+(Measure critical geometry) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 9.50 Tf
+78.00 596.50 Td
+(Concrete slab edges, grid intersections, anchor groups and steel base plates are observed) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 9.50 Tf
+78.00 583.50 Td
+(using total station workflows suited for high accuracy construction work.) Tj
+ET
+q
+0.957 0.706 0.000 rg
+0.957 0.706 0.000 RG 1 w
+36.00 532.00 28.00 28.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 11.00 Tf
+46.00 541.00 Td
+(3) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 12.50 Tf
+78.00 546.50 Td
+(Compare against design) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 9.50 Tf
+78.00 528.50 Td
+(Measured positions are compared with issued-for-construction drawings or agreed site-grid) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 9.50 Tf
+78.00 515.50 Td
+(coordinates, then summarized by status and recommended action.) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 17.00 Tf
+36.00 479.00 Td
+(Example Floor Level Heatmap) Tj
+ET
+q
+0.973 0.980 0.988 rg
+0.796 0.835 0.882 RG 1 w
+36.00 313.00 250.00 150.00 re B
+Q
+q
+0.176 0.831 0.749 rg
+43.00 422.00 46.00 29.00 re f
+Q
+q
+0.176 0.831 0.749 rg
+91.00 422.00 46.00 29.00 re f
+Q
+q
+0.133 0.773 0.369 rg
+139.00 422.00 46.00 29.00 re f
+Q
+q
+0.133 0.773 0.369 rg
+187.00 422.00 46.00 29.00 re f
+Q
+q
+0.957 0.706 0.000 rg
+235.00 422.00 46.00 29.00 re f
+Q
+q
+0.176 0.831 0.749 rg
+43.00 391.00 46.00 29.00 re f
+Q
+q
+0.133 0.773 0.369 rg
+91.00 391.00 46.00 29.00 re f
+Q
+q
+0.133 0.773 0.369 rg
+139.00 391.00 46.00 29.00 re f
+Q
+q
+0.957 0.706 0.000 rg
+187.00 391.00 46.00 29.00 re f
+Q
+q
+0.957 0.706 0.000 rg
+235.00 391.00 46.00 29.00 re f
+Q
+q
+0.133 0.773 0.369 rg
+43.00 360.00 46.00 29.00 re f
+Q
+q
+0.133 0.773 0.369 rg
+91.00 360.00 46.00 29.00 re f
+Q
+q
+0.957 0.706 0.000 rg
+139.00 360.00 46.00 29.00 re f
+Q
+q
+0.957 0.706 0.000 rg
+187.00 360.00 46.00 29.00 re f
+Q
+q
+0.918 0.345 0.047 rg
+235.00 360.00 46.00 29.00 re f
+Q
+q
+0.133 0.773 0.369 rg
+43.00 329.00 46.00 29.00 re f
+Q
+q
+0.957 0.706 0.000 rg
+91.00 329.00 46.00 29.00 re f
+Q
+q
+0.957 0.706 0.000 rg
+139.00 329.00 46.00 29.00 re f
+Q
+q
+0.918 0.345 0.047 rg
+187.00 329.00 46.00 29.00 re f
+Q
+q
+0.918 0.345 0.047 rg
+235.00 329.00 46.00 29.00 re f
+Q
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+43.00 327.50 Td
+(Low) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+207.00 327.50 Td
+(High / review) Tj
+ET
+q
+0.059 0.090 0.165 rg
+318.00 313.00 221.00 150.00 re f
+Q
+BT
+1.000 1.000 1.000 rg
+/F2 15.00 Tf
+338.00 424.00 Td
+(Deliverable Package) Tj
+ET
+q
+0.957 0.706 0.000 rg
+338.00 397.00 5.00 5.00 re f
+Q
+BT
+0.886 0.910 0.941 rg
+/F1 9.50 Tf
+353.00 395.50 Td
+(PDF report for review and archive) Tj
+ET
+q
+0.957 0.706 0.000 rg
+338.00 376.00 5.00 5.00 re f
+Q
+BT
+0.886 0.910 0.941 rg
+/F1 9.50 Tf
+353.00 374.50 Td
+(Point list in CSV or project format) Tj
+ET
+q
+0.957 0.706 0.000 rg
+338.00 355.00 5.00 5.00 re f
+Q
+BT
+0.886 0.910 0.941 rg
+/F1 9.50 Tf
+353.00 353.50 Td
+(Marked-up drawing or control sketch) Tj
+ET
+q
+0.957 0.706 0.000 rg
+338.00 334.00 5.00 5.00 re f
+Q
+BT
+0.886 0.910 0.941 rg
+/F1 9.50 Tf
+353.00 332.50 Td
+(Photos or notes where site access affects checks) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F2 17.00 Tf
+36.00 247.00 Td
+(Notes and Limitations) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 10.00 Tf
+36.00 221.00 Td
+(This sample report is intended to demonstrate report style and content only. A real report is) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 10.00 Tf
+36.00 207.00 Td
+(prepared from project-specific drawings, control information, site observations and agreed) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 10.00 Tf
+36.00 193.00 Td
+(tolerance requirements. Certified deliverables can include additional signatures, revision) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 10.00 Tf
+36.00 179.00 Td
+(records and client-specific formats.) Tj
+ET
+q
+0.973 0.980 0.988 rg
+0.796 0.835 0.882 RG 1 w
+36.00 84.00 240.00 54.00 re B
+Q
+BT
+0.059 0.090 0.165 rg
+/F2 12.00 Tf
+54.00 108.00 Td
+(OnPoint Geomatics) Tj
+ET
+BT
+0.200 0.255 0.333 rg
+/F1 9.00 Tf
+54.00 89.00 Td
+(info@onpointgeo.nl  |  +31 6 1468 6059) Tj
+ET
+q
+0.973 0.980 0.988 rg
+0.796 0.835 0.882 RG 1 w
+318.00 84.00 221.00 54.00 re B
+Q
+BT
+0.392 0.455 0.545 rg
+/F2 8.50 Tf
+336.00 111.50 Td
+(Prepared for) Tj
+ET
+BT
+0.059 0.090 0.165 rg
+/F1 11.00 Tf
+336.00 87.00 Td
+(Sample Client / Project Team) Tj
+ET
+q
+0.886 0.910 0.941 RG 1 w
+36.00 46.00 m 559.00 46.00 l S
+Q
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+36.00 22.50 Td
+(Sample data for demonstration only. Not a certified project record.) Tj
+ET
+BT
+0.392 0.455 0.545 rg
+/F1 8.50 Tf
+526.00 22.50 Td
+(Page 3) Tj
+ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+11 0 obj
+<< /Title (OnPoint Geomatics Sample Construction Survey Report) /Author (OnPoint Geomatics) /Subject (Sample construction survey report) /Creator (OnPoint website sample report generator) >>
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000128 00000 n 
+0000000198 00000 n 
+0000000273 00000 n 
+0000004642 00000 n 
+0000004778 00000 n 
+0000013580 00000 n 
+0000013716 00000 n 
+0000019438 00000 n 
+0000019575 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R /Info 11 0 R >>
+startxref
+19782
+%%EOF

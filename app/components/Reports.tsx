@@ -74,6 +74,8 @@ export default function Reports() {
             fig="FIG 04"
             caption="Walking the deviations with the site team"
             aspect="aspect-[16/9]"
+            src="/images/onpoint-report-review-slab-site.png"
+            alt="Construction team reviewing slab survey drawings on a tablet beside a freshly poured concrete slab."
           />
         </div>
 

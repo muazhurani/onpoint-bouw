@@ -1,4 +1,5 @@
 import Image from "next/image";
+import InquiryButton from "./InquiryButton";
 import Parallax from "./Parallax";
 
 const STATS = [
@@ -87,12 +88,12 @@ export default function Hero() {
             className="fade-up mt-10 flex flex-wrap items-center gap-4"
             style={{ animationDelay: "200ms" }}
           >
-            <a
-              href="#quote"
+            <InquiryButton
+              kind="quote"
               className="bg-survey-yellow px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange hover:shadow-[0_8px_24px_rgb(16_20_24/0.07)]"
             >
               Request a quote
-            </a>
+            </InquiryButton>
             <a
               href="#reports"
               className="border border-ink/25 px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:border-ink"

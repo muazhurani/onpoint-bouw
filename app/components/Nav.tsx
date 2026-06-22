@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import InquiryButton from "./InquiryButton";
 
 const LINKS = [
   { label: "Services", href: "#services" },
@@ -48,12 +49,12 @@ export default function Nav() {
         </div>
 
         <div className="flex items-center gap-2">
-          <a
-            href="#quote"
+          <InquiryButton
+            kind="quote"
             className="bg-survey-yellow px-4 py-2 text-[0.9375rem] font-medium text-ink transition-colors duration-150 hover:bg-signal-orange"
           >
             Request a quote
-          </a>
+          </InquiryButton>
           <button
             type="button"
             aria-expanded={open}

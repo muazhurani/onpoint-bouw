@@ -1,3 +1,5 @@
+import InquiryButton from "./InquiryButton";
+
 export default function FinalCta() {
   return (
     <section id="quote" className="section-pad scroll-mt-24 bg-ink text-paper">
@@ -15,12 +17,12 @@ export default function FinalCta() {
         </p>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
-          <a
-            href="mailto:info@onpointgeo.nl?subject=Quote%20request"
+          <InquiryButton
+            kind="quote"
             className="bg-survey-yellow px-8 py-4 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange"
           >
             Request a quote
-          </a>
+          </InquiryButton>
           <div className="flex flex-col gap-1 font-mono text-[0.875rem] tracking-[0.04em]">
             <a href="tel:+31614686059" className="rounded-sm text-paper/80 transition-colors duration-150 hover:text-survey-yellow">
               +31 6 1468 6059

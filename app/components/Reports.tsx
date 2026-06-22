@@ -1,3 +1,4 @@
+import InquiryButton from "./InquiryButton";
 import PhotoFrame, { CornerTicks } from "./PhotoFrame";
 
 const REPORT_ITEMS = [
@@ -60,13 +61,13 @@ export default function Reports() {
             clear pass/fail against your spec — the document your client, your
             engineer and your concrete crew can all act on.
           </p>
-          <a
-            href="mailto:info@onpointgeo.nl?subject=Sample%20report%20request"
+          <InquiryButton
+            kind="report"
             className="mt-8 inline-block border border-ink/25 px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:border-ink"
           >
-            Request a sample report{" "}
+            Download sample report{" "}
             <span aria-hidden="true" className="font-mono text-[0.9em]">↗</span>
-          </a>
+          </InquiryButton>
 
           <PhotoFrame
             className="mt-10 max-w-[420px]"

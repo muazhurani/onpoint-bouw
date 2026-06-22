@@ -26,6 +26,28 @@ export const metadata: Metadata = {
   title: "OnPoint Geomatics — Precision surveying for construction",
   description:
     "High-accuracy construction surveying in Eindhoven for layout, concrete slabs, steel, civil works, floor-flatness surveys and as-built verification.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon-black.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
+      {
+        url: "/favicon-white.png",
+        media: "(prefers-color-scheme: dark)",
+        sizes: "512x512",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/apple-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

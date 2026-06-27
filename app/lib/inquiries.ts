@@ -25,17 +25,7 @@ export const quoteSchema = z.object({
   website: z.string().trim().max(0).optional().default(""),
 });
 
-export const sampleReportSchema = z.object({
-  name: z.string().trim().max(120).optional().default(""),
-  company: shortText.optional().default(""),
-  email,
-  phone: z.string().trim().max(60).optional().default(""),
-  message: message.optional().default(""),
-  website: z.string().trim().max(0).optional().default(""),
-});
-
 export type QuoteInquiry = z.infer<typeof quoteSchema>;
-export type SampleReportInquiry = z.infer<typeof sampleReportSchema>;
 
 export function badRequest(messageText: string, issues?: unknown) {
   return Response.json(

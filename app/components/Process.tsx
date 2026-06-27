@@ -5,23 +5,23 @@ import { useEffect, useRef, useState } from "react";
 const STEPS = [
   {
     n: "01",
-    title: "Setup & control",
-    body: "We establish the control network on site — the known points everything else is measured from.",
+    title: "Visit & scope",
+    body: "We look at the space, listen to what you want changed and check practical details before pricing the work.",
   },
   {
     n: "02",
-    title: "Measure",
-    body: "Trimble S5 total-station fieldwork with a TSC7 controller, capturing the points that matter to the build.",
+    title: "Clear quote",
+    body: "You receive a straightforward quote with the main choices, planning assumptions and what is included.",
   },
   {
     n: "03",
-    title: "Analyze",
-    body: "Raw coordinates become FF/FL values, deviation tables and heatmaps, checked against your spec.",
+    title: "Build neatly",
+    body: "We protect the home where needed, keep the work area manageable and communicate as the project moves.",
   },
   {
     n: "04",
-    title: "Report",
-    body: "A decision-ready report in your inbox, usually within 24 hours of leaving site.",
+    title: "Finish & handover",
+    body: "The final details are checked with you, the area is cleaned up and the work is handed over properly.",
   },
 ];
 
@@ -53,12 +53,16 @@ export default function Process() {
     <section id="process" className="section-pad scroll-mt-24">
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <p className="scroll-blur eyebrow text-slate">
-          <span aria-hidden="true" className="mr-2 text-survey-yellow">+</span>
+          <span aria-hidden="true" className="mr-2 text-accent-yellow">+</span>
           How we work
         </p>
         <h2 className="scroll-blur mt-4 max-w-[22ch] font-display text-[clamp(1.9rem,3.5vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.02em]">
-          Four steps from plan to proof.
+          What happens after you call.
         </h2>
+        <p className="scroll-blur mt-5 max-w-[52ch] text-[1.0625rem] leading-[1.7] text-slate">
+          A homeowner should not need to manage a building project like a
+          contractor. We keep the next step clear at each stage.
+        </p>
 
         <div ref={ref} className="relative mt-16">
           {/* leveling line — draws left to right (top to bottom on mobile) */}
@@ -81,7 +85,7 @@ export default function Process() {
                 {/* point marker pops in sequence */}
                 <span
                   aria-hidden="true"
-                  className={`absolute left-0 top-[0.4em] block h-[15px] w-[15px] rounded-full border-2 border-ink bg-survey-yellow ring-4 ring-paper transition-transform duration-300 ease-out md:static md:mb-6 md:block ${
+                  className={`absolute left-0 top-[0.4em] block h-[15px] w-[15px] rounded-full border-2 border-ink bg-accent-yellow ring-4 ring-paper transition-transform duration-300 ease-out md:static md:mb-6 md:block ${
                     inView ? "scale-100" : "scale-0"
                   }`}
                   style={{ transitionDelay: inView ? `${250 + i * 160}ms` : "0ms" }}

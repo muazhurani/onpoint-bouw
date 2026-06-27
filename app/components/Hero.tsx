@@ -1,14 +1,13 @@
 import Image from "next/image";
 import InquiryButton from "./InquiryButton";
-import Parallax from "./Parallax";
 
 const STATS = [
-  { value: "S5", label: "total station" },
-  { value: "TSC7", label: "field controller" },
-  { value: "1 day", label: "quote turnaround" },
+  { value: "Free", label: "no-obligation quote" },
+  { value: "Eindhoven", label: "and surrounding area" },
+  { value: "One", label: "point of contact" },
 ];
 
-// Static survey-point texture around the margins.
+// Static layout-point texture around the margins.
 const POINTS = [
   { x: "6%", y: "16%" },
   { x: "26%", y: "9%" },
@@ -25,15 +24,28 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="survey-grid relative flex min-h-svh flex-col overflow-hidden"
+      className="relative flex min-h-svh flex-col overflow-hidden bg-ink text-paper"
     >
-      {/* survey points */}
+      <Image
+        src="/images/onpoint-residential-renovation-hero.png"
+        alt="Builders working on a home extension and garden patio for a Dutch family house."
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-ink/88 via-ink/56 to-ink/12"
+      />
+      <div aria-hidden="true" className="layout-grid-dark absolute inset-0 opacity-35" />
+
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         {POINTS.map((p, i) => (
           <svg
             key={i}
             viewBox="0 0 12 12"
-            className="absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 text-ink/25"
+            className="absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 text-paper/25"
             style={{ left: p.x, top: p.y }}
           >
             <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -43,18 +55,17 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-[1200px] flex-1 items-center gap-10 px-6 pb-10 pt-36 wide:grid-cols-[1.1fr_0.9fr] wide:gap-6 wide:pb-0">
         <div>
-          <p className="eyebrow fade-up text-slate">
-            <span aria-hidden="true" className="mr-2 text-survey-yellow">
+          <p className="eyebrow fade-up text-paper/75">
+            <span aria-hidden="true" className="mr-2 text-accent-yellow">
               +
             </span>
-            High accuracy · Trimble S5 + TSC7 · Eindhoven
+            Renovations · Extensions · Gardens · Eindhoven
           </p>
 
-          <h1 className="fade-up mt-6 max-w-[12ch] font-display text-[clamp(3rem,6.5vw,5.25rem)] font-bold leading-[1.04] tracking-[-0.03em]">
-            Every project starts with a{" "}
+          <h1 className="fade-up mt-6 max-w-[12ch] font-display text-[clamp(2.8rem,6.2vw,5rem)] font-bold leading-[1.04] tracking-[-0.03em]">
+            Building work at home, done{" "}
             <span className="relative inline-block">
-              point.
-              {/* straight datum rule, draws in on load */}
+              properly.
               <svg
                 viewBox="0 0 100 8"
                 preserveAspectRatio="none"
@@ -68,7 +79,7 @@ export default function Hero() {
                   y2="4"
                   pathLength={1}
                   className="draw-underline"
-                  stroke="var(--color-survey-yellow)"
+                  stroke="var(--color-accent-yellow)"
                   strokeWidth="8"
                 />
               </svg>
@@ -76,12 +87,12 @@ export default function Hero() {
           </h1>
 
           <p
-            className="fade-up mt-8 max-w-[46ch] text-[1.125rem] leading-[1.7] text-slate"
+            className="fade-up mt-8 max-w-[47ch] text-[1.125rem] leading-[1.7] text-paper/76"
             style={{ animationDelay: "120ms" }}
           >
-            Precision surveying &amp; geomatics for construction. Stakeout,
-            concrete slabs, steel, civil works and as-builts — measured once,
-            measured right.
+            Garden, bathroom, extension or full renovation — we help homeowners
+            in and around Eindhoven with clear advice, tidy work and honest
+            communication, from the first visit to the final clean-up.
           </p>
 
           <div
@@ -90,64 +101,33 @@ export default function Hero() {
           >
             <InquiryButton
               kind="quote"
-              className="bg-survey-yellow px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange hover:shadow-[0_8px_24px_rgb(16_20_24/0.07)]"
+              className="bg-accent-yellow px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange hover:shadow-[0_8px_24px_rgb(16_20_24/0.07)]"
             >
               Request a quote
             </InquiryButton>
             <a
-              href="#reports"
-              className="border border-ink/25 px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:border-ink"
+              href="tel:+31614686059"
+              className="border border-paper/40 px-7 py-3.5 font-medium text-paper transition-all duration-150 hover:-translate-y-0.5 hover:border-paper"
             >
-              See deliverables{" "}
-              <span aria-hidden="true" className="font-mono text-[0.9em]">
-                ↗
-              </span>
+              Call +31 6 1468 6059
             </a>
           </div>
         </div>
 
-        {/* The instrument itself — cut-out, drifting slightly on scroll */}
-        <Parallax factor={0.07} className="fade-up relative mx-auto w-full max-w-[240px] self-end wide:max-w-[320px]">
-          <div className="relative">
-            <Image
-              src="/totalstation-md.png"
-              alt="Trimble robotic total station on a tripod"
-              width={600}
-              height={1600}
-              priority
-              sizes="(max-width: 600px) 160px, 320px"
-              className="mx-auto h-auto w-full max-w-[210px] wide:max-w-[270px]"
-            />
-
-            {/* dimension line, like a drawing annotation */}
-            <div
-              aria-hidden="true"
-              className="absolute -right-2 bottom-[4%] top-[2%] hidden flex-col items-center wide:flex"
-            >
-              <span className="h-px w-3 bg-ink/40" />
-              <span className="w-px flex-1 bg-ink/40" />
-              <span className="my-3 font-mono text-[0.6875rem] tracking-[0.08em] text-slate [writing-mode:vertical-rl]">
-                TRIMBLE S5 · TSC7 · ROBOTIC
-              </span>
-              <span className="w-px flex-1 bg-ink/40" />
-              <span className="h-px w-3 bg-ink/40" />
-            </div>
-          </div>
-        </Parallax>
+        <div className="hidden wide:block" />
       </div>
 
-      {/* Stat strip — data-collector readout */}
-      <div className="relative z-10 border-t border-grid-line bg-paper/70 backdrop-blur-sm">
+      <div className="relative z-10 border-t border-white/15 bg-ink/72 backdrop-blur-sm">
         <dl
           className="fade-up mx-auto flex w-full max-w-[1200px] flex-wrap items-baseline gap-x-12 gap-y-3 px-6 py-6"
           style={{ animationDelay: "350ms" }}
         >
           {STATS.map((s) => (
             <div key={s.label} className="flex items-baseline gap-3">
-              <dd className="font-mono text-[1.0625rem] font-medium text-ink">
+              <dd className="font-mono text-[1.0625rem] font-medium text-paper">
                 {s.value}
               </dd>
-              <dt className="eyebrow text-slate">{s.label}</dt>
+              <dt className="eyebrow text-paper/55">{s.label}</dt>
             </div>
           ))}
         </dl>

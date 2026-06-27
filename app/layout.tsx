@@ -3,9 +3,9 @@ import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const siteUrl = "https://onpointgeo.nl";
-const siteTitle = "OnPoint Geomatics | Construction Surveying Eindhoven";
+const siteTitle = "OnPoint Bouw | Renovation & Construction in Eindhoven";
 const siteDescription =
-  "High-accuracy construction surveying in Eindhoven for layout, stakeout, concrete slabs, steel, civil works, FF/FL surveys and as-built verification.";
+  "Local builder in Eindhoven for home renovations, extensions, bathrooms, garden paving and patios. Clear quotes, tidy work and honest advice — request a free, no-obligation quote.";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -29,26 +29,25 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  applicationName: "OnPoint Geomatics",
+  applicationName: "OnPoint Bouw",
   title: {
     default: siteTitle,
-    template: "%s | OnPoint Geomatics",
+    template: "%s | OnPoint Bouw",
   },
   description: siteDescription,
   keywords: [
-    "construction surveying Eindhoven",
-    "layout stakeout survey",
-    "as-built verification",
-    "concrete slab survey",
-    "steel verification",
-    "civil works surveying",
-    "FF FL floor flatness survey",
-    "geomatics Eindhoven",
+    "construction company Eindhoven",
+    "home renovation Eindhoven",
+    "house extension Eindhoven",
+    "garden renovation Eindhoven",
+    "patio paving Eindhoven",
+    "bathroom renovation Eindhoven",
+    "residential construction Netherlands",
   ],
-  authors: [{ name: "OnPoint Geomatics" }],
-  creator: "OnPoint Geomatics",
-  publisher: "OnPoint Geomatics",
-  category: "Construction surveying",
+  authors: [{ name: "OnPoint Bouw" }],
+  creator: "OnPoint Bouw",
+  publisher: "OnPoint Bouw",
+  category: "Residential construction",
   alternates: {
     canonical: "/",
   },
@@ -56,15 +55,15 @@ export const metadata: Metadata = {
     title: siteTitle,
     description: siteDescription,
     url: "/",
-    siteName: "OnPoint Geomatics",
+    siteName: "OnPoint Bouw",
     locale: "en_NL",
     type: "website",
     images: [
       {
-        url: "/images/onpoint-total-station-civil-site.png",
-        width: 1678,
-        height: 937,
-        alt: "Trimble total station on a concrete construction site.",
+        url: "/images/onpoint-residential-renovation-hero.png",
+        width: 1672,
+        height: 941,
+        alt: "Residential home extension and patio renovation in progress.",
       },
     ],
   },
@@ -72,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/images/onpoint-total-station-civil-site.png"],
+    images: ["/images/onpoint-residential-renovation-hero.png"],
   },
   robots: {
     index: true,

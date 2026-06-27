@@ -1,0 +1,275 @@
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import InquiryButton from "@/app/components/InquiryButton";
+import ProjectGallery from "@/app/components/ProjectGallery";
+import { CornerTicks } from "@/app/components/PhotoFrame";
+import Footer from "@/app/components/Footer";
+import Nav from "@/app/components/Nav";
+import { getProject, projects } from "@/app/lib/projects";
+
+type ProjectPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export function generateStaticParams() {
+  return projects.map((project) => ({ slug: project.slug }));
+}
+
+const siteUrl = "https://onpointgeo.nl";
+
+export async function generateMetadata({ params }: ProjectPageProps) {
+  const { slug } = await params;
+  const project = getProject(slug);
+
+  if (!project) return {};
+
+  const canonical = `/projects/${project.slug}`;
+
+  return {
+    title: project.title,
+    description: project.summary,
+    keywords: project.keywords,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: `${project.title} | OnPoint Bouw`,
+      description: project.summary,
+      url: canonical,
+      type: "article",
+      images: [
+        {
+          url: project.cover,
+          alt: project.coverAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | OnPoint Bouw`,
+      description: project.summary,
+      images: [project.cover],
+    },
+  };
+}
+
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const { slug } = await params;
+  const project = getProject(slug);
+
+  if (!project) notFound();
+
+  const hasPendingGalleryPhotos = project.gallery.some((item) => !item.src);
+
+  const projectJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.summary,
+    url: `${siteUrl}/projects/${project.slug}`,
+    image: `${siteUrl}${project.cover}`,
+    keywords: project.keywords.join(", "),
+    creator: {
+      "@type": "HomeAndConstructionBusiness",
+      name: "OnPoint Bouw",
+      url: siteUrl,
+      areaServed: "Eindhoven, Netherlands",
+    },
+    locationCreated: {
+      "@type": "Place",
+      name: project.location,
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: `${siteUrl}/#projects`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.title,
+        item: `${siteUrl}/projects/${project.slug}`,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([projectJsonLd, breadcrumbJsonLd]).replace(
+            /</g,
+            "\\u003c",
+          ),
+        }}
+      />
+      <Nav />
+      <main>
+        <section className="relative overflow-hidden border-b border-grid-line bg-paper pt-32">
+          <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-6 pb-16 wide:grid-cols-[0.92fr_1.08fr] wide:items-end">
+            <div>
+              <Link
+                href="/#projects"
+                className="font-mono text-[0.75rem] font-medium uppercase tracking-[0.08em] text-slate transition-colors duration-150 hover:text-ink"
+              >
+                Back to projects
+              </Link>
+              <p className="mt-8 eyebrow text-slate">
+                <span aria-hidden="true" className="mr-2 text-accent-yellow">
+                  +
+                </span>
+                {project.eyebrow}
+              </p>
+              <h1 className="mt-4 max-w-[14ch] font-display text-[clamp(2.2rem,4.8vw,3.75rem)] font-bold leading-[1.06] tracking-[-0.03em]">
+                {project.title}
+              </h1>
+              <p className="mt-6 max-w-[48ch] text-[1.125rem] leading-[1.7] text-slate">
+                {project.summary}
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <InquiryButton
+                  kind="quote"
+                  className="bg-accent-yellow px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange"
+                >
+                  Ask about a similar project
+                </InquiryButton>
+                <a
+                  href="tel:+31614686059"
+                  className="border border-ink/25 px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:border-ink"
+                >
+                  Call us
+                </a>
+              </div>
+            </div>
+
+            <figure>
+              <div className="relative aspect-[4/3] border border-grid-line bg-ink/[0.04]">
+                <CornerTicks />
+                <Image
+                  src={project.cover}
+                  alt={project.coverAlt}
+                  fill
+                  priority
+                  sizes="(max-width: 900px) calc(100vw - 48px), 620px"
+                  className="object-cover"
+                />
+              </div>
+            </figure>
+          </div>
+        </section>
+
+        <section className="section-pad">
+          <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-6 wide:grid-cols-[0.34fr_0.66fr]">
+            <aside>
+              <p className="eyebrow text-slate">
+                <span aria-hidden="true" className="mr-2 text-accent-yellow">
+                  +
+                </span>
+                Project details
+              </p>
+              <dl className="mt-6 border-y border-grid-line">
+                <div className="border-b border-grid-line py-4">
+                  <dt className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-slate">
+                    Area
+                  </dt>
+                  <dd className="mt-1 text-ink">{project.location}</dd>
+                </div>
+                <div className="border-b border-grid-line py-4">
+                  <dt className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-slate">
+                    Type
+                  </dt>
+                  <dd className="mt-1 text-ink">{project.timeframe}</dd>
+                </div>
+                <div className="py-4">
+                  <dt className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-slate">
+                    Scope
+                  </dt>
+                  <dd className="mt-3">
+                    <ul className="space-y-2 text-slate">
+                      {project.scope.map((item) => (
+                        <li key={item} className="flex gap-2">
+                          <span className="text-accent-yellow" aria-hidden="true">
+                            +
+                          </span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+            </aside>
+
+            <div>
+              <p className="eyebrow text-slate">
+                <span aria-hidden="true" className="mr-2 text-accent-yellow">
+                  +
+                </span>
+                What we did
+              </p>
+              <h2 className="mt-3 font-display text-[clamp(1.8rem,3vw,2.4rem)] font-bold leading-tight">
+                How the project came together
+              </h2>
+              <div className="mt-6 grid gap-5 text-[1.0625rem] leading-[1.8] text-slate">
+                {project.description.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+
+              {project.gallery.length > 0 ? (
+                <div className="mt-12">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                    <p className="eyebrow text-slate">
+                      <span
+                        aria-hidden="true"
+                        className="mr-2 text-accent-yellow"
+                      >
+                        +
+                      </span>
+                      Gallery
+                    </p>
+                    <p className="max-w-[36ch] text-[0.875rem] leading-[1.6] text-slate">
+                      {hasPendingGalleryPhotos
+                        ? "More photos from this project are being added."
+                        : "Swipe or use the arrows to browse the photos."}
+                    </p>
+                  </div>
+                  <ProjectGallery items={project.gallery} />
+                </div>
+              ) : null}
+
+              <div className="mt-12 border-t border-grid-line pt-8">
+                <p className="max-w-[44ch] text-[1.0625rem] leading-[1.7] text-slate">
+                  Planning something similar? Send us a few photos and we&apos;ll
+                  tell you what is realistic before any work starts.
+                </p>
+                <InquiryButton
+                  kind="quote"
+                  className="mt-6 inline-block bg-accent-yellow px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange"
+                >
+                  Request a quote
+                </InquiryButton>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}

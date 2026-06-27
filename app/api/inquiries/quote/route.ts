@@ -24,7 +24,7 @@ function leadHtml(data: {
   return `
     <h1>New quote request</h1>
     <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
-    <p><strong>Company:</strong> ${escapeHtml(data.company || "-")}</p>
+    <p><strong>Address / town:</strong> ${escapeHtml(data.company || "-")}</p>
     <p><strong>Email:</strong> ${escapeHtml(data.email)}</p>
     <p><strong>Phone:</strong> ${escapeHtml(data.phone)}</p>
     <p><strong>Project type:</strong> ${escapeHtml(data.projectType)}</p>
@@ -55,7 +55,7 @@ export async function POST(request: Request) {
     "New quote request",
     "",
     `Name: ${data.name}`,
-    `Company: ${data.company || "-"}`,
+    `Address / town: ${data.company || "-"}`,
     `Email: ${data.email}`,
     `Phone: ${data.phone}`,
     `Project type: ${data.projectType}`,
@@ -82,14 +82,14 @@ export async function POST(request: Request) {
         "",
         "Thanks for your quote request. We received your project details and will come back within one working day.",
         "",
-        "OnPoint Geomatics",
+        "OnPoint Bouw",
         "info@onpointgeo.nl",
         "+31 6 1468 6059",
       ].join("\n"),
       html: `
         <p>Hi ${escapeHtml(data.name)},</p>
         <p>Thanks for your quote request. We received your project details and will come back within one working day.</p>
-        <p>OnPoint Geomatics<br />info@onpointgeo.nl<br />+31 6 1468 6059</p>
+        <p>OnPoint Bouw<br />info@onpointgeo.nl<br />+31 6 1468 6059</p>
       `,
     });
 

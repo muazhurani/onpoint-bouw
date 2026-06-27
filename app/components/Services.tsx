@@ -1,63 +1,30 @@
-/* House line style: 1.5px ink strokes, exactly one yellow detail per icon. */
-
-function StakeoutIcon() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className="h-12 w-12">
-      {/* plan gridlines */}
-      <path d="M4 16h40M4 32h40M16 4v40M32 4v40" stroke="var(--color-ink)" strokeWidth="1.5" strokeDasharray="3 4" strokeOpacity="0.45" />
-      {/* set point at the intersection */}
-      <circle cx="32" cy="16" r="7" stroke="var(--color-ink)" strokeWidth="1.5" />
-      <circle cx="32" cy="16" r="2.5" fill="var(--color-survey-yellow)" className="icon-detail" />
-    </svg>
-  );
-}
-
-function FlatnessIcon() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className="h-12 w-12">
-      {/* datum line */}
-      <path d="M4 24h40" stroke="var(--color-ink)" strokeWidth="1.5" strokeDasharray="3 4" strokeOpacity="0.45" />
-      {/* slab profile */}
-      <path d="M4 27c5 0 6-6 11-6s6 4 10 4 6-7 11-7 5 6 8 6" stroke="var(--color-ink)" strokeWidth="1.5" strokeLinecap="round" />
-      {/* high-spot deviation */}
-      <path d="M36 18v6" stroke="var(--color-survey-yellow)" strokeWidth="2.5" strokeLinecap="round" className="icon-detail" />
-      <path d="M2 38h44" stroke="var(--color-ink)" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function AsBuiltIcon() {
-  return (
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className="h-12 w-12">
-      {/* as designed */}
-      <rect x="6" y="6" width="28" height="28" rx="3" stroke="var(--color-ink)" strokeWidth="1.5" strokeDasharray="3 4" strokeOpacity="0.45" />
-      {/* as built, offset */}
-      <rect x="13" y="13" width="28" height="28" rx="3" stroke="var(--color-ink)" strokeWidth="1.5" />
-      {/* measured deviation */}
-      <path d="M34 6l7 7" stroke="var(--color-survey-yellow)" strokeWidth="2.5" strokeLinecap="round" className="icon-detail" />
-    </svg>
-  );
-}
+import { Bath, HousePlus, Trees } from "lucide-react";
 
 const SERVICES = [
   {
     n: "01",
-    icon: <StakeoutIcon />,
-    title: "Layout & stakeout",
-    body: "From plan to ground. We set design coordinates on site for industrial builds, civil works, steel, anchors, columns, gridlines and penetrations.",
+    icon: HousePlus,
+    title: "Renovations and extensions",
+    body: "More space, better layout, new rear extension, or an older room that needs proper attention. We help turn the idea into a realistic job.",
   },
   {
     n: "02",
-    icon: <FlatnessIcon />,
-    title: "Floor flatness & levelness",
-    body: "FF/FL surveys for concrete slabs before and after the pour, with clear output for high spots, low spots and next steps.",
+    icon: Trees,
+    title: "Gardens and paving",
+    body: "Paving, patios, steps, drainage, raised borders and outdoor seating areas that are made for everyday use, not just a nice photo.",
   },
   {
     n: "03",
-    icon: <AsBuiltIcon />,
-    title: "As-builts & verification",
-    body: "Independent checks of what was actually built versus what was drawn, with a clear report for the record.",
+    icon: Bath,
+    title: "Bathrooms and finishing",
+    body: "Bathrooms, tiling, plastering, fixtures, small repairs and finish work where straight lines and clean details make the difference.",
   },
+];
+
+const EXPECTATIONS = [
+  "We tell you what is realistic before you commit.",
+  "We keep the work area as manageable as possible.",
+  "We explain choices that affect price or planning.",
 ];
 
 export default function Services() {
@@ -65,12 +32,17 @@ export default function Services() {
     <section id="services" className="section-pad scroll-mt-24">
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <p className="scroll-blur eyebrow text-slate">
-          <span aria-hidden="true" className="mr-2 text-survey-yellow">+</span>
-          What we measure
+          <span aria-hidden="true" className="mr-2 text-accent-yellow">+</span>
+          How we can help
         </p>
         <h2 className="scroll-blur mt-4 max-w-[22ch] font-display text-[clamp(1.9rem,3.5vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.02em]">
-          For slabs, steel, civil works and layout.
+          Straightforward building work for normal homes.
         </h2>
+        <p className="scroll-blur mt-5 max-w-[56ch] text-[1.0625rem] leading-[1.7] text-slate">
+          Most customers come to us with a practical problem: more space, a
+          better garden, a tired bathroom, or work that needs finishing. We make
+          the plan simple and keep the job moving.
+        </p>
 
         <div className="mt-14 grid gap-5 md:grid-cols-3">
           {SERVICES.map((s) => (
@@ -85,10 +57,14 @@ export default function Services() {
                   </span>
                   <span
                     aria-hidden="true"
-                    className="mt-2 block h-[2px] w-7 bg-survey-yellow"
+                    className="mt-2 block h-[2px] w-7 bg-accent-yellow"
                   />
                 </div>
-                {s.icon}
+                <s.icon
+                  aria-hidden="true"
+                  strokeWidth={1.5}
+                  className="h-10 w-10 text-ink transition-colors duration-150 group-hover:text-signal-yellow"
+                />
               </div>
               <h3 className="scroll-blur mt-8 font-display text-[1.3rem] font-bold tracking-[-0.01em]">
                 {s.title}
@@ -97,6 +73,17 @@ export default function Services() {
                 {s.body}
               </p>
             </article>
+          ))}
+        </div>
+
+        <div className="mt-8 grid gap-3 border-y border-grid-line py-6 md:grid-cols-3">
+          {EXPECTATIONS.map((item) => (
+            <div key={item} className="flex gap-3 text-[0.9375rem] leading-[1.6] text-slate">
+              <span aria-hidden="true" className="font-mono text-accent-yellow">
+                +
+              </span>
+              <span>{item}</span>
+            </div>
           ))}
         </div>
       </div>

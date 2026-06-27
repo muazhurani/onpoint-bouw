@@ -1,15 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import InquiryButton from "./InquiryButton";
 
 const LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "Field work", href: "#fieldwork" },
-  { label: "Flatness", href: "#flatness" },
-  { label: "Process", href: "#process" },
-  { label: "Reports", href: "#reports" },
+  { label: "Services", href: "/#services" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Process", href: "/#process" },
+  { label: "Trust", href: "/#trust" },
+  { label: "Quote", href: "/#quote" },
 ];
 
 export default function Nav() {
@@ -21,37 +22,37 @@ export default function Nav() {
         aria-label="Main"
         className="flex w-full max-w-[860px] items-center justify-between border border-grid-line bg-paper/85 py-2 pl-5 pr-2 backdrop-blur-md"
       >
-        <a
-          href="#top"
-          aria-label="OnPoint Geomatics — home"
+        <Link
+          href="/#top"
+          aria-label="OnPoint Bouw — home"
           className="flex items-center"
         >
           <Image
             src="/logo-black.png"
-            alt="OnPoint Geomatics"
+            alt="OnPoint"
             width={1400}
             height={230}
             priority
             className="h-[22px] w-auto"
           />
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-1 md:flex">
           {LINKS.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               className="px-3 py-1.5 font-mono text-[0.75rem] font-medium uppercase tracking-[0.08em] text-slate transition-colors duration-150 hover:text-ink"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         <div className="flex items-center gap-2">
           <InquiryButton
             kind="quote"
-            className="bg-survey-yellow px-4 py-2 text-[0.9375rem] font-medium text-ink transition-colors duration-150 hover:bg-signal-orange"
+            className="bg-accent-yellow px-4 py-2 text-[0.9375rem] font-medium text-ink transition-colors duration-150 hover:bg-signal-orange"
           >
             Request a quote
           </InquiryButton>
@@ -80,14 +81,14 @@ export default function Nav() {
           className="mt-2 flex w-full max-w-[860px] flex-col border border-grid-line bg-paper/95 p-2 backdrop-blur-md md:hidden"
         >
           {LINKS.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
               className="px-4 py-3 font-mono text-[0.8125rem] font-medium uppercase tracking-[0.08em] text-ink transition-colors duration-150 hover:bg-grid-line/40"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </div>
       )}

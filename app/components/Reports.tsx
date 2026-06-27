@@ -1,87 +1,89 @@
 import InquiryButton from "./InquiryButton";
-import PhotoFrame, { CornerTicks } from "./PhotoFrame";
 
-const REPORT_ITEMS = [
-  "Control and layout points",
-  "FF/FL or deviation summary",
-  "Marked drawings or heat maps",
-  "As-built verification notes",
+const TRUST_POINTS = [
+  {
+    n: "01",
+    title: "Clear quotes",
+    body: "You get the scope, the main choices and what is included in writing — before any work starts. No mystery invoice at the end.",
+  },
+  {
+    n: "02",
+    title: "One point of contact",
+    body: "You deal with us directly, from the first visit to the final handover. No chasing, no being passed between people.",
+  },
+  {
+    n: "03",
+    title: "Respect for your home",
+    body: "We protect floors and access, keep the work area as manageable as possible and leave it clean when we finish.",
+  },
+  {
+    n: "04",
+    title: "Honest advice",
+    body: "We tell you what is realistic, and we say when a job is better handled by another specialist instead of pretending.",
+  },
 ];
-
-function ReportMockup() {
-  return (
-    <div
-      aria-label="Survey report deliverables"
-      className="relative border border-grid-line bg-white p-6 shadow-[0_8px_24px_rgb(16_20_24/0.07)] sm:p-8"
-    >
-      <CornerTicks />
-      <div className="flex items-center justify-between gap-4 border-b border-grid-line pb-4">
-        <span className="eyebrow text-ink">Survey report package</span>
-        <span className="border border-grid-line px-2.5 py-1 font-mono text-[0.6875rem] font-medium tracking-[0.08em] text-slate">
-          ONPOINT
-        </span>
-      </div>
-
-      <ul className="mt-6 space-y-4">
-        {REPORT_ITEMS.map((item, i) => (
-          <li
-            key={item}
-            className="flex items-center justify-between gap-4 border-b border-grid-line/70 pb-4 font-mono text-[0.75rem]"
-          >
-            <span className="uppercase tracking-[0.08em] text-slate">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <span className="flex-1 text-ink">{item}</span>
-            <span aria-hidden="true" className="text-survey-yellow">+</span>
-          </li>
-        ))}
-      </ul>
-
-      <p className="mt-5 font-mono text-[0.75rem] tracking-[0.04em] text-ink">
-        Project references are handled with client details removed.
-      </p>
-    </div>
-  );
-}
 
 export default function Reports() {
   return (
-    <section id="reports" className="section-pad scroll-mt-24 border-t border-grid-line">
-      <div className="mx-auto grid w-full max-w-[1200px] items-center gap-14 px-6 wide:grid-cols-2 wide:gap-20">
-        <div>
-          <p className="scroll-blur eyebrow text-slate">
-            <span aria-hidden="true" className="mr-2 text-survey-yellow">+</span>
-            The deliverable
+    <section
+      id="trust"
+      className="section-pad scroll-mt-24 border-t border-grid-line"
+    >
+      <div className="mx-auto w-full max-w-[1200px] px-6">
+        <div className="grid gap-8 wide:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] wide:items-end wide:gap-16">
+          <div>
+            <p className="scroll-blur eyebrow text-slate">
+              <span aria-hidden="true" className="mr-2 text-accent-yellow">
+                +
+              </span>
+              Why homeowners choose us
+            </p>
+            <h2 className="scroll-blur mt-4 max-w-[18ch] font-display text-[clamp(1.9rem,3.5vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.02em]">
+              No vague promises. No mystery invoice.
+            </h2>
+          </div>
+          <p className="scroll-blur max-w-[46ch] text-[1.0625rem] leading-[1.7] text-slate wide:justify-self-end">
+            Before you say yes, you should understand the work, the rough timing
+            and what affects the price. Most people just want a builder they can
+            trust in and around their home — so that is how we work.
           </p>
-          <h2 className="scroll-blur mt-4 max-w-[18ch] font-display text-[clamp(1.9rem,3.5vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.02em]">
-            You don&apos;t get a pile of numbers.
-          </h2>
-          <p className="scroll-blur mt-6 max-w-[46ch] text-[1.0625rem] leading-[1.7] text-slate">
-            You get a decision-ready report: heatmaps, deviation tables, and a
-            clear pass/fail against your spec — the document your client, your
-            engineer and your concrete crew can all act on.
-          </p>
-          <InquiryButton
-            kind="report"
-            className="mt-8 inline-block border border-ink/25 px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:border-ink"
-          >
-            Download sample report{" "}
-            <span aria-hidden="true" className="font-mono text-[0.9em]">↗</span>
-          </InquiryButton>
-
-          <PhotoFrame
-            className="mt-10 max-w-[420px]"
-            label="Report reviewed on site"
-            fig="FIG 04"
-            caption="Walking the deviations with the site team"
-            aspect="aspect-[16/9]"
-            src="/images/onpoint-report-review-slab-site.png"
-            alt="Construction team reviewing slab survey drawings on a tablet beside a freshly poured concrete slab."
-          />
         </div>
 
-        <div className="wide:-order-1">
-          <ReportMockup />
+        <div className="mt-14 grid gap-5 sm:grid-cols-2">
+          {TRUST_POINTS.map((point) => (
+            <article
+              key={point.title}
+              className="border border-grid-line bg-paper p-8 transition-all duration-150 hover:-translate-y-1 hover:border-ink hover:shadow-[0_8px_24px_rgb(16_20_24/0.07)]"
+            >
+              <span className="font-mono text-[0.8125rem] font-medium tracking-[0.08em] text-slate">
+                {point.n}
+              </span>
+              <span
+                aria-hidden="true"
+                className="mt-2 block h-[2px] w-7 bg-accent-yellow"
+              />
+              <h3 className="mt-6 font-display text-[1.3rem] font-bold tracking-[-0.01em]">
+                {point.title}
+              </h3>
+              <p className="mt-3 text-[0.9375rem] leading-[1.7] text-slate">
+                {point.body}
+              </p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 flex flex-col gap-6 border-t border-grid-line pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-[48ch] text-[0.9375rem] leading-[1.7] text-slate">
+            Not ready for a site visit? Send a few photos and we can give you a
+            first idea. Private addresses and client details are always kept out
+            of public examples.
+          </p>
+          <InquiryButton
+            kind="quote"
+            className="shrink-0 bg-accent-yellow px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange"
+          >
+            Request a quote
+          </InquiryButton>
         </div>
       </div>
     </section>

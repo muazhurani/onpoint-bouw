@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { projects } from "@/app/lib/projects";
 
 const siteUrl = "https://onpointgeo.nl";
 
@@ -10,11 +11,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 1,
       images: [
-        `${siteUrl}/images/onpoint-total-station-civil-site.png`,
-        `${siteUrl}/images/onpoint-slab-control-point-survey.png`,
-        `${siteUrl}/images/onpoint-steel-asbuilt-verification.png`,
-        `${siteUrl}/images/onpoint-report-review-slab-site.png`,
+        `${siteUrl}/images/onpoint-residential-renovation-hero.png`,
+        `${siteUrl}/images/garden-patio-exterior.png`,
+        `${siteUrl}/images/rear-extension-garden-room.png`,
+        `${siteUrl}/images/renovation-garden-patio.png`,
       ],
     },
+    ...projects.map((project) => ({
+      url: `${siteUrl}/projects/${project.slug}`,
+      lastModified: new Date("2026-06-25"),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+      images: [`${siteUrl}${project.cover}`],
+    })),
   ];
 }

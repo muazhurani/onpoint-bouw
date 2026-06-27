@@ -3,8 +3,8 @@
 @theme {
   --color-ink: #101418;
   --color-paper: #fafaf7;
-  --color-survey-yellow: #ffc91f;
-  --color-signal-orange: #ff6b2c;
+  --color-accent-yellow: #ffc91f;
+  --color-signal-yellow: #ffc91f;
   --color-grid-line: #e4e2da;
   --color-slate: #5c6470;
 
@@ -30,31 +30,31 @@ body {
 }
 
 ::selection {
-  background: var(--color-survey-yellow);
+  background: var(--color-accent-yellow);
   color: var(--color-ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-survey-yellow);
+  outline: 2px solid var(--color-accent-yellow);
   outline-offset: 2px;
 }
 
-/* Survey control grid — flat 1px lines every 80px, the quiet backbone of the identity */
-.survey-grid {
+/* Construction layout grid — flat 1px lines every 80px, the quiet backbone of the identity */
+.layout-grid {
   background-image:
     linear-gradient(to right, var(--color-grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-grid-line) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
-.survey-grid-dark {
+.layout-grid-dark {
   background-image:
     linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
-/* Mono label / eyebrow — every label on the site reads like a data-collector readout */
+/* Mono label / eyebrow — compact labels with a practical drawing-sheet feel */
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.8125rem;

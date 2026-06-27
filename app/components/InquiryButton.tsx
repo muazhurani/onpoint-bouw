@@ -10,10 +10,8 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 
-type InquiryKind = "quote" | "report";
-
 type InquiryButtonProps = {
-  kind: InquiryKind;
+  kind: "quote";
   className?: string;
   children: ReactNode;
 };
@@ -24,12 +22,12 @@ type SubmitState = {
 };
 
 const PROJECT_TYPES = [
-  "Layout / stakeout",
-  "Floor flatness / levelness",
-  "As-built verification",
-  "Steel verification",
-  "Civil works",
-  "Concrete slab survey",
+  "Renovation",
+  "House extension",
+  "Garden / patio",
+  "Bathroom",
+  "Paving",
+  "Repairs / finishing",
 ];
 
 function fieldValue(formData: FormData, name: string) {
@@ -56,7 +54,6 @@ function Field({
 }
 
 export default function InquiryButton({
-  kind,
   className = "",
   children,
 }: InquiryButtonProps) {
@@ -66,26 +63,16 @@ export default function InquiryButton({
     message: "",
   });
   const id = useId();
-  const isQuote = kind === "quote";
 
   const copy = useMemo(
-    () =>
-      isQuote
-        ? {
-            title: "Request a quote",
-            eyebrow: "Project details",
-            submit: "Send quote request",
-            note: "Sent directly to OnPoint. No email app needed.",
-            success: "Quote request sent. We will come back within one working day.",
-          }
-        : {
-            title: "Send me the sample report",
-            eyebrow: "Report request",
-            submit: "Request sample report",
-            note: "Enter your email and the request is handled on the server.",
-            success: "Sample report request sent.",
-          },
-    [isQuote],
+    () => ({
+      title: "Request a quote",
+      eyebrow: "Project details",
+      submit: "Send quote request",
+      note: "Sent directly to OnPoint. No email app needed.",
+      success: "Quote request sent. We will come back within one working day.",
+    }),
+    [],
   );
 
   useEffect(() => {
@@ -110,33 +97,21 @@ export default function InquiryButton({
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const endpoint = isQuote
-      ? "/api/inquiries/quote"
-      : "/api/inquiries/sample-report";
-    const payload = isQuote
-      ? {
-          name: fieldValue(formData, "name"),
-          company: fieldValue(formData, "company"),
-          email: fieldValue(formData, "email"),
-          phone: fieldValue(formData, "phone"),
-          projectType: fieldValue(formData, "projectType"),
-          siteDate: fieldValue(formData, "siteDate"),
-          message: fieldValue(formData, "message"),
-          website: fieldValue(formData, "website"),
-        }
-      : {
-          name: fieldValue(formData, "name"),
-          company: fieldValue(formData, "company"),
-          email: fieldValue(formData, "email"),
-          phone: fieldValue(formData, "phone"),
-          message: fieldValue(formData, "message"),
-          website: fieldValue(formData, "website"),
-        };
+    const payload = {
+      name: fieldValue(formData, "name"),
+      company: fieldValue(formData, "company"),
+      email: fieldValue(formData, "email"),
+      phone: fieldValue(formData, "phone"),
+      projectType: fieldValue(formData, "projectType"),
+      siteDate: fieldValue(formData, "siteDate"),
+      message: fieldValue(formData, "message"),
+      website: fieldValue(formData, "website"),
+    };
 
     setSubmitState({ status: "sending", message: "Sending..." });
 
     try {
-      const response = await fetch(endpoint, {
+      const response = await fetch("/api/inquiries/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -183,7 +158,7 @@ export default function InquiryButton({
         <div className="flex items-start justify-between gap-6 border-b border-grid-line pb-5">
           <div>
             <p className="eyebrow text-slate">
-              <span aria-hidden="true" className="mr-2 text-survey-yellow">
+              <span aria-hidden="true" className="mr-2 text-accent-yellow">
                 +
               </span>
               {copy.eyebrow}
@@ -227,17 +202,17 @@ export default function InquiryButton({
                 id={`${id}-name`}
                 name="name"
                 autoComplete="name"
-                required={isQuote}
-                minLength={isQuote ? 2 : undefined}
+                required
+                minLength={2}
                 autoFocus
                 className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
               />
             </Field>
-            <Field id={`${id}-company`} label="Company">
+            <Field id={`${id}-company`} label="Address / town">
               <input
                 id={`${id}-company`}
                 name="company"
-                autoComplete="organization"
+                autoComplete="street-address"
                 className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
               />
             </Field>
@@ -260,46 +235,44 @@ export default function InquiryButton({
                 name="phone"
                 type="tel"
                 autoComplete="tel"
-                required={isQuote}
-                minLength={isQuote ? 6 : undefined}
+                required
+                minLength={6}
                 className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
               />
             </Field>
           </div>
 
-          {isQuote && (
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Field id={`${id}-projectType`} label="Project type">
-                <select
-                  id={`${id}-projectType`}
-                  name="projectType"
-                  required
-                  defaultValue={PROJECT_TYPES[0]}
-                  className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
-                >
-                  {PROJECT_TYPES.map((type) => (
-                    <option key={type}>{type}</option>
-                  ))}
-                </select>
-              </Field>
-              <Field id={`${id}-siteDate`} label="Site date">
-                <input
-                  id={`${id}-siteDate`}
-                  name="siteDate"
-                  type="date"
-                  className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
-                />
-              </Field>
-            </div>
-          )}
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Field id={`${id}-projectType`} label="Project type">
+              <select
+                id={`${id}-projectType`}
+                name="projectType"
+                required
+                defaultValue={PROJECT_TYPES[0]}
+                className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
+              >
+                {PROJECT_TYPES.map((type) => (
+                  <option key={type}>{type}</option>
+                ))}
+              </select>
+            </Field>
+            <Field id={`${id}-siteDate`} label="Preferred start">
+              <input
+                id={`${id}-siteDate`}
+                name="siteDate"
+                type="date"
+                className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
+              />
+            </Field>
+          </div>
 
-          <Field id={`${id}-message`} label={isQuote ? "Message" : "Notes"}>
+          <Field id={`${id}-message`} label="Message">
             <textarea
               id={`${id}-message`}
               name="message"
               rows={5}
-              required={isQuote}
-              minLength={isQuote ? 10 : undefined}
+              required
+              minLength={10}
               className="w-full resize-y border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
             />
           </Field>
@@ -308,7 +281,7 @@ export default function InquiryButton({
             <button
               type="submit"
               disabled={submitState.status === "sending"}
-              className="bg-survey-yellow px-6 py-3 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange disabled:cursor-wait disabled:opacity-70"
+              className="bg-accent-yellow px-6 py-3 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange disabled:cursor-wait disabled:opacity-70"
             >
               {submitState.status === "sending" ? "Sending..." : copy.submit}
             </button>

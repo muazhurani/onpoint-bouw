@@ -1,8 +1,7 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Services from "./components/Services";
-import FieldWork from "./components/FieldWork";
-import Flatness from "./components/Flatness";
+import Projects from "./components/Projects";
 import Process from "./components/Process";
 import Reports from "./components/Reports";
 import FinalCta from "./components/FinalCta";
@@ -11,13 +10,13 @@ import ScrollBlurOnce from "./components/ScrollBlurOnce";
 
 const localBusinessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "OnPoint Geomatics",
+  "@type": "HomeAndConstructionBusiness",
+  name: "OnPoint Bouw",
   url: "https://onpointgeo.nl",
-  logo: "https://onpointgeo.nl/logo-black.png",
-  image: "https://onpointgeo.nl/images/onpoint-total-station-civil-site.png",
+  logo: "https://onpointgeo.nl/icon-black.png",
+  image: "https://onpointgeo.nl/images/onpoint-residential-renovation-hero.png",
   description:
-    "High-accuracy construction surveying and geomatics for layout, stakeout, concrete slabs, steel, civil works, FF/FL surveys and as-built verification.",
+    "Residential construction, renovation, extensions, bathrooms, paving and garden projects for homeowners around Eindhoven.",
   email: "info@onpointgeo.nl",
   telephone: "+31614686059",
   address: {
@@ -36,40 +35,39 @@ const localBusinessJsonLd = {
     },
   ],
   knowsAbout: [
-    "Construction surveying",
-    "Layout and stakeout",
-    "Concrete slab surveys",
-    "Steel verification",
-    "Civil works surveying",
-    "Floor flatness and levelness surveys",
-    "As-built verification",
+    "Home renovation",
+    "House extensions",
+    "Garden renovation",
+    "Paving and patios",
+    "Bathroom renovation",
+    "Residential construction",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Construction surveying services",
+    name: "Residential construction services",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Layout and stakeout",
-          serviceType: "Construction layout and stakeout",
+          name: "Home renovations",
+          serviceType: "Residential renovation and finishing",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "Floor flatness and levelness surveys",
-          serviceType: "FF/FL concrete slab survey",
+          name: "Extensions and structural work",
+          serviceType: "House extension construction",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: "As-built verification",
-          serviceType: "Steel, slab and civil works verification",
+          name: "Gardens and paving",
+          serviceType: "Garden construction, patios and paving",
         },
       },
     ],
@@ -90,8 +88,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
-        <FieldWork />
-        <Flatness />
+        <Projects />
         <Process />
         <Reports />
         <FinalCta />

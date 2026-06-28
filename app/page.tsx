@@ -16,24 +16,17 @@ const localBusinessJsonLd = {
   logo: "https://onpointgeo.nl/icon-black.png",
   image: "https://onpointgeo.nl/images/onpoint-residential-renovation-hero.png",
   description:
-    "Residential construction, renovation, extensions, bathrooms, paving and garden projects for homeowners around Eindhoven.",
+    "Residential construction, renovation, extensions, bathrooms, paving and garden projects for homeowners across the Netherlands.",
   email: "info@onpointgeo.nl",
   telephone: "+31614686059",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Eindhoven",
     addressCountry: "NL",
   },
-  areaServed: [
-    {
-      "@type": "City",
-      name: "Eindhoven",
-    },
-    {
-      "@type": "Country",
-      name: "Netherlands",
-    },
-  ],
+  areaServed: {
+    "@type": "Country",
+    name: "Netherlands",
+  },
   knowsAbout: [
     "Home renovation",
     "House extensions",

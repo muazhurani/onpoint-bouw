@@ -15,6 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${siteUrl}/images/garden-patio-exterior.png`,
         `${siteUrl}/images/rear-extension-garden-room.png`,
         `${siteUrl}/images/renovation-garden-patio.png`,
+        `${siteUrl}/images/floor-heating-finished-marble.png`,
+        `${siteUrl}/images/toilet-renovation-finished.png`,
+        `${siteUrl}/images/kitchen-extension-exterior-finished.png`,
       ],
     },
     ...projects.map((project) => ({

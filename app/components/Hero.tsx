@@ -3,7 +3,7 @@ import InquiryButton from "./InquiryButton";
 
 const STATS = [
   { value: "Free", label: "no-obligation quote" },
-  { value: "Eindhoven", label: "and surrounding area" },
+  { value: "Netherlands", label: "nationwide service" },
   { value: "One", label: "point of contact" },
 ];
 
@@ -59,7 +59,7 @@ export default function Hero() {
             <span aria-hidden="true" className="mr-2 text-accent-yellow">
               +
             </span>
-            Renovations · Extensions · Gardens · Eindhoven
+            Renovations · Extensions · Gardens · Netherlands
           </p>
 
           <h1 className="fade-up mt-6 max-w-[12ch] font-display text-[clamp(2.8rem,6.2vw,5rem)] font-bold leading-[1.04] tracking-[-0.03em]">
@@ -91,7 +91,7 @@ export default function Hero() {
             style={{ animationDelay: "120ms" }}
           >
             Garden, bathroom, extension or full renovation — we help homeowners
-            in and around Eindhoven with clear advice, tidy work and honest
+            across the Netherlands with clear advice, tidy work and honest
             communication, from the first visit to the final clean-up.
           </p>
 

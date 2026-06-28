@@ -74,7 +74,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       "@type": "HomeAndConstructionBusiness",
       name: "OnPoint Bouw",
       url: siteUrl,
-      areaServed: "Eindhoven, Netherlands",
+      areaServed: "Netherlands",
     },
     locationCreated: {
       "@type": "Place",

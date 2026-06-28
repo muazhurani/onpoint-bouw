@@ -4,7 +4,7 @@ import { projects } from "@/app/lib/projects";
 
 const READOUTS = [
   { value: "Real", label: "finished projects" },
-  { value: "Local", label: "Eindhoven & around" },
+  { value: "Local", label: "across the Netherlands" },
   { value: "Clear", label: "scope and pricing" },
   { value: "Tidy", label: "clean handover" },
 ];
@@ -25,7 +25,7 @@ export default function Projects() {
               Recent work
             </p>
             <h2 className="scroll-blur mt-4 max-w-[18ch] font-display text-[clamp(1.9rem,3.5vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.02em]">
-              A look at recent work around Eindhoven.
+              Recent residential work across the Netherlands.
             </h2>
           </div>
           <p className="scroll-blur max-w-[46ch] text-[1.0625rem] leading-[1.7] text-slate wide:justify-self-end">
@@ -34,7 +34,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-8 md:grid-cols-3">
+        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <Link
               key={project.slug}

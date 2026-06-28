@@ -3,9 +3,9 @@ import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const siteUrl = "https://onpointgeo.nl";
-const siteTitle = "OnPoint Bouw | Renovation & Construction in Eindhoven";
+const siteTitle = "OnPoint Bouw | Renovation & Construction in the Netherlands";
 const siteDescription =
-  "Local builder in Eindhoven for home renovations, extensions, bathrooms, garden paving and patios. Clear quotes, tidy work and honest advice — request a free, no-obligation quote.";
+  "Residential builder across the Netherlands for home renovations, extensions, bathrooms, garden paving and patios. Clear quotes, tidy work and honest advice — request a free, no-obligation quote.";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   keywords: [
-    "construction company Eindhoven",
-    "home renovation Eindhoven",
-    "house extension Eindhoven",
-    "garden renovation Eindhoven",
-    "patio paving Eindhoven",
-    "bathroom renovation Eindhoven",
+    "construction company Netherlands",
+    "home renovation Netherlands",
+    "house extension Netherlands",
+    "garden renovation Netherlands",
+    "patio paving Netherlands",
+    "bathroom renovation Netherlands",
     "residential construction Netherlands",
   ],
   authors: [{ name: "OnPoint Bouw" }],

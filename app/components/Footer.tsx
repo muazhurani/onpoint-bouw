@@ -29,7 +29,7 @@ export default function Footer() {
           </Link>
           <p className="mt-5 max-w-[34ch] text-[0.9375rem] leading-[1.7] text-paper/60">
             Renovations, extensions, gardens and bathrooms for private homeowners
-            in Eindhoven and the surrounding area.
+            across the Netherlands.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export default function Footer() {
             info@onpointgeo.nl
           </a>
           <span className="text-[0.9375rem] text-paper/60">
-            Eindhoven, Netherlands
+            Netherlands
           </span>
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-4 px-6 py-6 font-mono text-[0.75rem] tracking-[0.06em] text-paper/45">
           <span>© 2026 ONPOINT BOUW</span>
-          <span>EINDHOVEN, NL</span>
+          <span>NETHERLANDS</span>
         </div>
       </div>
 

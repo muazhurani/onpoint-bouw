@@ -1,7 +1,7 @@
 # OnPoint Bouw
 
 Marketing website for OnPoint Bouw — residential construction, renovations,
-extensions, bathrooms and garden work for homeowners around Eindhoven. Built
+extensions, bathrooms and garden work for homeowners across the Netherlands. Built
 with [Next.js](https://nextjs.org).
 
 ## Getting Started

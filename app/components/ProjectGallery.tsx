@@ -4,6 +4,8 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, ImageIcon, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CornerTicks } from "./PhotoFrame";
+import { useDictionary } from "./DictionaryProvider";
+import { formatMessage } from "@/app/lib/format-message";
 import type { ProjectGalleryItem } from "@/app/lib/projects";
 
 function GalleryPlaceholder({ label }: { label: string }) {
@@ -29,6 +31,8 @@ export default function ProjectGallery({
 }: {
   items: ProjectGalleryItem[];
 }) {
+  const { dict } = useDictionary();
+  const gallery = dict.gallery;
   const photos = items.filter((item): item is ProjectGalleryItem & { src: string } =>
     Boolean(item.src),
   );
@@ -116,7 +120,7 @@ export default function ProjectGallery({
               setLightboxOpen(true);
             }}
             className="group relative block aspect-[4/3] w-full overflow-hidden text-left sm:aspect-[16/10]"
-            aria-label={`View ${current.label} full size`}
+            aria-label={formatMessage(gallery.viewFullSize, { label: current.label })}
             onTouchStart={(event) =>
               onTouchStart(event.touches[0]?.clientX ?? 0)
             }
@@ -134,7 +138,7 @@ export default function ProjectGallery({
               className="object-cover transition-opacity duration-300"
             />
             <span className="absolute bottom-4 right-4 bg-paper/90 px-3 py-1.5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink opacity-0 shadow-[0_8px_24px_rgb(16_20_24/0.07)] transition-opacity duration-150 group-hover:opacity-100">
-              Tap to enlarge
+              {gallery.tapToEnlarge}
             </span>
           </button>
 
@@ -143,7 +147,7 @@ export default function ProjectGallery({
               <button
                 type="button"
                 onClick={goPrev}
-                aria-label="Previous photo"
+                aria-label={gallery.previousPhoto}
                 className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-paper/30 bg-ink/75 text-paper backdrop-blur-sm transition-colors duration-150 hover:border-paper"
               >
                 <ChevronLeft aria-hidden="true" className="h-5 w-5" />
@@ -151,7 +155,7 @@ export default function ProjectGallery({
               <button
                 type="button"
                 onClick={goNext}
-                aria-label="Next photo"
+                aria-label={gallery.nextPhoto}
                 className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center border border-paper/30 bg-ink/75 text-paper backdrop-blur-sm transition-colors duration-150 hover:border-paper"
               >
                 <ChevronRight aria-hidden="true" className="h-5 w-5" />
@@ -178,7 +182,7 @@ export default function ProjectGallery({
           <div
             className="mt-5 flex gap-3 overflow-x-auto pb-1"
             role="tablist"
-            aria-label="Project photos"
+            aria-label={gallery.projectPhotos}
           >
             {photos.map((photo, photoIndex) => (
               <button
@@ -186,7 +190,7 @@ export default function ProjectGallery({
                 type="button"
                 role="tab"
                 aria-selected={photoIndex === index}
-                aria-label={`Show ${photo.label}`}
+                aria-label={formatMessage(gallery.showPhoto, { label: photo.label })}
                 onClick={() => setIndex(photoIndex)}
                 className={`relative h-16 w-24 shrink-0 overflow-hidden border transition-all duration-150 ${
                   photoIndex === index
@@ -224,12 +228,16 @@ export default function ProjectGallery({
           <div
             role="dialog"
             aria-modal="true"
-            aria-label={`${current.label} — photo ${index + 1} of ${photoCount}`}
+            aria-label={formatMessage(gallery.photoOf, {
+              label: current.label,
+              index: index + 1,
+              total: photoCount,
+            })}
             className="relative w-full max-w-[1100px]"
           >
             <button
               type="button"
-              aria-label="Close gallery"
+              aria-label={gallery.closeGallery}
               onClick={() => setLightboxOpen(false)}
               className="absolute -top-12 right-0 flex h-10 w-10 items-center justify-center border border-paper/30 bg-ink text-paper transition-colors duration-150 hover:border-paper"
             >
@@ -240,7 +248,7 @@ export default function ProjectGallery({
               <>
                 <button
                   type="button"
-                  aria-label="Previous photo"
+                  aria-label={gallery.previousPhoto}
                   onClick={goPrev}
                   className="absolute left-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-paper/30 bg-ink/80 text-paper backdrop-blur-sm transition-colors duration-150 hover:border-paper sm:-left-14"
                 >
@@ -248,7 +256,7 @@ export default function ProjectGallery({
                 </button>
                 <button
                   type="button"
-                  aria-label="Next photo"
+                  aria-label={gallery.nextPhoto}
                   onClick={goNext}
                   className="absolute right-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center border border-paper/30 bg-ink/80 text-paper backdrop-blur-sm transition-colors duration-150 hover:border-paper sm:-right-14"
                 >

@@ -1,31 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
-const STEPS = [
-  {
-    n: "01",
-    title: "Visit & scope",
-    body: "We look at the space, listen to what you want changed and check practical details before pricing the work.",
-  },
-  {
-    n: "02",
-    title: "Clear quote",
-    body: "You receive a straightforward quote with the main choices, planning assumptions and what is included.",
-  },
-  {
-    n: "03",
-    title: "Build neatly",
-    body: "We protect the home where needed, keep the work area manageable and communicate as the project moves.",
-  },
-  {
-    n: "04",
-    title: "Finish & handover",
-    body: "The final details are checked with you, the area is cleaned up and the work is handed over properly.",
-  },
-];
+import { useDictionary } from "./DictionaryProvider";
 
 export default function Process() {
+  const { dict } = useDictionary();
+  const process = dict.process;
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
 
@@ -54,18 +34,16 @@ export default function Process() {
       <div className="mx-auto w-full max-w-[1200px] px-6">
         <p className="scroll-blur eyebrow text-slate">
           <span aria-hidden="true" className="mr-2 text-accent-yellow">+</span>
-          How we work
+          {process.eyebrow}
         </p>
         <h2 className="scroll-blur mt-4 max-w-[22ch] font-display text-[clamp(1.9rem,3.5vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.02em]">
-          What happens after you call.
+          {process.title}
         </h2>
         <p className="scroll-blur mt-5 max-w-[52ch] text-[1.0625rem] leading-[1.7] text-slate">
-          A homeowner should not need to manage a building project like a
-          contractor. We keep the next step clear at each stage.
+          {process.intro}
         </p>
 
         <div ref={ref} className="relative mt-16">
-          {/* leveling line — draws left to right (top to bottom on mobile) */}
           <div
             aria-hidden="true"
             className={`absolute left-0 right-0 top-[7px] hidden h-px origin-left bg-ink/20 transition-transform duration-700 ease-out md:block ${
@@ -80,9 +58,8 @@ export default function Process() {
           />
 
           <ol className="grid gap-10 md:grid-cols-4 md:gap-8">
-            {STEPS.map((s, i) => (
+            {process.steps.map((s, i) => (
               <li key={s.n} className="relative pl-10 md:pl-0">
-                {/* point marker pops in sequence */}
                 <span
                   aria-hidden="true"
                   className={`absolute left-0 top-[0.4em] block h-[15px] w-[15px] rounded-full border-2 border-ink bg-accent-yellow ring-4 ring-paper transition-transform duration-300 ease-out md:static md:mb-6 md:block ${

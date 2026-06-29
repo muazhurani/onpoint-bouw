@@ -5,10 +5,10 @@ import {
   type ReactNode,
   useEffect,
   useId,
-  useMemo,
   useState,
 } from "react";
 import { createPortal } from "react-dom";
+import { useDictionary } from "./DictionaryProvider";
 
 type InquiryButtonProps = {
   kind: "quote";
@@ -20,15 +20,6 @@ type SubmitState = {
   status: "idle" | "sending" | "success" | "error";
   message: string;
 };
-
-const PROJECT_TYPES = [
-  "Renovation",
-  "House extension",
-  "Garden / patio",
-  "Bathroom",
-  "Paving",
-  "Repairs / finishing",
-];
 
 function fieldValue(formData: FormData, name: string) {
   return String(formData.get(name) || "").trim();
@@ -57,23 +48,14 @@ export default function InquiryButton({
   className = "",
   children,
 }: InquiryButtonProps) {
+  const { dict, locale } = useDictionary();
+  const copy = dict.inquiry;
   const [open, setOpen] = useState(false);
   const [submitState, setSubmitState] = useState<SubmitState>({
     status: "idle",
     message: "",
   });
   const id = useId();
-
-  const copy = useMemo(
-    () => ({
-      title: "Request a quote",
-      eyebrow: "Project details",
-      submit: "Send quote request",
-      note: "Sent directly to OnPoint. No email app needed.",
-      success: "Quote request sent. We will come back within one working day.",
-    }),
-    [],
-  );
 
   useEffect(() => {
     if (!open) return;
@@ -106,9 +88,10 @@ export default function InquiryButton({
       siteDate: fieldValue(formData, "siteDate"),
       message: fieldValue(formData, "message"),
       website: fieldValue(formData, "website"),
+      locale,
     };
 
-    setSubmitState({ status: "sending", message: "Sending..." });
+    setSubmitState({ status: "sending", message: copy.sending });
 
     try {
       const response = await fetch("/api/inquiries/quote", {
@@ -122,7 +105,7 @@ export default function InquiryButton({
         | null;
 
       if (!response.ok || !result?.ok) {
-        throw new Error(result?.message || "Could not send the request.");
+        throw new Error(result?.message || copy.sendError);
       }
 
       setSubmitState({
@@ -134,9 +117,7 @@ export default function InquiryButton({
       setSubmitState({
         status: "error",
         message:
-          error instanceof Error
-            ? error.message
-            : "Could not send the request.",
+          error instanceof Error ? error.message : copy.sendError,
       });
     }
   }
@@ -172,7 +153,7 @@ export default function InquiryButton({
           </div>
           <button
             type="button"
-            aria-label="Close"
+            aria-label={copy.close}
             onClick={() => setOpen(false)}
             className="flex h-9 w-9 shrink-0 items-center justify-center border border-grid-line text-ink transition-colors duration-150 hover:border-ink"
           >
@@ -197,7 +178,7 @@ export default function InquiryButton({
             aria-hidden="true"
           />
           <div className="grid gap-4 sm:grid-cols-2">
-            <Field id={`${id}-name`} label="Name">
+            <Field id={`${id}-name`} label={copy.name}>
               <input
                 id={`${id}-name`}
                 name="name"
@@ -208,7 +189,7 @@ export default function InquiryButton({
                 className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
               />
             </Field>
-            <Field id={`${id}-company`} label="Address / town">
+            <Field id={`${id}-company`} label={copy.address}>
               <input
                 id={`${id}-company`}
                 name="company"
@@ -219,7 +200,7 @@ export default function InquiryButton({
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <Field id={`${id}-email`} label="Email">
+            <Field id={`${id}-email`} label={copy.email}>
               <input
                 id={`${id}-email`}
                 name="email"
@@ -229,7 +210,7 @@ export default function InquiryButton({
                 className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
               />
             </Field>
-            <Field id={`${id}-phone`} label="Phone">
+            <Field id={`${id}-phone`} label={copy.phone}>
               <input
                 id={`${id}-phone`}
                 name="phone"
@@ -243,20 +224,20 @@ export default function InquiryButton({
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <Field id={`${id}-projectType`} label="Project type">
+            <Field id={`${id}-projectType`} label={copy.projectType}>
               <select
                 id={`${id}-projectType`}
                 name="projectType"
                 required
-                defaultValue={PROJECT_TYPES[0]}
+                defaultValue={copy.projectTypes[0]}
                 className="w-full border border-grid-line bg-white px-3 py-2.5 text-ink outline-none transition-colors duration-150 focus:border-ink"
               >
-                {PROJECT_TYPES.map((type) => (
+                {copy.projectTypes.map((type) => (
                   <option key={type}>{type}</option>
                 ))}
               </select>
             </Field>
-            <Field id={`${id}-siteDate`} label="Preferred start">
+            <Field id={`${id}-siteDate`} label={copy.preferredStart}>
               <input
                 id={`${id}-siteDate`}
                 name="siteDate"
@@ -266,7 +247,7 @@ export default function InquiryButton({
             </Field>
           </div>
 
-          <Field id={`${id}-message`} label="Message">
+          <Field id={`${id}-message`} label={copy.message}>
             <textarea
               id={`${id}-message`}
               name="message"
@@ -283,7 +264,7 @@ export default function InquiryButton({
               disabled={submitState.status === "sending"}
               className="bg-accent-yellow px-6 py-3 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange disabled:cursor-wait disabled:opacity-70"
             >
-              {submitState.status === "sending" ? "Sending..." : copy.submit}
+              {submitState.status === "sending" ? copy.sending : copy.submit}
             </button>
             <p
               role="status"

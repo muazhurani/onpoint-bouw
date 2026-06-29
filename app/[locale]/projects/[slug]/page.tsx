@@ -6,25 +6,29 @@ import ProjectGallery from "@/app/components/ProjectGallery";
 import { CornerTicks } from "@/app/components/PhotoFrame";
 import Footer from "@/app/components/Footer";
 import Nav from "@/app/components/Nav";
-import { getProject, projects } from "@/app/lib/projects";
+import { getDictionary } from "@/app/lib/dictionaries";
+import { isLocale, localePath, type Locale } from "@/app/lib/i18n";
+import { getAllProjectParams, getProject } from "@/app/lib/projects";
 
 type ProjectPageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 };
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return getAllProjectParams();
 }
 
 const siteUrl = "https://onpointgeo.nl";
 
 export async function generateMetadata({ params }: ProjectPageProps) {
-  const { slug } = await params;
-  const project = getProject(slug);
+  const { locale: rawLocale, slug } = await params;
+  if (!isLocale(rawLocale)) return {};
 
+  const locale = rawLocale as Locale;
+  const project = getProject(slug, locale);
   if (!project) return {};
 
-  const canonical = `/projects/${project.slug}`;
+  const canonical = localePath(locale, `/projects/${project.slug}`);
 
   return {
     title: project.title,
@@ -32,6 +36,10 @@ export async function generateMetadata({ params }: ProjectPageProps) {
     keywords: project.keywords,
     alternates: {
       canonical,
+      languages: {
+        nl: localePath("nl", `/projects/${project.slug}`),
+        en: localePath("en", `/projects/${project.slug}`),
+      },
     },
     openGraph: {
       title: `${project.title} | OnPoint Bouw`,
@@ -55,26 +63,31 @@ export async function generateMetadata({ params }: ProjectPageProps) {
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = await params;
-  const project = getProject(slug);
+  const { locale: rawLocale, slug } = await params;
+  if (!isLocale(rawLocale)) notFound();
 
+  const locale = rawLocale as Locale;
+  const dict = getDictionary(locale);
+  const project = getProject(slug, locale);
   if (!project) notFound();
 
   const hasPendingGalleryPhotos = project.gallery.some((item) => !item.src);
+  const page = dict.projectPage;
+  const projectUrl = `${siteUrl}${localePath(locale, `/projects/${project.slug}`)}`;
 
   const projectJsonLd = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: project.title,
     description: project.summary,
-    url: `${siteUrl}/projects/${project.slug}`,
+    url: projectUrl,
     image: `${siteUrl}${project.cover}`,
     keywords: project.keywords.join(", "),
     creator: {
       "@type": "HomeAndConstructionBusiness",
       name: "OnPoint Bouw",
       url: siteUrl,
-      areaServed: "Netherlands",
+      areaServed: page.areaServed,
     },
     locationCreated: {
       "@type": "Place",
@@ -89,20 +102,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {
         "@type": "ListItem",
         position: 1,
-        name: "Home",
-        item: siteUrl,
+        name: page.breadcrumbHome,
+        item: `${siteUrl}${localePath(locale)}`,
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: "Projects",
-        item: `${siteUrl}/#projects`,
+        name: page.breadcrumbProjects,
+        item: `${siteUrl}${localePath(locale, "/#projects")}`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: project.title,
-        item: `${siteUrl}/projects/${project.slug}`,
+        item: projectUrl,
       },
     ],
   };
@@ -124,10 +137,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-6 pb-16 wide:grid-cols-[0.92fr_1.08fr] wide:items-end">
             <div>
               <Link
-                href="/#projects"
+                href={localePath(locale, "/#projects")}
                 className="font-mono text-[0.75rem] font-medium uppercase tracking-[0.08em] text-slate transition-colors duration-150 hover:text-ink"
               >
-                Back to projects
+                {page.backToProjects}
               </Link>
               <p className="mt-8 eyebrow text-slate">
                 <span aria-hidden="true" className="mr-2 text-accent-yellow">
@@ -146,13 +159,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   kind="quote"
                   className="bg-accent-yellow px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange"
                 >
-                  Ask about a similar project
+                  {page.askSimilar}
                 </InquiryButton>
                 <a
                   href="tel:+31614686059"
                   className="border border-ink/25 px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:border-ink"
                 >
-                  Call us
+                  {page.callUs}
                 </a>
               </div>
             </div>
@@ -180,24 +193,24 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <span aria-hidden="true" className="mr-2 text-accent-yellow">
                   +
                 </span>
-                Project details
+                {page.details}
               </p>
               <dl className="mt-6 border-y border-grid-line">
                 <div className="border-b border-grid-line py-4">
                   <dt className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-slate">
-                    Area
+                    {page.region}
                   </dt>
                   <dd className="mt-1 text-ink">{project.location}</dd>
                 </div>
                 <div className="border-b border-grid-line py-4">
                   <dt className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-slate">
-                    Type
+                    {page.type}
                   </dt>
                   <dd className="mt-1 text-ink">{project.timeframe}</dd>
                 </div>
                 <div className="py-4">
                   <dt className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-slate">
-                    Scope
+                    {page.scope}
                   </dt>
                   <dd className="mt-3">
                     <ul className="space-y-2 text-slate">
@@ -220,10 +233,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <span aria-hidden="true" className="mr-2 text-accent-yellow">
                   +
                 </span>
-                What we did
+                {page.whatWeDid}
               </p>
               <h2 className="mt-3 font-display text-[clamp(1.8rem,3vw,2.4rem)] font-bold leading-tight">
-                How the project came together
+                {page.howItCameTogether}
               </h2>
               <div className="mt-6 grid gap-5 text-[1.0625rem] leading-[1.8] text-slate">
                 {project.description.map((paragraph) => (
@@ -241,12 +254,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       >
                         +
                       </span>
-                      Gallery
+                      {page.gallery}
                     </p>
                     <p className="max-w-[36ch] text-[0.875rem] leading-[1.6] text-slate">
                       {hasPendingGalleryPhotos
-                        ? "More photos from this project are being added."
-                        : "Swipe or use the arrows to browse the photos."}
+                        ? page.morePhotosPending
+                        : page.swipeHint}
                     </p>
                   </div>
                   <ProjectGallery items={project.gallery} />
@@ -255,14 +268,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
               <div className="mt-12 border-t border-grid-line pt-8">
                 <p className="max-w-[44ch] text-[1.0625rem] leading-[1.7] text-slate">
-                  Planning something similar? Send us a few photos and we&apos;ll
-                  tell you what is realistic before any work starts.
+                  {page.similarCta}
                 </p>
                 <InquiryButton
                   kind="quote"
                   className="mt-6 inline-block bg-accent-yellow px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange"
                 >
-                  Request a quote
+                  {page.requestQuote}
                 </InquiryButton>
               </div>
             </div>

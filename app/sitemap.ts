@@ -1,31 +1,50 @@
 import type { MetadataRoute } from "next";
-import { projects } from "@/app/lib/projects";
+import { locales, localePath } from "@/app/lib/i18n";
+import { projectSources } from "@/app/lib/projects-source";
 
 const siteUrl = "https://onpointgeo.nl";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: siteUrl,
-      lastModified: new Date("2026-06-22"),
-      changeFrequency: "monthly",
-      priority: 1,
-      images: [
-        `${siteUrl}/images/onpoint-residential-renovation-hero.png`,
-        `${siteUrl}/images/garden-patio-exterior.png`,
-        `${siteUrl}/images/rear-extension-garden-room.png`,
-        `${siteUrl}/images/renovation-garden-patio.png`,
-        `${siteUrl}/images/floor-heating-finished-marble.png`,
-        `${siteUrl}/images/toilet-renovation-finished.png`,
-        `${siteUrl}/images/kitchen-extension-exterior-finished.png`,
-      ],
+  const homeImages = [
+    `${siteUrl}/images/onpoint-residential-renovation-hero.png`,
+    `${siteUrl}/images/garden-patio-exterior.png`,
+    `${siteUrl}/images/rear-extension-garden-room.png`,
+    `${siteUrl}/images/renovation-garden-patio.png`,
+    `${siteUrl}/images/floor-heating-finished-marble.png`,
+    `${siteUrl}/images/toilet-renovation-finished.png`,
+    `${siteUrl}/images/kitchen-extension-exterior-finished.png`,
+  ];
+
+  const homePages = locales.map((locale) => ({
+    url: `${siteUrl}${localePath(locale)}`,
+    lastModified: new Date("2026-06-22"),
+    changeFrequency: "monthly" as const,
+    priority: 1,
+    images: homeImages,
+    alternates: {
+      languages: Object.fromEntries(
+        locales.map((code) => [code, `${siteUrl}${localePath(code)}`]),
+      ),
     },
-    ...projects.map((project) => ({
-      url: `${siteUrl}/projects/${project.slug}`,
+  }));
+
+  const projectPages = locales.flatMap((locale) =>
+    projectSources.map((project) => ({
+      url: `${siteUrl}${localePath(locale, `/projects/${project.slug}`)}`,
       lastModified: new Date("2026-06-25"),
       changeFrequency: "monthly" as const,
       priority: 0.8,
       images: [`${siteUrl}${project.cover}`],
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((code) => [
+            code,
+            `${siteUrl}${localePath(code, `/projects/${project.slug}`)}`,
+          ]),
+        ),
+      },
     })),
-  ];
+  );
+
+  return [...homePages, ...projectPages];
 }

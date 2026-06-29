@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { locales } from "@/app/lib/i18n";
 
 const WINDOW_MS = 15 * 60 * 1000;
 const MAX_REQUESTS = 5;
@@ -23,6 +24,7 @@ export const quoteSchema = z.object({
   siteDate: z.string().trim().max(40).optional().default(""),
   message: message.min(10),
   website: z.string().trim().max(0).optional().default(""),
+  locale: z.enum(locales).optional().default("nl"),
 });
 
 export type QuoteInquiry = z.infer<typeof quoteSchema>;
@@ -34,8 +36,11 @@ export function badRequest(messageText: string, issues?: unknown) {
   );
 }
 
-export function serverError(messageText = "Email service is not configured yet.") {
-  return Response.json({ ok: false, message: messageText }, { status: 503 });
+export function serverError(messageText?: string) {
+  return Response.json(
+    { ok: false, message: messageText },
+    { status: 503 },
+  );
 }
 
 export function clientIp(request: Request) {
@@ -67,11 +72,11 @@ export function rateLimit(key: string) {
   return { limited: false };
 }
 
-export function rateLimitedResponse(retryAfter?: number) {
+export function rateLimitedResponse(retryAfter?: number, messageText?: string) {
   return Response.json(
     {
       ok: false,
-      message: "Too many requests. Please try again in a few minutes.",
+      message: messageText,
     },
     {
       status: 429,

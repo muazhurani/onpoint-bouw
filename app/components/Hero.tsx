@@ -1,13 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import InquiryButton from "./InquiryButton";
+import { useDictionary } from "./DictionaryProvider";
 
-const STATS = [
-  { value: "Free", label: "no-obligation quote" },
-  { value: "Netherlands", label: "nationwide service" },
-  { value: "One", label: "point of contact" },
-];
-
-// Static layout-point texture around the margins.
 const POINTS = [
   { x: "6%", y: "16%" },
   { x: "26%", y: "9%" },
@@ -21,6 +17,9 @@ const POINTS = [
 ];
 
 export default function Hero() {
+  const { dict } = useDictionary();
+  const hero = dict.hero;
+
   return (
     <section
       id="top"
@@ -28,7 +27,7 @@ export default function Hero() {
     >
       <Image
         src="/images/onpoint-residential-renovation-hero.png"
-        alt="Builders working on a home extension and garden patio for a Dutch family house."
+        alt={hero.imageAlt}
         fill
         priority
         sizes="100vw"
@@ -59,13 +58,13 @@ export default function Hero() {
             <span aria-hidden="true" className="mr-2 text-accent-yellow">
               +
             </span>
-            Renovations · Extensions · Gardens · Netherlands
+            {hero.eyebrow}
           </p>
 
-          <h1 className="fade-up mt-6 max-w-[12ch] font-display text-[clamp(2.8rem,6.2vw,5rem)] font-bold leading-[1.04] tracking-[-0.03em]">
-            Building work at home, done{" "}
+          <h1 className="fade-up mt-6 max-w-[13ch] font-display text-[clamp(2.8rem,6.2vw,5rem)] font-bold leading-[1.04] tracking-[-0.03em]">
+            {hero.h1Before}{" "}
             <span className="relative inline-block">
-              properly.
+              {hero.h1Highlight}
               <svg
                 viewBox="0 0 100 8"
                 preserveAspectRatio="none"
@@ -90,9 +89,7 @@ export default function Hero() {
             className="fade-up mt-8 max-w-[47ch] text-[1.125rem] leading-[1.7] text-paper/76"
             style={{ animationDelay: "120ms" }}
           >
-            Garden, bathroom, extension or full renovation — we help homeowners
-            across the Netherlands with clear advice, tidy work and honest
-            communication, from the first visit to the final clean-up.
+            {hero.subhead}
           </p>
 
           <div
@@ -103,13 +100,13 @@ export default function Hero() {
               kind="quote"
               className="bg-accent-yellow px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-orange hover:shadow-[0_8px_24px_rgb(16_20_24/0.07)]"
             >
-              Request a quote
+              {hero.requestQuote}
             </InquiryButton>
             <a
               href="tel:+31614686059"
               className="border border-paper/40 px-7 py-3.5 font-medium text-paper transition-all duration-150 hover:-translate-y-0.5 hover:border-paper"
             >
-              Call +31 6 1468 6059
+              {hero.call}
             </a>
           </div>
         </div>
@@ -122,7 +119,7 @@ export default function Hero() {
           className="fade-up mx-auto flex w-full max-w-[1200px] flex-wrap items-baseline gap-x-12 gap-y-3 px-6 py-6"
           style={{ animationDelay: "350ms" }}
         >
-          {STATS.map((s) => (
+          {hero.stats.map((s) => (
             <div key={s.label} className="flex items-baseline gap-3">
               <dd className="font-mono text-[1.0625rem] font-medium text-paper">
                 {s.value}

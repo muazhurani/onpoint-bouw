@@ -55,18 +55,6 @@ export default function Projects() {
           ))}
         </div>
 
-        <dl className="mt-14 grid grid-cols-2 gap-x-8 gap-y-8 wide:grid-cols-4">
-          {copy.readouts.map((item) => (
-            <div key={item.label} className="px-1 py-2">
-              <dd className="font-display text-[clamp(1.55rem,2.6vw,2.25rem)] font-bold leading-none text-ink">
-                {item.value}
-              </dd>
-              <dt className="mt-2.5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-slate">
-                {item.label}
-              </dt>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );

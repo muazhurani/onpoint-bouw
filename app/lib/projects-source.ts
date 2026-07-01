@@ -783,6 +783,246 @@ export const projectSources: ProjectSource[] = [
         "Completed kitchen extension on a brick terraced home in the Netherlands, with patio doors, grey porcelain tiles and a small garden lawn.",
     },
   },
+  {
+    slug: "under-stair-storage",
+    cover: "/images/under-stair-storage-finished.png",
+    gallery: [
+      {
+        src: "/images/under-stair-storage-before.png",
+        nl: {
+          alt: "Ongebruikte ruimte onder de trap vóór de verbouwing, met losse schoenen en spullen op de vloer.",
+          label: "Vóór de verbouwing",
+        },
+        en: {
+          alt: "Unused space under the stairs before the renovation, with loose shoes and items on the floor.",
+          label: "Before renovation",
+        },
+      },
+      {
+        src: "/images/under-stair-storage-prep.png",
+        nl: {
+          alt: "Voorbereiding van de trapkast met waterpas, potloodlijnen en afdekfolie op de vloer.",
+          label: "Voorbereiding en inmeting",
+        },
+        en: {
+          alt: "Under-stair cupboard preparation with a spirit level, pencil markings and floor protection.",
+          label: "Preparation and layout",
+        },
+      },
+      {
+        src: "/images/under-stair-storage-assembly.png",
+        nl: {
+          alt: "Op maat gemaakte kaststructuur onder de trap in opbouw, met klemmen en houten schappen.",
+          label: "Opbouw kastwerk",
+        },
+        en: {
+          alt: "Custom cabinet structure under the stairs during assembly, with clamps and wooden shelves.",
+          label: "Cabinet assembly",
+        },
+      },
+      {
+        src: "/images/under-stair-storage-finishing.png",
+        nl: {
+          alt: "Trapkast in de afwerkingsfase met gegronde kastdeuren, laden en schilderspullen op de vloer.",
+          label: "Afwerking",
+        },
+        en: {
+          alt: "Under-stair storage in the finishing phase with primed doors, drawers and painting supplies on the floor.",
+          label: "Finishing",
+        },
+      },
+      {
+        src: "/images/under-stair-storage-finished.png",
+        nl: {
+          alt: "Afgewerkte maatwerk trapkast met drie hoge kastdeuren en drie laden onder een houten trap.",
+          label: "Afgewerkte trapkast",
+        },
+        en: {
+          alt: "Finished custom under-stair storage with three tall cupboard doors and three drawers beneath a wooden staircase.",
+          label: "Finished storage",
+        },
+      },
+    ],
+    nl: {
+      title: "Maatwerk trapkast",
+      eyebrow: "Interieur en maatwerk",
+      summary:
+        "Een op maat gemaakte opbergkast onder de trap: van rommelige nis naar drie hoge kasten en laden die perfect de helling van de trap volgen.",
+      location: "Nederland",
+      timeframe: "Maatwerk timmerwerkproject",
+      scope: [
+        "Inmeten en ontwerp op maat",
+        "Kastconstructie onder de trap",
+        "Hoge kastdeuren en laden",
+        "Afwerking en schilderwerk",
+        "Bescherming van vloer en hal",
+      ],
+      description: [
+        "Onder de trap lag een onbenutte nis die al snel vol liep met schoenen en losse spullen. De huiseigenaren wilden daar nette, vaste opbergruimte zonder de hal smaller te laten aanvoelen.",
+        "We maten de ruimte nauwkeurig in en bouwden een kast die de schuine lijn van de trap volgt: drie hoge deuren boven en drie laden onder. Tijdens de bouw beschermden we de vloer en werkten we stap voor stap in de hal.",
+        "Het resultaat is een strakke, op maat gemaakte trapkast die de hal rustiger maakt en dagelijks gebruikte spullen uit het zicht houdt — zonder dat het een los meubel aanvoelt.",
+      ],
+      keywords: [
+        "trapkast Nederland",
+        "opbergruimte onder trap",
+        "maatwerk kasten Nederland",
+        "interieurverbouwing Nederland",
+        "timmerwerk op maat",
+      ],
+      coverAlt:
+        "Afgewerkte maatwerk trapkast onder een houten trap in een Nederlandse woning, met kastdeuren en laden in een lichte afwerking.",
+    },
+    en: {
+      title: "Custom under-stair storage",
+      eyebrow: "Interior and custom work",
+      summary:
+        "A bespoke storage cupboard under the stairs: from a cluttered nook to three tall doors and drawers that follow the slope of the staircase.",
+      location: "Netherlands",
+      timeframe: "Custom carpentry project",
+      scope: [
+        "Survey and bespoke design",
+        "Under-stair cabinet construction",
+        "Tall cupboard doors and drawers",
+        "Finishing and painting",
+        "Floor and hallway protection",
+      ],
+      description: [
+        "The space under the stairs was an unused nook that quickly filled with shoes and loose items. The homeowners wanted proper built-in storage without making the hallway feel smaller.",
+        "We measured the space carefully and built a cabinet that follows the diagonal line of the stairs: three tall doors above and three drawers below. During the build we protected the floor and worked step by step in the hallway.",
+        "The result is a clean, custom under-stair cupboard that calms the hallway and keeps everyday items out of sight — without feeling like a freestanding piece of furniture.",
+      ],
+      keywords: [
+        "under stair storage Netherlands",
+        "staircase cupboard Netherlands",
+        "custom cabinetry Netherlands",
+        "home renovation Netherlands",
+        "bespoke carpentry",
+      ],
+      coverAlt:
+        "Finished custom under-stair storage beneath a wooden staircase in a Dutch home, with cupboard doors and drawers in a light finish.",
+    },
+  },
+  {
+    slug: "backyard-garden-renovation",
+    cover: "/images/backyard-garden-finished-evening.png",
+    gallery: [
+      {
+        src: "/images/backyard-garden-before.png",
+        nl: {
+          alt: "Verwaarloosde achtertuin vóór de renovatie, met ongelijke tegels, onkruid en een verouderd tuinhuisje.",
+          label: "Tuin vóór",
+        },
+        en: {
+          alt: "Neglected backyard before the renovation, with uneven paving, weeds and a weathered garden shed.",
+          label: "Garden before",
+        },
+      },
+      {
+        src: "/images/backyard-garden-excavation.png",
+        nl: {
+          alt: "Graafwerk en drainage in de achtertuin, met sleuven, buizen en stapels bestrating tegen de gevel.",
+          label: "Graafwerk en riolering",
+        },
+        en: {
+          alt: "Excavation and drainage in the backyard, with trenches, pipes and stacks of paving slabs against the house.",
+          label: "Excavation and drainage",
+        },
+      },
+      {
+        src: "/images/backyard-garden-build-progress.png",
+        nl: {
+          alt: "Tuinrenovatie in uitvoering met grootformaat tegels, houten pergola en een maatwerk zithoek in opbouw.",
+          label: "Bouw in uitvoering",
+        },
+        en: {
+          alt: "Garden renovation in progress with large-format tiles, a wooden pergola frame and a custom seating area under construction.",
+          label: "Build in progress",
+        },
+      },
+      {
+        src: "/images/backyard-garden-finished.png",
+        nl: {
+          alt: "Afgewerkte moderne achtertuin met grijze tegels, verhoogde plantenbakken, pergola en geïntegreerde houten bank.",
+          label: "Afgewerkte tuin",
+        },
+        en: {
+          alt: "Finished modern backyard with grey tiles, raised planters, a pergola and integrated wooden bench seating.",
+          label: "Finished garden",
+        },
+      },
+      {
+        src: "/images/backyard-garden-finished-evening.png",
+        nl: {
+          alt: "Moderne achtertuin bij schemer met verlichting in de plantenbakken, pergola en beplanting.",
+          label: "Tuin bij schemer",
+        },
+        en: {
+          alt: "Modern backyard at dusk with lighting in the planters, pergola and planting beds.",
+          label: "Garden at dusk",
+        },
+      },
+    ],
+    nl: {
+      title: "Moderne achtertuinrenovatie",
+      eyebrow: "Tuin en bestrating",
+      summary:
+        "Een complete achtertuintransformatie: van verwaarloosde tegels en rommel naar een strak terras, verhoogde plantenbakken, pergola, maatwerk zithoek en tuinverlichting.",
+      location: "Nederland",
+      timeframe: "Tuinrenovatieproject",
+      scope: [
+        "Sloop en graafwerk",
+        "Drainage en lijnafvoer",
+        "Grootformaat keramische bestrating",
+        "Verhoogde plantenbakken en stucwerk",
+        "Houten pergola en zithoek",
+        "Tuinverlichting en beplanting",
+      ],
+      description: [
+        "De achtertuin was toe aan een echte opknapbeurt: ongelijke tegels, onkruid tussen de voegen, een kale grasstrook en een verouderd tuinhuisje. De eigenaren wilden een moderne buitenruimte die dagelijks bruikbaar is.",
+        "We begonnen met het vrijmaken van de tuin, legden drainage en lijnafvoer aan langs de gevel en bouwden een stevige ondergrond voor grootformaat grijze tegels. Daarna realiseerden we verhoogde plantenbakken, een houten pergola en een ingebouwde zithoek.",
+        "Het eindresultaat is een rustige, onderhoudsvriendelijke tuin met beplanting, verlichting en een duidelijke indeling — bruikbaar overdag en 's avonds, direct vanuit de woondeuren.",
+      ],
+      keywords: [
+        "tuinrenovatie Nederland",
+        "achtertuin verbouwing",
+        "terras bestrating Nederland",
+        "pergola tuin Nederland",
+        "tuinverlichting Nederland",
+      ],
+      coverAlt:
+        "Afgewerkte moderne achtertuin in Nederland met grijze tegels, verhoogde plantenbakken, pergola en tuinverlichting bij schemer.",
+    },
+    en: {
+      title: "Modern backyard garden renovation",
+      eyebrow: "Garden and paving",
+      summary:
+        "A full backyard transformation: from tired paving and clutter to a clean patio, raised planters, pergola, custom seating and garden lighting.",
+      location: "Netherlands",
+      timeframe: "Garden renovation project",
+      scope: [
+        "Strip-out and excavation",
+        "Drainage and linear drain",
+        "Large-format ceramic paving",
+        "Raised planters and render finish",
+        "Wooden pergola and seating area",
+        "Garden lighting and planting",
+      ],
+      description: [
+        "The backyard needed a proper refresh: uneven slabs, weeds in the joints, a patchy lawn and a tired garden shed. The homeowners wanted a modern outdoor space they could use every day.",
+        "We cleared the garden, installed drainage and a linear drain along the house, and built a solid base for large-format grey tiles. We then added raised planters, a wooden pergola and a built-in seating area.",
+        "The finished garden is calm, low-maintenance and clearly laid out — with planting, lighting and a space that works in the day and in the evening, straight from the patio doors.",
+      ],
+      keywords: [
+        "garden renovation Netherlands",
+        "backyard renovation Netherlands",
+        "patio paving Netherlands",
+        "garden pergola Netherlands",
+        "garden lighting Netherlands",
+      ],
+      coverAlt:
+        "Finished modern backyard in the Netherlands with grey paving, raised planters, a pergola and garden lighting at dusk.",
+    },
+  },
 ];
 
 export function localizeProject(source: ProjectSource, locale: Locale) {

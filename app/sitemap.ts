@@ -13,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     `${siteUrl}/images/floor-heating-finished-marble.png`,
     `${siteUrl}/images/toilet-renovation-finished.png`,
     `${siteUrl}/images/kitchen-extension-exterior-finished.png`,
+    `${siteUrl}/images/under-stair-storage-finished.png`,
+    `${siteUrl}/images/backyard-garden-finished-evening.png`,
   ];
 
   const homePages = locales.map((locale) => ({

@@ -210,6 +210,8 @@ const en: Dictionary = {
     whatWeDid: "What we did",
     howItCameTogether: "How the project came together",
     gallery: "Gallery",
+    galleryBefore: "Before",
+    galleryAfter: "After",
     morePhotosPending: "More photos from this project are being added.",
     swipeHint: "Swipe or use the arrows to browse the photos.",
     similarCta:

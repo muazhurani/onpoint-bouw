@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import { DictionaryProvider } from "@/app/components/DictionaryProvider";
@@ -12,6 +12,11 @@ import {
 } from "@/app/lib/i18n";
 
 const siteUrl = "https://onpointgeo.nl";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],

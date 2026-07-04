@@ -107,8 +107,8 @@ export default function ProjectGallery({
 
   return (
     <>
-      <div className="mt-8">
-        <div className="relative border border-grid-line bg-ink/[0.04]">
+      <div className="mt-6 min-w-0 w-full max-w-full">
+        <div className="relative w-full max-w-full overflow-hidden border border-grid-line bg-ink/[0.04]">
           <CornerTicks />
           <button
             type="button"
@@ -119,7 +119,7 @@ export default function ProjectGallery({
               }
               setLightboxOpen(true);
             }}
-            className="group relative block aspect-[4/3] w-full overflow-hidden text-left sm:aspect-[16/10]"
+            className="group relative block h-[min(56vw,280px)] w-full overflow-hidden text-left sm:h-[320px] sm:max-h-[360px] wide:h-[380px] wide:max-h-[400px]"
             aria-label={formatMessage(gallery.viewFullSize, { label: current.label })}
             onTouchStart={(event) =>
               onTouchStart(event.touches[0]?.clientX ?? 0)
@@ -134,10 +134,10 @@ export default function ProjectGallery({
               alt={current.alt}
               fill
               priority
-              sizes="(max-width: 900px) 100vw, 760px"
+              sizes="(max-width: 640px) 100vw, (max-width: 900px) calc(100vw - 48px), 680px"
               className="object-cover transition-opacity duration-300"
             />
-            <span className="absolute bottom-4 right-4 bg-paper/90 px-3 py-1.5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink opacity-0 shadow-[0_8px_24px_rgb(16_20_24/0.07)] transition-opacity duration-150 group-hover:opacity-100">
+            <span className="absolute bottom-4 right-4 bg-paper/90 px-3 py-1.5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink opacity-100 shadow-[0_8px_24px_rgb(16_20_24/0.07)] transition-opacity duration-150 sm:opacity-0 sm:group-hover:opacity-100">
               {gallery.tapToEnlarge}
             </span>
           </button>
@@ -180,7 +180,7 @@ export default function ProjectGallery({
 
         {photoCount > 1 ? (
           <div
-            className="mt-5 flex gap-3 overflow-x-auto pb-1"
+            className="mt-5 flex min-w-0 gap-3 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch]"
             role="tablist"
             aria-label={gallery.projectPhotos}
           >

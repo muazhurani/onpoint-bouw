@@ -11,6 +11,11 @@ export type ProjectGalleryItem = {
   label: string;
 };
 
+export type ProjectGallerySection = {
+  id: "before" | "after";
+  items: ProjectGalleryItem[];
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -24,6 +29,7 @@ export type Project = {
   cover: string;
   coverAlt: string;
   gallery: ProjectGalleryItem[];
+  gallerySections?: ProjectGallerySection[];
 };
 
 export function getProjects(locale: Locale): Project[] {

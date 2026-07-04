@@ -18,7 +18,7 @@ export default function Nav() {
     <header className="fixed inset-x-0 top-4 z-50 flex flex-col items-center px-4">
       <nav
         aria-label={nav.ariaLabel}
-        className={`flex w-full ${navWidth} items-center justify-between border border-grid-line bg-paper/85 py-2 pl-5 pr-2 backdrop-blur-md`}
+        className={`flex w-full min-w-0 ${navWidth} items-center justify-between border border-grid-line bg-paper/85 py-2 pl-4 pr-2 backdrop-blur-md sm:pl-5`}
       >
         <Link
           href={localePath(locale, "/#top")}
@@ -77,7 +77,7 @@ export default function Nav() {
       {open && (
         <div
           id="mobile-menu"
-          className={`mt-2 flex w-full ${navWidth} flex-col border border-grid-line bg-paper/95 p-2 backdrop-blur-md md:hidden`}
+          className={`mt-2 flex w-full min-w-0 ${navWidth} flex-col border border-grid-line bg-paper/95 p-2 backdrop-blur-md md:hidden`}
         >
           {nav.links.map((l) => (
             <Link

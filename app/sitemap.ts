@@ -7,14 +7,14 @@ const siteUrl = "https://onpointgeo.nl";
 export default function sitemap(): MetadataRoute.Sitemap {
   const homeImages = [
     `${siteUrl}/images/onpoint-residential-renovation-hero.png`,
-    `${siteUrl}/images/garden-patio-exterior.png`,
-    `${siteUrl}/images/rear-extension-garden-room.png`,
-    `${siteUrl}/images/renovation-garden-patio.png`,
-    `${siteUrl}/images/floor-heating-finished-marble.png`,
-    `${siteUrl}/images/toilet-renovation-finished.png`,
-    `${siteUrl}/images/kitchen-extension-exterior-finished.png`,
-    `${siteUrl}/images/under-stair-storage-finished.png`,
-    `${siteUrl}/images/backyard-garden-finished-evening.png`,
+    `${siteUrl}/images/garden-patio/garden-patio-exterior.png`,
+    `${siteUrl}/images/rear-extension/rear-extension-garden-room.png`,
+    `${siteUrl}/images/bathroom-renovation/renovation-garden-patio.png`,
+    `${siteUrl}/images/floor-heating-marble/floor-heating-finished-marble.png`,
+    `${siteUrl}/images/toilet-renovation/toilet-renovation-finished.png`,
+    `${siteUrl}/images/kitchen-extension/kitchen-extension-exterior-finished.png`,
+    `${siteUrl}/images/under-stair-storage/under-stair-storage-finished.png`,
+    `${siteUrl}/images/backyard-garden-renovation/backyard-garden-finished-evening.png`,
   ];
 
   const homePages = locales.map((locale) => ({

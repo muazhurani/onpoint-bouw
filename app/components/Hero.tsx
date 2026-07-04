@@ -52,8 +52,8 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1200px] flex-1 items-center gap-10 px-6 pb-10 pt-36 wide:grid-cols-[1.1fr_0.9fr] wide:gap-6 wide:pb-0">
-        <div>
+      <div className="relative z-10 mx-auto grid w-full max-w-[1200px] flex-1 items-center gap-10 px-6 pb-10 pt-28 sm:pt-36 wide:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] wide:gap-6 wide:pb-0">
+        <div className="min-w-0">
           <p className="eyebrow fade-up text-paper/75">
             <span aria-hidden="true" className="mr-2 text-accent-yellow">
               +

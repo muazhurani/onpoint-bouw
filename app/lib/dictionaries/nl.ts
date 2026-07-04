@@ -210,6 +210,8 @@ const nl: Dictionary = {
     whatWeDid: "Wat we deden",
     howItCameTogether: "Hoe het project tot stand kwam",
     gallery: "Galerij",
+    galleryBefore: "Vóór",
+    galleryAfter: "Na",
     morePhotosPending: "Meer foto's van dit project worden toegevoegd.",
     swipeHint: "Veeg of gebruik de pijlen om door de foto's te bladeren.",
     similarCta:

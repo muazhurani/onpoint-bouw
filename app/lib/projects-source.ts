@@ -18,10 +18,18 @@ export type GalleryItemSource = {
   en: { alt: string; label: string };
 };
 
+export type GallerySectionId = "before" | "after";
+
+export type GallerySectionSource = {
+  id: GallerySectionId;
+  items: GalleryItemSource[];
+};
+
 export type ProjectSource = {
   slug: string;
   cover: string;
-  gallery: GalleryItemSource[];
+  gallery?: GalleryItemSource[];
+  gallerySections?: GallerySectionSource[];
   nl: ProjectContent;
   en: ProjectContent;
 };
@@ -29,10 +37,13 @@ export type ProjectSource = {
 export const projectSources: ProjectSource[] = [
   {
     slug: "garden-patio",
-    cover: "/images/garden-patio-exterior.png",
-    gallery: [
+    cover: "/images/garden-patio/garden-patio-exterior.png",
+    gallerySections: [
       {
-        src: "/images/garden-patio-exterior.png",
+        id: "after",
+        items: [
+      {
+        src: "/images/garden-patio/garden-patio-exterior.png",
         nl: {
           alt: "Aanbouw aan de salon met openslaande deuren naar een vernieuwde tuin met grijze bestrating en kunstgras.",
           label: "Salon en tuin",
@@ -43,7 +54,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/garden-patio-open-plan.png",
+        src: "/images/garden-patio/garden-patio-open-plan.png",
         nl: {
           alt: "Open leefruimte na de interieurverbouwing, met lichte houten vloer en ingebouwde plafondverlichting.",
           label: "Open leefruimte",
@@ -54,7 +65,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/garden-patio-living-room.png",
+        src: "/images/garden-patio/garden-patio-living-room.png",
         nl: {
           alt: "Vernieuwde woonkamer met nieuwe vloer, verlichting en een duidelijkere indeling door de woning.",
           label: "Woonruimte",
@@ -65,7 +76,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/garden-patio-feature-wall.png",
+        src: "/images/garden-patio/garden-patio-feature-wall.png",
         nl: {
           alt: "Afgewerkte accentwand in de salon met houten latten, marmeren tv-paneel en ingebouwde zitbank.",
           label: "Accentwand salon",
@@ -76,7 +87,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/garden-patio-dining-area.png",
+        src: "/images/garden-patio/garden-patio-dining-area.png",
         nl: {
           alt: "Eethoek in de vernieuwde open ruimte met nieuwe vloer en vloer-tot-plafond ramen.",
           label: "Eethoek",
@@ -87,7 +98,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/garden-patio-backyard.png",
+        src: "/images/garden-patio/garden-patio-backyard.png",
         nl: {
           alt: "Afgewerkte achtertuin met grijze bestrating, kunstgras, grindpaden, beplanting en een houten brugdetail.",
           label: "Afgewerkte tuin",
@@ -96,6 +107,79 @@ export const projectSources: ProjectSource[] = [
           alt: "Finished backyard with grey paving, artificial grass, pebble paths, planting and a wooden bridge detail.",
           label: "Finished garden",
         },
+      },
+        ],
+      },
+      {
+        id: "before",
+        items: [
+      {
+        src: "/images/garden-patio/garden-patio-before-garden.png",
+        nl: {
+          alt: "Originele achtertuin vóór de renovatie, met grasveld, tegelterras en beplanting langs de woning.",
+          label: "Tuin vóór",
+        },
+        en: {
+          alt: "Original backyard before the renovation, with a lawn, tiled patio and planting along the house.",
+          label: "Garden before",
+        },
+      },
+      {
+        src: "/images/garden-patio/garden-patio-before-exterior.png",
+        nl: {
+          alt: "Achtergevel van de woning vóór de aanbouw, met bestaande dakramen, zonnescherm en tuindeuren.",
+          label: "Achtergevel vóór",
+        },
+        en: {
+          alt: "Rear elevation of the home before the extension, with existing roof windows, awning and patio doors.",
+          label: "Rear elevation before",
+        },
+      },
+      {
+        src: "/images/garden-patio/garden-patio-before-dormer-construction.png",
+        nl: {
+          alt: "Dakkapel in aanbouw op het dak, met houten frame, OSB-bekleding en ladder langs de gevel.",
+          label: "Dakkapel in aanbouw",
+        },
+        en: {
+          alt: "Dormer under construction on the roof, with timber frame, OSB sheathing and a ladder against the wall.",
+          label: "Dormer construction",
+        },
+      },
+      {
+        src: "/images/garden-patio/garden-patio-before-dormer-interior.png",
+        nl: {
+          alt: "Interieur van de nieuwe dakkapelruimte tijdens de afbouwfase, met kale muren, betonnen vloer en ingebouwde verlichting.",
+          label: "Dakkapel interieur",
+        },
+        en: {
+          alt: "Interior of the new dormer room during fit-out, with bare walls, concrete floor and recessed lighting cut-outs.",
+          label: "Dormer interior",
+        },
+      },
+      {
+        src: "/images/garden-patio/garden-patio-before-extension-shell.png",
+        nl: {
+          alt: "Salonuitbreiding in ruwbouwfase, met houten dakconstructie, glazen schuifdeur en onafgewerkt terras.",
+          label: "Aanbouw in ruwbouw",
+        },
+        en: {
+          alt: "Salon extension at shell stage, with timber roof structure, sliding glass door and unfinished patio.",
+          label: "Extension shell",
+        },
+      },
+      {
+        src: "/images/garden-patio/garden-patio-before-patio-construction.png",
+        nl: {
+          alt: "Achtertuin tijdens de bouw, met nieuwe tuindeuren, tegelterras in aanleg en bouwmateriaal op het terrein.",
+          label: "Terras in aanleg",
+        },
+        en: {
+          alt: "Back garden during construction, with new patio doors, paving being laid and building materials on site.",
+          label: "Patio in progress",
+        },
+      },
+        ],
       },
     ],
     nl: {
@@ -157,10 +241,13 @@ export const projectSources: ProjectSource[] = [
   },
   {
     slug: "rear-extension",
-    cover: "/images/rear-extension-patio-evening.png",
-    gallery: [
+    cover: "/images/rear-extension/rear-extension-patio-evening.png",
+    gallerySections: [
       {
-        src: "/images/rear-extension-garden-room.png",
+        id: "after",
+        items: [
+      {
+        src: "/images/rear-extension/rear-extension-garden-room.png",
         nl: {
           alt: "Afgewerkte buitenruimte met stenen bestrating, marmeren wanden en ingebouwde plafondverlichting.",
           label: "Tuin en buitenruimte",
@@ -171,7 +258,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/rear-extension-patio-evening.png",
+        src: "/images/rear-extension/rear-extension-patio-evening.png",
         nl: {
           alt: "Vernieuwde tuin met stenen bestrating, kunstgras en warme buitenverlichting bij schemer.",
           label: "Tuin bij schemer",
@@ -182,7 +269,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/rear-extension-backyard-evening.png",
+        src: "/images/rear-extension/rear-extension-backyard-evening.png",
         nl: {
           alt: "Afgewerkte achtertuin met verhard terras, gazon, beplanting en tuinverlichting.",
           label: "Achtertuin overzicht",
@@ -193,7 +280,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/rear-extension-kitchen.png",
+        src: "/images/rear-extension/rear-extension-kitchen.png",
         nl: {
           alt: "Vernieuwde keuken en woonruimte met nieuwe vloer, keukeninrichting en plafondafwerking.",
           label: "Interieurverbouwing",
@@ -204,7 +291,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/rear-extension-bathroom-vanity.png",
+        src: "/images/rear-extension/rear-extension-bathroom-vanity.png",
         nl: {
           alt: "Vernieuwde badkamer met nieuw wandtegelwerk en een zwevende wastafel.",
           label: "Badkamerrenovatie",
@@ -215,7 +302,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/rear-extension-bathroom-shower.png",
+        src: "/images/rear-extension/rear-extension-bathroom-shower.png",
         nl: {
           alt: "Vernieuwde toilet- en doucheruimte met tegelwerk van vloer tot plafond en een inloopdouche.",
           label: "Toilet en douche",
@@ -224,6 +311,68 @@ export const projectSources: ProjectSource[] = [
           alt: "Renovated toilet and shower room with floor-to-ceiling tiling and a walk-in shower.",
           label: "Toilet and shower",
         },
+      },
+        ],
+      },
+      {
+        id: "before",
+        items: [
+      {
+        src: "/images/rear-extension/rear-extension-before-garden.png",
+        nl: {
+          alt: "Originele achtertuin vóór de verbouwing, met gebakken tegels, houten gazebo en speeltoestel.",
+          label: "Tuin vóór",
+        },
+        en: {
+          alt: "Original backyard before the renovation, with brick pavers, a wooden gazebo and play equipment.",
+          label: "Garden before",
+        },
+      },
+      {
+        src: "/images/rear-extension/rear-extension-before-roof-framing.png",
+        nl: {
+          alt: "Houten dakconstructie van de aanbouw in aanbouw, met balken, joist hangers en zicht op de achtergevel.",
+          label: "Dakconstructie",
+        },
+        en: {
+          alt: "Timber roof structure of the extension under construction, with joists, hangers and the rear elevation visible.",
+          label: "Roof framing",
+        },
+      },
+      {
+        src: "/images/rear-extension/rear-extension-before-extension-shell.png",
+        nl: {
+          alt: "Aanbouw in ruwbouwfase, met houten dakbalken, lichtkoepelopening, tuindeuren en tijdelijke afdekking.",
+          label: "Aanbouw in ruwbouw",
+        },
+        en: {
+          alt: "Extension at shell stage, with timber roof joists, roof lantern opening, patio doors and temporary weatherproofing.",
+          label: "Extension shell",
+        },
+      },
+      {
+        src: "/images/rear-extension/rear-extension-before-roof-membrane.png",
+        nl: {
+          alt: "Plat dak van de aanbouw tijdens de waterdichting, met dakbedekking en houten frame voor een lichtkoepel.",
+          label: "Dakbedekking",
+        },
+        en: {
+          alt: "Flat roof of the extension during waterproofing, with roofing membrane and a timber roof lantern frame.",
+          label: "Roof membrane",
+        },
+      },
+      {
+        src: "/images/rear-extension/rear-extension-before-roof-lantern.png",
+        nl: {
+          alt: "Lichtkoepel en plat dak in aanbouw, gezien van bovenaf met zicht op de tuin en omliggende bebouwing.",
+          label: "Lichtkoepel in aanbouw",
+        },
+        en: {
+          alt: "Roof lantern and flat roof under construction, viewed from above with the garden and surrounding homes visible.",
+          label: "Roof lantern in progress",
+        },
+      },
+        ],
       },
     ],
     nl: {
@@ -289,10 +438,10 @@ export const projectSources: ProjectSource[] = [
   },
   {
     slug: "bathroom-renovation",
-    cover: "/images/renovation-garden-patio.png",
+    cover: "/images/bathroom-renovation/renovation-garden-patio.png",
     gallery: [
       {
-        src: "/images/renovation-garden-patio.png",
+        src: "/images/bathroom-renovation/renovation-garden-patio.png",
         nl: {
           alt: "Afgewerkte tuin met verhard terras, kunstgras, bakstenen muur en warme buitenverlichting bij schemer.",
           label: "Tuin en terras",
@@ -303,7 +452,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/renovation-garden-evening.png",
+        src: "/images/bathroom-renovation/renovation-garden-evening.png",
         nl: {
           alt: "Achtertuinrenovatie met bestrating, gazon, beplanting en wandverlichting langs een bakstenen erfafscheiding.",
           label: "Tuin bij schemer",
@@ -314,7 +463,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/renovation-lounge.png",
+        src: "/images/bathroom-renovation/renovation-lounge.png",
         nl: {
           alt: "Vernieuwde lounge met nieuwe vloer, witte muren en openslaande deuren naar de tuin.",
           label: "Woonkamer",
@@ -325,7 +474,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/renovation-living-room.png",
+        src: "/images/bathroom-renovation/renovation-living-room.png",
         nl: {
           alt: "Afgewerkte interieurruimte met gipsplaatwanden, houten vloer en ingebouwde plafondverlichting.",
           label: "Interieurverbouwing",
@@ -336,7 +485,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/renovation-bathroom.png",
+        src: "/images/bathroom-renovation/renovation-bathroom.png",
         nl: {
           alt: "Vernieuwde badkamer en toilet met marmerlook wandtegels, inloopdouche en matzwarte kranen.",
           label: "Badkamerrenovatie",
@@ -347,7 +496,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/renovation-shower.png",
+        src: "/images/bathroom-renovation/renovation-shower.png",
         nl: {
           alt: "Inloopdouche met ingebouwde zitbank, glazen wand en zwarte regendouche.",
           label: "Inloopdouche",
@@ -419,10 +568,10 @@ export const projectSources: ProjectSource[] = [
   },
   {
     slug: "floor-heating-marble",
-    cover: "/images/floor-heating-finished-marble.png",
+    cover: "/images/floor-heating-marble/floor-heating-finished-marble.png",
     gallery: [
       {
-        src: "/images/floor-heating-underfloor-installation.png",
+        src: "/images/floor-heating-marble/floor-heating-underfloor-installation.png",
         nl: {
           alt: "Vloerverwarmingsleidingen gelegd op noppenplaten vóór het storten van de dekvloer.",
           label: "Vloerverwarming",
@@ -433,7 +582,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/floor-heating-pipe-layout.png",
+        src: "/images/floor-heating-marble/floor-heating-pipe-layout.png",
         nl: {
           alt: "Verwarmingsleidingcircuits bevestigd in vloerpanelen door een vernieuwde ruimte.",
           label: "Leidingindeling",
@@ -444,7 +593,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/floor-heating-tile-installation.png",
+        src: "/images/floor-heating-marble/floor-heating-tile-installation.png",
         nl: {
           alt: "Grote marmerlook tegels worden gelegd op een voorbereide vloer met afstandhouders en lijm.",
           label: "Tegelwerk",
@@ -455,7 +604,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/floor-heating-marble-laying.png",
+        src: "/images/floor-heating-marble/floor-heating-marble-laying.png",
         nl: {
           alt: "Marmeren platen geplaatst met een nivelleersysteem tijdens de installatie.",
           label: "Marmer leggen",
@@ -466,7 +615,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/floor-heating-finished-marble.png",
+        src: "/images/floor-heating-marble/floor-heating-finished-marble.png",
         nl: {
           alt: "Afgewerkte marmeren vloer met gepolijste tegels, koofverlichting en afgewerkte wanden.",
           label: "Afgewerkte vloer",
@@ -536,10 +685,10 @@ export const projectSources: ProjectSource[] = [
   },
   {
     slug: "toilet-renovation",
-    cover: "/images/toilet-renovation-finished.png",
+    cover: "/images/toilet-renovation/toilet-renovation-finished.png",
     gallery: [
       {
-        src: "/images/toilet-renovation-demolition.png",
+        src: "/images/toilet-renovation/toilet-renovation-demolition.png",
         nl: {
           alt: "Badkamer gestript tijdens de sloop, met oude tegels verwijderd en puin opgeruimd.",
           label: "Sloop",
@@ -550,7 +699,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/toilet-renovation-stripped.png",
+        src: "/images/toilet-renovation/toilet-renovation-stripped.png",
         nl: {
           alt: "Kale badkamerwanden en -vloer voorbereid voor nieuwe leidingen en waterdichting.",
           label: "Voorbereide ruimte",
@@ -561,7 +710,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/toilet-renovation-waterproofing.png",
+        src: "/images/toilet-renovation/toilet-renovation-waterproofing.png",
         nl: {
           alt: "Blauw waterdicht membraan aangebracht op wanden en vloer met ingebouwd toiletframe.",
           label: "Waterdichting",
@@ -572,7 +721,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/toilet-renovation-tiling.png",
+        src: "/images/toilet-renovation/toilet-renovation-tiling.png",
         nl: {
           alt: "Grootformaat tegels worden gelegd op wanden en vloer met nivelleersysteem en lineaire afvoer.",
           label: "Tegelwerk",
@@ -583,7 +732,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/toilet-renovation-vanity.png",
+        src: "/images/toilet-renovation/toilet-renovation-vanity.png",
         nl: {
           alt: "Zwevende houten wastafel geplaatst met dubbele wastafel en grootformaat grijze wandtegels.",
           label: "Wastafel geplaatst",
@@ -594,7 +743,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/toilet-renovation-finished.png",
+        src: "/images/toilet-renovation/toilet-renovation-finished.png",
         nl: {
           alt: "Afgewerkte badkamer met inloopdouche, hangend toilet en doorlopend beige tegelwerk.",
           label: "Afgewerkte badkamer",
@@ -666,10 +815,10 @@ export const projectSources: ProjectSource[] = [
   },
   {
     slug: "kitchen-extension",
-    cover: "/images/kitchen-extension-exterior-finished.png",
+    cover: "/images/kitchen-extension/kitchen-extension-exterior-finished.png",
     gallery: [
       {
-        src: "/images/kitchen-extension-before.png",
+        src: "/images/kitchen-extension/kitchen-extension-before.png",
         nl: {
           alt: "Originele krappe keuken vóór de start van de aanbouw.",
           label: "Keuken vóór",
@@ -680,7 +829,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/kitchen-extension-structure.png",
+        src: "/images/kitchen-extension/kitchen-extension-structure.png",
         nl: {
           alt: "Achtergevel geopend met stalen latei en funderingen van de aanbouw in de tuin.",
           label: "Constructie en fundering",
@@ -691,7 +840,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/kitchen-extension-build-progress.png",
+        src: "/images/kitchen-extension/kitchen-extension-build-progress.png",
         nl: {
           alt: "Aanbouwschil met gipsplaatwanden, dekvloer en opening voorbereid voor tuindeuren.",
           label: "Bouw in uitvoering",
@@ -702,7 +851,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/kitchen-extension-kitchen-finished.png",
+        src: "/images/kitchen-extension/kitchen-extension-kitchen-finished.png",
         nl: {
           alt: "Afgewerkte keuken-woonruimte met witte greeploze keuken, visgraatvloer en lichtkoepel.",
           label: "Afgewerkte keuken-woonruimte",
@@ -713,7 +862,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/kitchen-extension-exterior-finished.png",
+        src: "/images/kitchen-extension/kitchen-extension-exterior-finished.png",
         nl: {
           alt: "Afgewerkte aanbouw aan de achterzijde met metselwerk, tuindeuren en een grijs porselein terras.",
           label: "Aanbouw en terras",
@@ -785,10 +934,10 @@ export const projectSources: ProjectSource[] = [
   },
   {
     slug: "under-stair-storage",
-    cover: "/images/under-stair-storage-finished.png",
+    cover: "/images/under-stair-storage/under-stair-storage-finished.png",
     gallery: [
       {
-        src: "/images/under-stair-storage-before.png",
+        src: "/images/under-stair-storage/under-stair-storage-before.png",
         nl: {
           alt: "Ongebruikte ruimte onder de trap vóór de verbouwing, met losse schoenen en spullen op de vloer.",
           label: "Vóór de verbouwing",
@@ -799,7 +948,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/under-stair-storage-prep.png",
+        src: "/images/under-stair-storage/under-stair-storage-prep.png",
         nl: {
           alt: "Voorbereiding van de trapkast met waterpas, potloodlijnen en afdekfolie op de vloer.",
           label: "Voorbereiding en inmeting",
@@ -810,7 +959,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/under-stair-storage-assembly.png",
+        src: "/images/under-stair-storage/under-stair-storage-assembly.png",
         nl: {
           alt: "Op maat gemaakte kaststructuur onder de trap in opbouw, met klemmen en houten schappen.",
           label: "Opbouw kastwerk",
@@ -821,7 +970,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/under-stair-storage-finishing.png",
+        src: "/images/under-stair-storage/under-stair-storage-finishing.png",
         nl: {
           alt: "Trapkast in de afwerkingsfase met gegronde kastdeuren, laden en schilderspullen op de vloer.",
           label: "Afwerking",
@@ -832,7 +981,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/under-stair-storage-finished.png",
+        src: "/images/under-stair-storage/under-stair-storage-finished.png",
         nl: {
           alt: "Afgewerkte maatwerk trapkast met drie hoge kastdeuren en drie laden onder een houten trap.",
           label: "Afgewerkte trapkast",
@@ -904,10 +1053,10 @@ export const projectSources: ProjectSource[] = [
   },
   {
     slug: "backyard-garden-renovation",
-    cover: "/images/backyard-garden-finished-evening.png",
+    cover: "/images/backyard-garden-renovation/backyard-garden-finished-evening.png",
     gallery: [
       {
-        src: "/images/backyard-garden-before.png",
+        src: "/images/backyard-garden-renovation/backyard-garden-before.png",
         nl: {
           alt: "Verwaarloosde achtertuin vóór de renovatie, met ongelijke tegels, onkruid en een verouderd tuinhuisje.",
           label: "Tuin vóór",
@@ -918,7 +1067,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/backyard-garden-excavation.png",
+        src: "/images/backyard-garden-renovation/backyard-garden-excavation.png",
         nl: {
           alt: "Graafwerk en drainage in de achtertuin, met sleuven, buizen en stapels bestrating tegen de gevel.",
           label: "Graafwerk en riolering",
@@ -929,7 +1078,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/backyard-garden-build-progress.png",
+        src: "/images/backyard-garden-renovation/backyard-garden-build-progress.png",
         nl: {
           alt: "Tuinrenovatie in uitvoering met grootformaat tegels, houten pergola en een maatwerk zithoek in opbouw.",
           label: "Bouw in uitvoering",
@@ -940,7 +1089,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/backyard-garden-finished.png",
+        src: "/images/backyard-garden-renovation/backyard-garden-finished.png",
         nl: {
           alt: "Afgewerkte moderne achtertuin met grijze tegels, verhoogde plantenbakken, pergola en geïntegreerde houten bank.",
           label: "Afgewerkte tuin",
@@ -951,7 +1100,7 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/backyard-garden-finished-evening.png",
+        src: "/images/backyard-garden-renovation/backyard-garden-finished-evening.png",
         nl: {
           alt: "Moderne achtertuin bij schemer met verlichting in de plantenbakken, pergola en beplanting.",
           label: "Tuin bij schemer",
@@ -1025,16 +1174,29 @@ export const projectSources: ProjectSource[] = [
   },
 ];
 
+function localizeGalleryItems(items: GalleryItemSource[], locale: Locale) {
+  return items.map((item) => ({
+    src: item.src,
+    alt: item[locale].alt,
+    label: item[locale].label,
+  }));
+}
+
 export function localizeProject(source: ProjectSource, locale: Locale) {
   const content = source[locale];
+  const gallerySections = source.gallerySections?.map((section) => ({
+    id: section.id,
+    items: localizeGalleryItems(section.items, locale),
+  }));
+  const gallery = source.gallery
+    ? localizeGalleryItems(source.gallery, locale)
+    : (gallerySections?.flatMap((section) => section.items) ?? []);
+
   return {
     slug: source.slug,
     cover: source.cover,
     ...content,
-    gallery: source.gallery.map((item) => ({
-      src: item.src,
-      alt: item[locale].alt,
-      label: item[locale].label,
-    })),
+    gallery,
+    gallerySections,
   };
 }

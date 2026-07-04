@@ -73,6 +73,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const hasPendingGalleryPhotos = project.gallery.some((item) => !item.src);
   const page = dict.projectPage;
+  const gallerySectionTitles = {
+    before: page.galleryBefore,
+    after: page.galleryAfter,
+  } as const;
   const projectUrl = `${siteUrl}${localePath(locale, `/projects/${project.slug}`)}`;
 
   const projectJsonLd = {
@@ -132,10 +136,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         }}
       />
       <Nav />
-      <main>
-        <section className="relative overflow-hidden border-b border-grid-line bg-paper pt-32">
-          <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-6 pb-16 wide:grid-cols-[0.92fr_1.08fr] wide:items-end">
-            <div>
+      <main className="overflow-x-clip">
+        <section className="relative overflow-hidden border-b border-grid-line bg-paper pt-28 sm:pt-32">
+          <div className="mx-auto grid w-full max-w-[1200px] gap-10 px-6 pb-16 wide:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] wide:items-end">
+            <div className="min-w-0">
               <Link
                 href={localePath(locale, "/#projects")}
                 className="font-mono text-[0.75rem] font-medium uppercase tracking-[0.08em] text-slate transition-colors duration-150 hover:text-ink"
@@ -170,8 +174,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             </div>
 
-            <figure>
-              <div className="relative aspect-[4/3] border border-grid-line bg-ink/[0.04]">
+            <figure className="min-w-0">
+              <div className="relative aspect-[4/3] overflow-hidden border border-grid-line bg-ink/[0.04]">
                 <CornerTicks />
                 <Image
                   src={project.cover}
@@ -187,8 +191,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </section>
 
         <section className="section-pad">
-          <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-6 wide:grid-cols-[0.34fr_0.66fr]">
-            <aside>
+          <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-6 wide:grid-cols-[minmax(0,0.34fr)_minmax(0,0.66fr)]">
+            <aside className="min-w-0">
               <p className="eyebrow text-slate">
                 <span aria-hidden="true" className="mr-2 text-accent-yellow">
                   +
@@ -228,7 +232,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </dl>
             </aside>
 
-            <div>
+            <div className="min-w-0">
               <p className="eyebrow text-slate">
                 <span aria-hidden="true" className="mr-2 text-accent-yellow">
                   +
@@ -262,7 +266,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         : page.swipeHint}
                     </p>
                   </div>
-                  <ProjectGallery items={project.gallery} />
+                  {project.gallerySections?.length ? (
+                    project.gallerySections.map((section, sectionIndex) => (
+                      <div
+                        key={section.id}
+                        className={sectionIndex === 0 ? "mt-8" : "mt-14"}
+                      >
+                        <p className="eyebrow text-slate">
+                          <span
+                            aria-hidden="true"
+                            className="mr-2 text-accent-yellow"
+                          >
+                            +
+                          </span>
+                          {gallerySectionTitles[section.id]}
+                        </p>
+                        <ProjectGallery items={section.items} />
+                      </div>
+                    ))
+                  ) : (
+                    <ProjectGallery items={project.gallery} />
+                  )}
                 </div>
               ) : null}
 

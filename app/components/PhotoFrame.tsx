@@ -62,9 +62,9 @@ export default function PhotoFrame({
   className = "",
 }: PhotoFrameProps) {
   return (
-    <figure className={className}>
+    <figure className={`w-full min-w-0 ${className}`}>
       <div
-        className={`relative border border-grid-line bg-ink/[0.04] ${aspect}`}
+        className={`relative overflow-hidden border border-grid-line bg-ink/[0.04] ${aspect}`}
       >
         <CornerTicks />
         {src ? (

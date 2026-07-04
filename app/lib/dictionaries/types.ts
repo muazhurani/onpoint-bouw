@@ -130,6 +130,8 @@ export type Dictionary = {
     whatWeDid: string;
     howItCameTogether: string;
     gallery: string;
+    galleryBefore: string;
+    galleryAfter: string;
     morePhotosPending: string;
     swipeHint: string;
     similarCta: string;

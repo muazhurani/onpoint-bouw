@@ -23,11 +23,14 @@ export type Project = {
   summary: string;
   location: string;
   timeframe: string;
+  duration: string;
   scope: string[];
   description: string[];
   keywords: string[];
   cover: string;
   coverAlt: string;
+  beforeCover?: string;
+  beforeCoverAlt?: string;
   gallery: ProjectGalleryItem[];
   gallerySections?: ProjectGallerySection[];
 };

@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import InquiryButton from "./InquiryButton";
+import WhatsAppButton from "./WhatsAppButton";
+import { PHONE_TEL } from "@/app/lib/contact";
 import { useDictionary } from "./DictionaryProvider";
 
 const POINTS = [
@@ -102,8 +104,9 @@ export default function Hero() {
             >
               {hero.requestQuote}
             </InquiryButton>
+            <WhatsAppButton variant="dark" />
             <a
-              href="tel:+31614686059"
+              href={`tel:${PHONE_TEL}`}
               className="border border-paper/40 px-7 py-3.5 font-medium text-paper transition-all duration-150 hover:-translate-y-0.5 hover:border-paper"
             >
               {hero.call}

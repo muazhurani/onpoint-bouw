@@ -5,6 +5,8 @@
   --color-paper: #fafaf7;
   --color-accent-yellow: #ffc91f;
   --color-signal-yellow: #ffc91f;
+  /* Hover/emphasis amber — 8.9:1 against ink, passes WCAG AA */
+  --color-signal-orange: #f0a500;
   --color-grid-line: #e4e2da;
   --color-slate: #5c6470;
 

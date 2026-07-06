@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { getProjects } from "@/app/lib/projects";
 import { localePath } from "@/app/lib/i18n";
-import PhotoFrame from "./PhotoFrame";
+import BeforeAfterFrame from "./BeforeAfterFrame";
 import { useDictionary } from "./DictionaryProvider";
 
 export default function Projects() {
@@ -36,25 +36,54 @@ export default function Projects() {
 
         <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <Link
-              key={project.slug}
-              href={localePath(locale, `/projects/${project.slug}`)}
-              className="group block"
-            >
-              <PhotoFrame
-                label={project.title}
-                fig={`PROJECT ${String(index + 1).padStart(2, "0")}`}
-                caption={project.summary}
-                src={project.cover}
-                alt={project.coverAlt}
+            <article key={project.slug} className="group relative flex flex-col">
+              <BeforeAfterFrame
+                afterSrc={project.cover}
+                afterAlt={project.coverAlt}
+                beforeSrc={project.beforeCover}
+                beforeAlt={project.beforeCoverAlt}
               />
-              <span className="mt-4 inline-flex border border-ink/20 px-4 py-2 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink transition-all duration-150 group-hover:-translate-y-0.5 group-hover:border-ink group-hover:bg-accent-yellow">
+
+              <p className="mt-4 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-slate">
+                <span className="text-ink">
+                  PROJECT {String(index + 1).padStart(2, "0")}
+                </span>
+                <span aria-hidden="true"> — </span>
+                {project.location}
+              </p>
+
+              <h3 className="mt-2 font-display text-[1.15rem] font-bold leading-snug tracking-[-0.01em]">
+                <Link
+                  href={localePath(locale, `/projects/${project.slug}`)}
+                  className="after:absolute after:inset-0 after:content-['']"
+                >
+                  {project.title}
+                </Link>
+              </h3>
+
+              <p className="mt-2 text-[0.9375rem] leading-[1.7] text-slate">
+                {project.summary}
+              </p>
+
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {[project.location, project.eyebrow, project.duration].map(
+                  (tag) => (
+                    <li
+                      key={tag}
+                      className="border border-ink/15 px-2.5 py-1 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-slate"
+                    >
+                      {tag}
+                    </li>
+                  ),
+                )}
+              </ul>
+
+              <span className="mt-4 inline-flex self-start border border-ink/20 px-4 py-2 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink transition-all duration-150 group-hover:-translate-y-0.5 group-hover:border-ink group-hover:bg-accent-yellow">
                 {copy.viewProject}
               </span>
-            </Link>
+            </article>
           ))}
         </div>
-
       </div>
     </section>
   );

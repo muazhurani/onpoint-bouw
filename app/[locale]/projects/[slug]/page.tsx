@@ -7,6 +7,7 @@ import { CornerTicks } from "@/app/components/PhotoFrame";
 import Footer from "@/app/components/Footer";
 import Nav from "@/app/components/Nav";
 import { getDictionary } from "@/app/lib/dictionaries";
+import { PHONE_TEL } from "@/app/lib/contact";
 import { isLocale, localePath, type Locale } from "@/app/lib/i18n";
 import { getAllProjectParams, getProject } from "@/app/lib/projects";
 
@@ -166,7 +167,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {page.askSimilar}
                 </InquiryButton>
                 <a
-                  href="tel:+31614686059"
+                  href={`tel:${PHONE_TEL}`}
                   className="border border-ink/25 px-7 py-3.5 font-medium text-ink transition-all duration-150 hover:-translate-y-0.5 hover:border-ink"
                 >
                   {page.callUs}

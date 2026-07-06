@@ -41,7 +41,7 @@ const en: Dictionary = {
     subhead:
       "Garden, bathroom, extension or full renovation — we help homeowners across the Netherlands with clear advice, tidy work and honest communication, from the first visit to the final clean-up.",
     requestQuote: "Request a quote",
-    call: "Call +31 6 1468 6059",
+    call: "Call +31 6 1571 8727",
     stats: [
       { value: "Free", label: "no-obligation quote" },
       { value: "Netherlands", label: "nationwide" },
@@ -82,6 +82,9 @@ const en: Dictionary = {
     intro:
       "Gardens, extensions and bathrooms for private homeowners. Open a project to see what was involved and how it was finished.",
     viewProject: "View project",
+    beforeLabel: "Before",
+    afterLabel: "After",
+    beforePlaceholder: "Before photo coming",
     readouts: [
       { value: "Real", label: "finished projects" },
       { value: "Local", label: "across the Netherlands" },
@@ -117,6 +120,43 @@ const en: Dictionary = {
       },
     ],
   },
+  testimonials: {
+    eyebrow: "What customers say",
+    title: "Homeowners on working with us.",
+    intro:
+      "No staged marketing lines — this is the feedback customers give after the work is handed over.",
+    // TODO: Replace with real customer testimonials (quote, first name, town, project type).
+    items: [
+      {
+        quote:
+          "They explained exactly what would happen and what it would cost before starting. The work was tidy and the garden was finished ahead of schedule.",
+        name: "Sanne",
+        town: "Amersfoort",
+        projectType: "Backyard renovation",
+      },
+      {
+        quote:
+          "One point of contact from start to finish. Questions were answered the same day and the extension turned out exactly as discussed.",
+        name: "Mark",
+        town: "Utrecht",
+        projectType: "Rear extension",
+      },
+      {
+        quote:
+          "The bathroom was done within three weeks. The work area was cleaned up every evening — that made the difference compared to earlier jobs.",
+        name: "Fatima",
+        town: "Amsterdam",
+        projectType: "Bathroom renovation",
+      },
+    ],
+    // TODO: Replace placeholders — real Google rating, actual years active, real KvK number.
+    trustBar: [
+      { value: "4.9 ★", label: "on Google" },
+      { value: "10+ years", label: "in the building trade" },
+      { value: "KvK 00000000", label: "registered" },
+      { value: "Fully insured", label: "liability cover" },
+    ],
+  },
   trust: {
     eyebrow: "Why homeowners choose us",
     title: "No vague promises. No mystery invoice.",
@@ -144,9 +184,24 @@ const en: Dictionary = {
         body: "We tell you what is realistic, and we say when a job is better handled by another specialist instead of pretending.",
       },
     ],
+    // Deliberately no price numbers on the website — pricing is discussed per project.
+    pricing: {
+      title: "How we handle pricing",
+      disclaimer:
+        "Every price depends on your home and your wishes, so we discuss it in person. What is fixed: every quote is put in writing before work starts — that amount is what you pay.",
+    },
     aside:
       "Not ready for a site visit? Send a few photos and we can give you a first idea. Private addresses and client details are always kept out of public examples.",
     requestQuote: "Request a quote",
+  },
+  whatsapp: {
+    label: "WhatsApp",
+    aria: "Send us a message on WhatsApp",
+  },
+  mobileBar: {
+    ariaLabel: "Quick contact",
+    whatsapp: "WhatsApp",
+    call: "Call us",
   },
   cta: {
     eyebrow: "Request a quote",
@@ -154,6 +209,28 @@ const en: Dictionary = {
     intro:
       "Call, email, or send a few photos with your quote request. We'll tell you what's realistic, what it involves and the sensible next step — usually within one working day.",
     requestQuote: "Request a quote",
+    whatsappStart: {
+      title: "Or start directly via WhatsApp",
+      hint: "Pick your project — WhatsApp opens with a ready-made message.",
+      messageTemplate:
+        "Hi OnPoint Bouw, I'd like a free quote for: {type}.",
+    },
+    photoForm: {
+      eyebrow: "First idea",
+      title: "Send a few photos, get a first idea",
+      intro:
+        "No site visit needed to get started. Send a few photos of the space and we'll tell you what's realistic.",
+      name: "Name",
+      contact: "Phone or email",
+      message: "Short description",
+      photos: "Photos",
+      photosHint: "Up to 5 photos, max 8 MB each.",
+      removePhoto: "Remove photo",
+      submit: "Send photos",
+      sending: "Sending...",
+      sendError: "Could not send the request.",
+      note: "Sent directly to OnPoint. We reply within one working day.",
+    },
   },
   footer: {
     homeAria: "OnPoint Bouw — back to top",
@@ -262,6 +339,19 @@ const en: Dictionary = {
     confirmationGreeting: "Hi {name},",
     confirmationBody:
       "Thanks for your quote request. We received your project details and will come back within one working day.",
+    photoLeadSubject: "Photo inquiry from {name}",
+    photoLeadHeading: "New photo inquiry (first idea)",
+    photoValidationError:
+      "Please enter your name, a phone number or email, a short message and at least one photo.",
+    photoTooLarge: "The photos are too large. Up to 5 photos of 8 MB each.",
+    photoSuccess:
+      "Photos sent. We'll give you a first idea within one working day.",
+    photoFields: {
+      name: "Name",
+      contact: "Phone / email",
+      message: "Message",
+      photos: "Photos",
+    },
   },
 };
 

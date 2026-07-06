@@ -23,6 +23,14 @@ export type NavLink = {
   hash: string;
 };
 
+export type TestimonialItem = {
+  quote: string;
+  name: string;
+  town: string;
+  projectType: string;
+};
+
+
 export type Dictionary = {
   meta: {
     title: string;
@@ -61,6 +69,9 @@ export type Dictionary = {
     title: string;
     intro: string;
     viewProject: string;
+    beforeLabel: string;
+    afterLabel: string;
+    beforePlaceholder: string;
     readouts: StatItem[];
   };
   process: {
@@ -69,19 +80,61 @@ export type Dictionary = {
     intro: string;
     steps: ProcessStep[];
   };
+  testimonials: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: TestimonialItem[];
+    trustBar: StatItem[];
+  };
   trust: {
     eyebrow: string;
     title: string;
     intro: string;
     points: TrustPoint[];
+    /** How pricing works — deliberately contains no price numbers */
+    pricing: {
+      title: string;
+      disclaimer: string;
+    };
     aside: string;
     requestQuote: string;
+  };
+  whatsapp: {
+    label: string;
+    aria: string;
+  };
+  mobileBar: {
+    ariaLabel: string;
+    whatsapp: string;
+    call: string;
   };
   cta: {
     eyebrow: string;
     title: string;
     intro: string;
     requestQuote: string;
+    whatsappStart: {
+      title: string;
+      hint: string;
+      /** Prefilled WhatsApp message; {type} is replaced with the chosen project type */
+      messageTemplate: string;
+    };
+    photoForm: {
+      eyebrow: string;
+      title: string;
+      intro: string;
+      name: string;
+      contact: string;
+      message: string;
+      photos: string;
+      photosHint: string;
+      removePhoto: string;
+      submit: string;
+      sending: string;
+      sendError: string;
+      note: string;
+    };
   };
   footer: {
     homeAria: string;
@@ -167,5 +220,16 @@ export type Dictionary = {
     confirmationSubject: string;
     confirmationGreeting: string;
     confirmationBody: string;
+    photoLeadSubject: string;
+    photoLeadHeading: string;
+    photoValidationError: string;
+    photoTooLarge: string;
+    photoSuccess: string;
+    photoFields: {
+      name: string;
+      contact: string;
+      message: string;
+      photos: string;
+    };
   };
 };

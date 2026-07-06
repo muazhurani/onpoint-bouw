@@ -6,10 +6,13 @@ export type ProjectContent = {
   summary: string;
   location: string;
   timeframe: string;
+  /** Shown as a tag chip on the project card, e.g. "7 weken" */
+  duration: string;
   scope: string[];
   description: string[];
   keywords: string[];
   coverAlt: string;
+  beforeCoverAlt?: string;
 };
 
 export type GalleryItemSource = {
@@ -28,6 +31,8 @@ export type GallerySectionSource = {
 export type ProjectSource = {
   slug: string;
   cover: string;
+  /** "Before" state for the card toggle; omit to show a placeholder */
+  beforeCover?: string;
   gallery?: GalleryItemSource[];
   gallerySections?: GallerySectionSource[];
   nl: ProjectContent;
@@ -35,9 +40,11 @@ export type ProjectSource = {
 };
 
 export const projectSources: ProjectSource[] = [
+  // TODO: Replace placeholder `duration` values below with real project durations.
   {
     slug: "garden-patio",
     cover: "/images/garden-patio/garden-patio-exterior.png",
+    beforeCover: "/images/garden-patio/garden-patio-before-garden.png",
     gallerySections: [
       {
         id: "after",
@@ -189,6 +196,7 @@ export const projectSources: ProjectSource[] = [
         "Een complete woningupgrade: vernieuwde leefruimtes binnen, een nieuwe uitbreiding van de salon met tuintoegang, en een achtertuin opnieuw ingericht met bestrating, niveaus en beplanting.",
       location: "Nederland",
       timeframe: "Verbouwing, aanbouw en tuinproject",
+      duration: "10 weken",
       scope: [
         "Interieurverbouwing en afwerking",
         "Salonuitbreiding met openslaande deuren",
@@ -209,6 +217,8 @@ export const projectSources: ProjectSource[] = [
       ],
       coverAlt:
         "Salonuitbreiding en vernieuwde tuin bij een bakstenen woning in Nederland, met terrasbestrating, tuindeuren en een afgewerkte achtertuin.",
+      beforeCoverAlt:
+        "Originele achtertuin vóór de renovatie, met grasveld, tegelterras en beplanting langs de woning.",
     },
     en: {
       title: "Salon extension, interior renovation and garden",
@@ -217,6 +227,7 @@ export const projectSources: ProjectSource[] = [
         "A full home upgrade: refreshed living spaces inside, a new extension to the salon with garden access, and a backyard rebuilt with paving, levels and planting.",
       location: "Netherlands",
       timeframe: "Renovation, extension and garden project",
+      duration: "10 weeks",
       scope: [
         "Interior renovation and finishing",
         "Salon extension with patio doors",
@@ -237,11 +248,14 @@ export const projectSources: ProjectSource[] = [
       ],
       coverAlt:
         "Salon extension and renovated garden at a brick home in the Netherlands, with patio paving, garden doors and a finished backyard.",
+      beforeCoverAlt:
+        "Original backyard before the renovation, with a lawn, tiled patio and planting along the house.",
     },
   },
   {
     slug: "rear-extension",
     cover: "/images/rear-extension/rear-extension-patio-evening.png",
+    beforeCover: "/images/rear-extension/rear-extension-before-garden.png",
     gallerySections: [
       {
         id: "after",
@@ -291,25 +305,36 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/rear-extension/rear-extension-bathroom-vanity.png",
+        src: "/images/rear-extension/floor-heating-finished-marble.png",
         nl: {
-          alt: "Vernieuwde badkamer met nieuw wandtegelwerk en een zwevende wastafel.",
-          label: "Badkamerrenovatie",
+          alt: "Afgewerkte marmeren vloer met gepolijste tegels, koofverlichting en afgewerkte wanden.",
+          label: "Afgewerkte vloer",
         },
         en: {
-          alt: "Renovated bathroom with new wall tiling and a floating vanity.",
-          label: "Bathroom renovation",
+          alt: "Completed marble floor with polished tiles, cove lighting and finished walls.",
+          label: "Finished floor",
         },
       },
       {
-        src: "/images/rear-extension/rear-extension-bathroom-shower.png",
+        src: "/images/rear-extension/toilet-renovation-vanity.png",
         nl: {
-          alt: "Vernieuwde toilet- en doucheruimte met tegelwerk van vloer tot plafond en een inloopdouche.",
-          label: "Toilet en douche",
+          alt: "Zwevende houten wastafel geplaatst met dubbele wastafel en grootformaat grijze wandtegels.",
+          label: "Wastafel geplaatst",
         },
         en: {
-          alt: "Renovated toilet and shower room with floor-to-ceiling tiling and a walk-in shower.",
-          label: "Toilet and shower",
+          alt: "Floating wood vanity fitted with a double basin and large-format grey wall tiles.",
+          label: "Vanity fitted",
+        },
+      },
+      {
+        src: "/images/rear-extension/toilet-renovation-finished.png",
+        nl: {
+          alt: "Afgewerkte badkamer met inloopdouche, hangend toilet en doorlopend beige tegelwerk.",
+          label: "Afgewerkte badkamer",
+        },
+        en: {
+          alt: "Completed bathroom with walk-in shower, wall-hung toilet and continuous beige tiling.",
+          label: "Finished bathroom",
         },
       },
         ],
@@ -372,74 +397,176 @@ export const projectSources: ProjectSource[] = [
           label: "Roof lantern in progress",
         },
       },
+      {
+        src: "/images/rear-extension/toilet-renovation-demolition.png",
+        nl: {
+          alt: "Badkamer gestript tijdens de sloop, met oude tegels verwijderd en puin opgeruimd.",
+          label: "Sloop",
+        },
+        en: {
+          alt: "Bathroom stripped back during demolition, with old tiles removed and debris cleared.",
+          label: "Strip-out",
+        },
+      },
+      {
+        src: "/images/rear-extension/toilet-renovation-stripped.png",
+        nl: {
+          alt: "Kale badkamerwanden en -vloer voorbereid voor nieuwe leidingen en waterdichting.",
+          label: "Voorbereide ruimte",
+        },
+        en: {
+          alt: "Bare bathroom walls and floor prepared for new plumbing and waterproofing.",
+          label: "Prepared room",
+        },
+      },
+      {
+        src: "/images/rear-extension/toilet-renovation-waterproofing.png",
+        nl: {
+          alt: "Blauw waterdicht membraan aangebracht op wanden en vloer met ingebouwd toiletframe.",
+          label: "Waterdichting",
+        },
+        en: {
+          alt: "Blue waterproof membrane applied to walls and floor with a concealed toilet frame installed.",
+          label: "Waterproofing",
+        },
+      },
+      {
+        src: "/images/rear-extension/floor-heating-underfloor-installation.png",
+        nl: {
+          alt: "Vloerverwarmingsleidingen gelegd op noppenplaten vóór het storten van de dekvloer.",
+          label: "Vloerverwarming",
+        },
+        en: {
+          alt: "Underfloor heating pipes laid on studded insulation boards before the screed is poured.",
+          label: "Underfloor heating",
+        },
+      },
+      {
+        src: "/images/rear-extension/floor-heating-pipe-layout.png",
+        nl: {
+          alt: "Verwarmingsleidingcircuits bevestigd in vloerpanelen door een vernieuwde ruimte.",
+          label: "Leidingindeling",
+        },
+        en: {
+          alt: "Heating pipe circuits clipped into floor panels across a renovated room.",
+          label: "Pipe layout",
+        },
+      },
+      {
+        src: "/images/rear-extension/toilet-renovation-tiling.png",
+        nl: {
+          alt: "Grootformaat tegels worden gelegd op wanden en vloer met nivelleersysteem en lineaire afvoer.",
+          label: "Tegelwerk badkamer",
+        },
+        en: {
+          alt: "Large-format tiles being laid on walls and floor with a levelling system and linear drain.",
+          label: "Bathroom tiling",
+        },
+      },
+      {
+        src: "/images/rear-extension/floor-heating-tile-installation.png",
+        nl: {
+          alt: "Grote marmerlook tegels worden gelegd op een voorbereide vloer met afstandhouders en lijm.",
+          label: "Vloertegels leggen",
+        },
+        en: {
+          alt: "Large marble-effect tiles being laid on a prepared floor with spacers and adhesive.",
+          label: "Floor tiling",
+        },
+      },
+      {
+        src: "/images/rear-extension/floor-heating-marble-laying.png",
+        nl: {
+          alt: "Marmeren platen geplaatst met een nivelleersysteem tijdens de installatie.",
+          label: "Marmer leggen",
+        },
+        en: {
+          alt: "Marble slabs placed with a tile levelling system during installation.",
+          label: "Marble slab laying",
+        },
+      },
         ],
       },
     ],
     nl: {
-      title: "Tuin, verbouwing en badkamerupgrade",
+      title: "Aanbouw, tuin, vloeren en badkamer",
       eyebrow: "Verbouwing en tuin",
       summary:
-        "Een complete woningvernieuwing: tuin opnieuw ingericht met bestrating en verlichting, vloerverwarming, toilet- en badkamerrenovatie, gipsplaatafwerking en algemeen interieurwerk.",
+        "Een complete woningvernieuwing: achteraanbouw en tuin, vloerverwarming met marmeren vloeren, toilet- en badkamerrenovatie, gipsplaatafwerking en algemeen interieurwerk.",
       location: "Nederland",
       timeframe: "Verbouwing en tuinproject",
+      duration: "12 weken",
       scope: [
+        "Achteraanbouw en dakwerk",
         "Tuinbestrating, beplanting en buitenverlichting",
-        "Vloerverwarming",
+        "Vloerverwarming en marmeren vloeren",
         "Toilet- en badkamerrenovatie",
         "Gipsplaatwanden en plafonds",
         "Algemene interieurverbouwing",
       ],
       description: [
-        "Dit was een brede verbouwing, niet alleen één kamer. Binnen vernieuwden we wanden en plafonds met gipsplaat, legden we vloerverwarming aan en werkten we de ruimtes af zodat de woning weer echt vernieuwd aanvoelde — inclusief keuken en woonruimtes.",
-        "Het toilet en de badkamer werden volledig gerenoveerd: nieuw tegelwerk, een inloopdouche, vernieuwd sanitair en nette, doorlopende afwerking van vloer tot plafond.",
+        "Dit was een brede verbouwing over de hele woning. We bouwden een aanbouw aan de achterzijde, vernieuwden keuken en woonruimtes met gipsplaat en legden vloerverwarming aan met een marmeren vloerafwerking.",
+        "Het toilet en de badkamer werden volledig gestript en opnieuw opgebouwd: waterdichte natte-ruimte, grootformaat tegels, inloopdouche, hangend toilet en een zwevende wastafel.",
         "Buiten bouwden we de tuin opnieuw op met verharde terrassen, gazon, beplanting en geïntegreerde verlichting. Het resultaat is een woning die dagelijks beter werkt, met warme vloeren binnen en een tuin die 's avonds ook bruikbaar is.",
       ],
       keywords: [
         "woningverbouwing Nederland",
+        "achteraanbouw Nederland",
         "tuinrenovatie Nederland",
         "vloerverwarming Nederland",
-        "vloerverwarming",
+        "marmeren vloer leggen",
         "toiletrenovatie Nederland",
-        "gipsplaat verbouwing",
+        "badkamer renovatie Nederland",
       ],
       coverAlt:
         "Afgewerkte tuin en buitenruimte bij een woning in Nederland, met stenen bestrating en geïntegreerde verlichting bij schemer.",
+      beforeCoverAlt:
+        "Originele achtertuin vóór de verbouwing, met gebakken tegels, houten gazebo en speeltoestel.",
     },
     en: {
-      title: "Garden, renovation and bathroom upgrade",
+      title: "Extension, garden, floors and bathroom",
       eyebrow: "Renovation and garden",
       summary:
-        "A full home refresh: garden rebuilt with paving and lighting, underfloor heating, toilet and bathroom renovation, gypsum board finishes and general interior work.",
+        "A full home renovation: rear extension and garden, underfloor heating with marble floors, toilet and bathroom renovation, gypsum board finishes and general interior work.",
       location: "Netherlands",
       timeframe: "Renovation and garden project",
+      duration: "12 weeks",
       scope: [
+        "Rear extension and roofing",
         "Garden paving, planting and outdoor lighting",
-        "Underfloor heating (vloerverwarming)",
+        "Underfloor heating and marble floors",
         "Toilet and bathroom renovation",
         "Gypsum board walls and ceilings",
         "General interior renovation",
       ],
       description: [
-        "This was a broad renovation job, not just one room. Inside, we renewed walls and ceilings with gypsum board, laid underfloor heating and finished the spaces so the home felt properly updated again — including the kitchen and living areas.",
-        "The toilet and bathroom were fully renovated: new tiling, a walk-in shower, updated sanitary ware and clean, continuous finishes from floor to ceiling.",
+        "This was a broad renovation across the whole home. We built a rear extension, refreshed the kitchen and living spaces with gypsum board and laid underfloor heating with a marble floor finish.",
+        "The toilet and bathroom were fully stripped and rebuilt: waterproof wet-room tanking, large-format tiling, a walk-in shower, wall-hung toilet and a floating vanity.",
         "Outside, we rebuilt the garden with paved terraces, lawn, planting and integrated lighting. The result is a home that works better day to day, with warm floors inside and a garden that is usable in the evening too.",
       ],
       keywords: [
         "home renovation Netherlands",
+        "rear extension Netherlands",
         "garden renovation Netherlands",
         "underfloor heating Netherlands",
-        "vloerverwarming",
+        "marble floor installation",
         "toilet renovation Netherlands",
-        "gypsum board renovation",
+        "bathroom renovation Netherlands",
       ],
       coverAlt:
         "Finished garden and outdoor living area at a home in the Netherlands, with stone paving and integrated lighting at dusk.",
+      beforeCoverAlt:
+        "Original backyard before the renovation, with brick pavers, a wooden gazebo and play equipment.",
     },
   },
   {
     slug: "bathroom-renovation",
     cover: "/images/bathroom-renovation/renovation-garden-patio.png",
-    gallery: [
+    beforeCover: "/images/bathroom-renovation/garden-before.png",
+    gallerySections: [
+      {
+        id: "after",
+        items: [
       {
         src: "/images/bathroom-renovation/renovation-garden-patio.png",
         nl: {
@@ -466,22 +593,22 @@ export const projectSources: ProjectSource[] = [
         src: "/images/bathroom-renovation/renovation-lounge.png",
         nl: {
           alt: "Vernieuwde lounge met nieuwe vloer, witte muren en openslaande deuren naar de tuin.",
-          label: "Woonkamer",
+          label: "Lounge",
         },
         en: {
           alt: "Renovated lounge with new flooring, white walls and patio doors opening to the garden.",
-          label: "Living room",
+          label: "Lounge",
         },
       },
       {
         src: "/images/bathroom-renovation/renovation-living-room.png",
         nl: {
-          alt: "Afgewerkte interieurruimte met gipsplaatwanden, houten vloer en ingebouwde plafondverlichting.",
-          label: "Interieurverbouwing",
+          alt: "Afgewerkte woonkamer met gipsplaatwanden, houten vloer en ingebouwde plafondverlichting.",
+          label: "Woonkamer",
         },
         en: {
-          alt: "Finished interior room with gypsum board walls, wood flooring and recessed ceiling lighting.",
-          label: "Interior renovation",
+          alt: "Finished living room with gypsum board walls, wood flooring and recessed ceiling lighting.",
+          label: "Living room",
         },
       },
       {
@@ -506,316 +633,94 @@ export const projectSources: ProjectSource[] = [
           label: "Walk-in shower",
         },
       },
+        ],
+      },
+      {
+        id: "before",
+        items: [
+      {
+        src: "/images/bathroom-renovation/garden-before.png",
+        nl: {
+          alt: "Originele achtertuin vóór de renovatie, met grijze tegels, grasstrook, houten schutting en buitenverlichting bij schemer.",
+          label: "Tuin vóór",
+        },
+        en: {
+          alt: "Original backyard before the renovation, with grey paving, a grass strip, wooden fencing and exterior lighting at dusk.",
+          label: "Garden before",
+        },
+      },
+        ],
+      },
     ],
     nl: {
-      title: "Tuin, verbouwing en badkamer",
+      title: "Badkamer, tuin en woonkamerrenovatie",
       eyebrow: "Verbouwing en tuin",
       summary:
-        "Tuin opnieuw ingericht met bestrating en verlichting, toilet en badkamer volledig gerenoveerd, gipsplaatafwerking en algemeen interieurwerk door de hele woning.",
+        "Badkamer en toilet volledig gerenoveerd, woonkamer en leefruimtes vernieuwd met nieuwe vloeren en afwerking, en de tuin opnieuw ingericht met bestrating en verlichting.",
       location: "Nederland",
       timeframe: "Verbouwing en tuinproject",
+      duration: "8 weken",
       scope: [
-        "Tuinbestrating, beplanting en buitenverlichting",
         "Toilet- en badkamerrenovatie",
+        "Woonkamer- en leefruimteverbouwing",
+        "Tuinbestrating, beplanting en buitenverlichting",
         "Gipsplaatwanden en plafonds",
-        "Algemene interieurverbouwing",
       ],
       description: [
-        "Binnen vernieuwden we wanden en plafonds met gipsplaat en werkten we de leefruimtes af met nieuwe vloeren, verlichting en nette details zodat de woning weer echt vernieuwd aanvoelde.",
         "Het toilet en de badkamer werden volledig gerenoveerd: nieuw tegelwerk, een inloopdouche met ingebouwde zitbank, vernieuwd sanitair en matzwarte kranen en accessoires.",
-        "Buiten bouwden we de tuin opnieuw op met verharde terrassen, kunstgras, beplanting en wandverlichting. Een praktische afwerking — hetzelfde soort werk als onze andere verbouwingsprojecten, maar zonder vloerverwarming bij deze klus.",
+        "Binnen vernieuwden we de woonkamer en leefruimtes met gipsplaat, nieuwe vloeren, verlichting en nette details zodat de woning weer open en afgewerkt aanvoelde.",
+        "Buiten bouwden we de tuin opnieuw op met verharde terrassen, kunstgras, beplanting en wandverlichting — een duidelijke verbinding tussen binnen en buiten.",
       ],
       keywords: [
-        "woningverbouwing Nederland",
+        "badkamer renovatie Nederland",
+        "woonkamer renovatie Nederland",
         "tuinrenovatie Nederland",
         "toiletrenovatie Nederland",
-        "badkamer renovatie Nederland",
+        "woningverbouwing Nederland",
         "gipsplaat verbouwing",
-        "badkamer renovatie",
       ],
       coverAlt:
         "Vernieuwde tuin en terras bij een woning in Nederland, met bestrating, kunstgras en buitenverlichting bij schemer.",
+      beforeCoverAlt:
+        "Originele achtertuin vóór de renovatie, met grijze tegels, grasstrook, houten schutting en buitenverlichting bij schemer.",
     },
     en: {
-      title: "Garden, renovation and bathroom",
+      title: "Bathroom, garden and living room renovation",
       eyebrow: "Renovation and garden",
       summary:
-        "Garden rebuilt with paving and lighting, toilet and bathroom fully renovated, gypsum board finishes and general interior work throughout the home.",
+        "Bathroom and toilet fully renovated, living room and interior spaces refreshed with new flooring and finishes, and the garden rebuilt with paving and lighting.",
       location: "Netherlands",
       timeframe: "Renovation and garden project",
+      duration: "8 weeks",
       scope: [
-        "Garden paving, planting and outdoor lighting",
         "Toilet and bathroom renovation",
+        "Living room and interior renovation",
+        "Garden paving, planting and outdoor lighting",
         "Gypsum board walls and ceilings",
-        "General interior renovation",
       ],
       description: [
-        "Inside, we renewed walls and ceilings with gypsum board and finished the living spaces with new flooring, lighting and clean details so the home felt properly updated again.",
         "The toilet and bathroom were fully renovated: new tiling, a walk-in shower with a built-in bench, updated sanitary ware and matte-black fixtures throughout.",
-        "Outside, we rebuilt the garden with paved terraces, artificial grass, planting and wall lighting. A practical finish — the same kind of work as our other renovation projects, but without underfloor heating on this job.",
+        "Inside, we refreshed the living room and interior spaces with gypsum board, new flooring, lighting and clean details so the home felt open and properly finished again.",
+        "Outside, we rebuilt the garden with paved terraces, artificial grass, planting and wall lighting — a clear connection between inside and out.",
       ],
       keywords: [
-        "home renovation Netherlands",
+        "bathroom renovation Netherlands",
+        "living room renovation Netherlands",
         "garden renovation Netherlands",
         "toilet renovation Netherlands",
-        "bathroom renovation Netherlands",
+        "home renovation Netherlands",
         "gypsum board renovation",
-        "badkamer renovatie Netherlands",
       ],
       coverAlt:
         "Renovated garden and patio at a home in the Netherlands, with paving, artificial grass and outdoor lighting at dusk.",
-    },
-  },
-  {
-    slug: "floor-heating-marble",
-    cover: "/images/floor-heating-marble/floor-heating-finished-marble.png",
-    gallery: [
-      {
-        src: "/images/floor-heating-marble/floor-heating-underfloor-installation.png",
-        nl: {
-          alt: "Vloerverwarmingsleidingen gelegd op noppenplaten vóór het storten van de dekvloer.",
-          label: "Vloerverwarming",
-        },
-        en: {
-          alt: "Underfloor heating pipes laid on studded insulation boards before the screed is poured.",
-          label: "Underfloor heating",
-        },
-      },
-      {
-        src: "/images/floor-heating-marble/floor-heating-pipe-layout.png",
-        nl: {
-          alt: "Verwarmingsleidingcircuits bevestigd in vloerpanelen door een vernieuwde ruimte.",
-          label: "Leidingindeling",
-        },
-        en: {
-          alt: "Heating pipe circuits clipped into floor panels across a renovated room.",
-          label: "Pipe layout",
-        },
-      },
-      {
-        src: "/images/floor-heating-marble/floor-heating-tile-installation.png",
-        nl: {
-          alt: "Grote marmerlook tegels worden gelegd op een voorbereide vloer met afstandhouders en lijm.",
-          label: "Tegelwerk",
-        },
-        en: {
-          alt: "Large marble-effect tiles being laid on a prepared floor with spacers and adhesive.",
-          label: "Tile installation",
-        },
-      },
-      {
-        src: "/images/floor-heating-marble/floor-heating-marble-laying.png",
-        nl: {
-          alt: "Marmeren platen geplaatst met een nivelleersysteem tijdens de installatie.",
-          label: "Marmer leggen",
-        },
-        en: {
-          alt: "Marble slabs placed with a tile levelling system during installation.",
-          label: "Marble slab laying",
-        },
-      },
-      {
-        src: "/images/floor-heating-marble/floor-heating-finished-marble.png",
-        nl: {
-          alt: "Afgewerkte marmeren vloer met gepolijste tegels, koofverlichting en afgewerkte wanden.",
-          label: "Afgewerkte vloer",
-        },
-        en: {
-          alt: "Completed marble floor with polished tiles, cove lighting and finished walls.",
-          label: "Finished floor",
-        },
-      },
-    ],
-    nl: {
-      title: "Vloerverwarming en marmeren vloeren",
-      eyebrow: "Vloeren en verbouwing",
-      summary:
-        "Complete vloeropbouw: vloerverwarming geïnstalleerd, betonvloer gestort en grote marmeren tegels gelegd in vernieuwde leefruimtes.",
-      location: "Nederland",
-      timeframe: "Vloerverwarming en tegelproject",
-      scope: [
-        "Vloerverwarming",
-        "Betonvloer storten",
-        "Grote marmeren tegels leggen",
-        "Gipsplaatwanden en plafondafwerking",
-      ],
-      description: [
-        "De vloer moest vanaf de basis goed worden opgebouwd. We installeerden vloerverwarming op isolatieplaten, legden de leidingcircuits aan en bereidden de ondervloer voor op de dekvloer.",
-        "Nadat de betonvloer was gestort en uitgehard, egaliseerden we het oppervlak en legden we grote marmeren tegels met een nivelleersysteem zodat de afwerking over de hele ruimte vlak blijft.",
-        "Het resultaat is een warme, stevige vloer met een nette marmeren afwerking — klaar voor de rest van de interieurverbouwing, inclusief nieuwe wanden, verlichting en koofdetails.",
-      ],
-      keywords: [
-        "vloerverwarming Nederland",
-        "vloerverwarming",
-        "marmeren vloer leggen",
-        "betonvloer storten",
-        "vloerrenovatie Nederland",
-      ],
-      coverAlt:
-        "Afgewerkte marmeren vloer in een vernieuwde ruimte in Nederland, met vloerverwarming eronder en koofverlichting in het plafond.",
-    },
-    en: {
-      title: "Underfloor heating and marble floors",
-      eyebrow: "Floors and renovation",
-      summary:
-        "Full floor build-up: underfloor heating installed, concrete screed poured and large-format marble tiles laid across renovated living spaces.",
-      location: "Netherlands",
-      timeframe: "Floor heating and tiling project",
-      scope: [
-        "Underfloor heating (vloerverwarming)",
-        "Concrete screed pouring",
-        "Large-format marble tile installation",
-        "Gypsum board walls and ceiling finishes",
-      ],
-      description: [
-        "The floor needed to be rebuilt properly from the ground up. We installed underfloor heating on insulation boards, laid the pipe circuits and prepared the subfloor for screed.",
-        "Once the concrete screed was poured and cured, we levelled the surface and laid large-format marble tiles with a levelling system so the finish stays flat across the full room.",
-        "The result is a warm, solid floor with a clean marble finish — ready for the rest of the interior renovation, including new walls, lighting and cove details.",
-      ],
-      keywords: [
-        "underfloor heating Netherlands",
-        "vloerverwarming Netherlands",
-        "marble floor installation",
-        "concrete screed pouring",
-        "floor renovation Netherlands",
-      ],
-      coverAlt:
-        "Finished marble floor in a renovated room in the Netherlands, with underfloor heating beneath and cove lighting in the ceiling.",
-    },
-  },
-  {
-    slug: "toilet-renovation",
-    cover: "/images/toilet-renovation/toilet-renovation-finished.png",
-    gallery: [
-      {
-        src: "/images/toilet-renovation/toilet-renovation-demolition.png",
-        nl: {
-          alt: "Badkamer gestript tijdens de sloop, met oude tegels verwijderd en puin opgeruimd.",
-          label: "Sloop",
-        },
-        en: {
-          alt: "Bathroom stripped back during demolition, with old tiles removed and debris cleared.",
-          label: "Strip-out",
-        },
-      },
-      {
-        src: "/images/toilet-renovation/toilet-renovation-stripped.png",
-        nl: {
-          alt: "Kale badkamerwanden en -vloer voorbereid voor nieuwe leidingen en waterdichting.",
-          label: "Voorbereide ruimte",
-        },
-        en: {
-          alt: "Bare bathroom walls and floor prepared for new plumbing and waterproofing.",
-          label: "Prepared room",
-        },
-      },
-      {
-        src: "/images/toilet-renovation/toilet-renovation-waterproofing.png",
-        nl: {
-          alt: "Blauw waterdicht membraan aangebracht op wanden en vloer met ingebouwd toiletframe.",
-          label: "Waterdichting",
-        },
-        en: {
-          alt: "Blue waterproof membrane applied to walls and floor with a concealed toilet frame installed.",
-          label: "Waterproofing",
-        },
-      },
-      {
-        src: "/images/toilet-renovation/toilet-renovation-tiling.png",
-        nl: {
-          alt: "Grootformaat tegels worden gelegd op wanden en vloer met nivelleersysteem en lineaire afvoer.",
-          label: "Tegelwerk",
-        },
-        en: {
-          alt: "Large-format tiles being laid on walls and floor with a levelling system and linear drain.",
-          label: "Tiling",
-        },
-      },
-      {
-        src: "/images/toilet-renovation/toilet-renovation-vanity.png",
-        nl: {
-          alt: "Zwevende houten wastafel geplaatst met dubbele wastafel en grootformaat grijze wandtegels.",
-          label: "Wastafel geplaatst",
-        },
-        en: {
-          alt: "Floating wood vanity fitted with a double basin and large-format grey wall tiles.",
-          label: "Vanity fitted",
-        },
-      },
-      {
-        src: "/images/toilet-renovation/toilet-renovation-finished.png",
-        nl: {
-          alt: "Afgewerkte badkamer met inloopdouche, hangend toilet en doorlopend beige tegelwerk.",
-          label: "Afgewerkte badkamer",
-        },
-        en: {
-          alt: "Completed bathroom with walk-in shower, wall-hung toilet and continuous beige tiling.",
-          label: "Finished bathroom",
-        },
-      },
-    ],
-    nl: {
-      title: "Toilet- en badkamerrenovatie",
-      eyebrow: "Badkamer",
-      summary:
-        "Een complete toilet- en natte-ruimterenovatie: gestript, waterdicht gemaakt, opnieuw betegeld van wand tot vloer en afgewerkt met inloopdouche, hangend toilet en zwevende wastafel.",
-      location: "Nederland",
-      timeframe: "Badkamerrenovatieproject",
-      scope: [
-        "Sloop en strippen",
-        "Waterdichte natte-ruimte",
-        "Hangend toilet installeren",
-        "Grootformaat wand- en vloertegels",
-        "Inloopdouche en wastafel plaatsen",
-      ],
-      description: [
-        "De oude badkamer was verouderd en slecht ingedeeld. We strippten alles terug tot de constructie, verwijderden het oude tegelwerk en bereidden de ruimte goed voor op een natte-ruimteafwerking.",
-        "We tankten wanden en vloer met een waterdicht membraan, bouwden het verborgen toiletframe in en legden grootformaat tegels met een nivelleersysteem zodat wanden en vloer netjes op elkaar aansluiten.",
-        "De ruimte werd afgewerkt met een hangend toilet, inloopdouche met glazen wand, lineaire afvoer en een zwevende wastafel — een compacte ruimte die groter aanvoelt en gebouwd is om lang mee te gaan.",
-      ],
-      keywords: [
-        "toiletrenovatie Nederland",
-        "badkamer renovatie Nederland",
-        "natte ruimte renovatie",
-        "inloopdouche plaatsen",
-        "badkamer renovatie",
-      ],
-      coverAlt:
-        "Afgewerkte toilet- en badkamerrenovatie in Nederland met inloopdouche, hangend toilet en beige marmerlook tegels.",
-    },
-    en: {
-      title: "Toilet and bathroom renovation",
-      eyebrow: "Bathroom",
-      summary:
-        "A full toilet and wet-room renovation: stripped back, waterproofed, retiled wall to floor and finished with a walk-in shower, wall-hung toilet and floating vanity.",
-      location: "Netherlands",
-      timeframe: "Bathroom renovation project",
-      scope: [
-        "Strip-out and demolition",
-        "Wet-room waterproofing",
-        "Wall-hung toilet installation",
-        "Large-format wall and floor tiling",
-        "Walk-in shower and vanity fitting",
-      ],
-      description: [
-        "The old bathroom was tired and poorly laid out. We stripped it back to the structure, cleared the old tiles and prepared the room properly for a wet-room finish.",
-        "We tanked the walls and floor with waterproof membrane, built in the concealed toilet frame and laid large-format tiles with a levelling system so walls and floor line up cleanly.",
-        "The room was finished with a wall-hung toilet, walk-in shower with a glass partition, linear drain and a floating vanity — a compact space that feels bigger and is built to last.",
-      ],
-      keywords: [
-        "toilet renovation Netherlands",
-        "bathroom renovation Netherlands",
-        "wet room renovation",
-        "walk-in shower installation",
-        "badkamer renovatie Netherlands",
-      ],
-      coverAlt:
-        "Finished toilet and bathroom renovation in the Netherlands with walk-in shower, wall-hung toilet and beige marble-effect tiling.",
+      beforeCoverAlt:
+        "Original backyard before the renovation, with grey paving, a grass strip, wooden fencing and exterior lighting at dusk.",
     },
   },
   {
     slug: "kitchen-extension",
     cover: "/images/kitchen-extension/kitchen-extension-exterior-finished.png",
+    beforeCover: "/images/kitchen-extension/kitchen-extension-before.png",
     gallery: [
       {
         src: "/images/kitchen-extension/kitchen-extension-before.png",
@@ -880,6 +785,7 @@ export const projectSources: ProjectSource[] = [
         "Een lichtere keuken-woonruimte met een kleine aanbouw aan de achterzijde, nieuwe tuindeuren, grijs porselein terras en een net toilet beneden — zonder de voorkant van het huis te veranderen.",
       location: "Nederland",
       timeframe: "Keukenaanbouwproject",
+      duration: "9 weken",
       scope: [
         "Aanbouw aan de keuken",
         "Stalen latei en passend metselwerk",
@@ -901,6 +807,8 @@ export const projectSources: ProjectSource[] = [
       ],
       coverAlt:
         "Afgewerkte keukenaanbouw aan een bakstenen rijwoning in Nederland, met tuindeuren, grijs porselein terras en een klein gazon.",
+      beforeCoverAlt:
+        "Originele krappe keuken vóór de start van de aanbouw.",
     },
     en: {
       title: "Kitchen extension, patio and cloakroom",
@@ -909,6 +817,7 @@ export const projectSources: ProjectSource[] = [
         "A brighter kitchen-diner with a small rear extension, new patio doors, grey porcelain patio and a proper downstairs toilet — without changing the front of the house.",
       location: "Netherlands",
       timeframe: "Kitchen extension project",
+      duration: "9 weeks",
       scope: [
         "Rear kitchen extension",
         "Steel lintel and matching brickwork",
@@ -930,11 +839,14 @@ export const projectSources: ProjectSource[] = [
       ],
       coverAlt:
         "Completed kitchen extension on a brick terraced home in the Netherlands, with patio doors, grey porcelain tiles and a small garden lawn.",
+      beforeCoverAlt:
+        "Original cramped kitchen before the extension work started.",
     },
   },
   {
     slug: "under-stair-storage",
     cover: "/images/under-stair-storage/under-stair-storage-finished.png",
+    beforeCover: "/images/under-stair-storage/under-stair-storage-before.png",
     gallery: [
       {
         src: "/images/under-stair-storage/under-stair-storage-before.png",
@@ -945,17 +857,6 @@ export const projectSources: ProjectSource[] = [
         en: {
           alt: "Unused space under the stairs before the renovation, with loose shoes and items on the floor.",
           label: "Before renovation",
-        },
-      },
-      {
-        src: "/images/under-stair-storage/under-stair-storage-prep.png",
-        nl: {
-          alt: "Voorbereiding van de trapkast met waterpas, potloodlijnen en afdekfolie op de vloer.",
-          label: "Voorbereiding en inmeting",
-        },
-        en: {
-          alt: "Under-stair cupboard preparation with a spirit level, pencil markings and floor protection.",
-          label: "Preparation and layout",
         },
       },
       {
@@ -999,6 +900,7 @@ export const projectSources: ProjectSource[] = [
         "Een op maat gemaakte opbergkast onder de trap: van rommelige nis naar drie hoge kasten en laden die perfect de helling van de trap volgen.",
       location: "Nederland",
       timeframe: "Maatwerk timmerwerkproject",
+      duration: "1 daag",
       scope: [
         "Inmeten en ontwerp op maat",
         "Kastconstructie onder de trap",
@@ -1020,6 +922,8 @@ export const projectSources: ProjectSource[] = [
       ],
       coverAlt:
         "Afgewerkte maatwerk trapkast onder een houten trap in een Nederlandse woning, met kastdeuren en laden in een lichte afwerking.",
+      beforeCoverAlt:
+        "Ongebruikte ruimte onder de trap vóór de verbouwing, met losse schoenen en spullen op de vloer.",
     },
     en: {
       title: "Custom under-stair storage",
@@ -1028,6 +932,7 @@ export const projectSources: ProjectSource[] = [
         "A bespoke storage cupboard under the stairs: from a cluttered nook to three tall doors and drawers that follow the slope of the staircase.",
       location: "Netherlands",
       timeframe: "Custom carpentry project",
+      duration: "1 day",
       scope: [
         "Survey and bespoke design",
         "Under-stair cabinet construction",
@@ -1049,11 +954,14 @@ export const projectSources: ProjectSource[] = [
       ],
       coverAlt:
         "Finished custom under-stair storage beneath a wooden staircase in a Dutch home, with cupboard doors and drawers in a light finish.",
+      beforeCoverAlt:
+        "Unused space under the stairs before the renovation, with loose shoes and items on the floor.",
     },
   },
   {
     slug: "backyard-garden-renovation",
     cover: "/images/backyard-garden-renovation/backyard-garden-finished-evening.png",
+    beforeCover: "/images/backyard-garden-renovation/backyard-garden-before.png",
     gallery: [
       {
         src: "/images/backyard-garden-renovation/backyard-garden-before.png",
@@ -1089,17 +997,6 @@ export const projectSources: ProjectSource[] = [
         },
       },
       {
-        src: "/images/backyard-garden-renovation/backyard-garden-finished.png",
-        nl: {
-          alt: "Afgewerkte moderne achtertuin met grijze tegels, verhoogde plantenbakken, pergola en geïntegreerde houten bank.",
-          label: "Afgewerkte tuin",
-        },
-        en: {
-          alt: "Finished modern backyard with grey tiles, raised planters, a pergola and integrated wooden bench seating.",
-          label: "Finished garden",
-        },
-      },
-      {
         src: "/images/backyard-garden-renovation/backyard-garden-finished-evening.png",
         nl: {
           alt: "Moderne achtertuin bij schemer met verlichting in de plantenbakken, pergola en beplanting.",
@@ -1118,6 +1015,7 @@ export const projectSources: ProjectSource[] = [
         "Een complete achtertuintransformatie: van verwaarloosde tegels en rommel naar een strak terras, verhoogde plantenbakken, pergola, maatwerk zithoek en tuinverlichting.",
       location: "Nederland",
       timeframe: "Tuinrenovatieproject",
+      duration: "6 weken",
       scope: [
         "Sloop en graafwerk",
         "Drainage en lijnafvoer",
@@ -1140,6 +1038,8 @@ export const projectSources: ProjectSource[] = [
       ],
       coverAlt:
         "Afgewerkte moderne achtertuin in Nederland met grijze tegels, verhoogde plantenbakken, pergola en tuinverlichting bij schemer.",
+      beforeCoverAlt:
+        "Verwaarloosde achtertuin vóór de renovatie, met ongelijke tegels, onkruid en een verouderd tuinhuisje.",
     },
     en: {
       title: "Modern backyard garden renovation",
@@ -1148,6 +1048,7 @@ export const projectSources: ProjectSource[] = [
         "A full backyard transformation: from tired paving and clutter to a clean patio, raised planters, pergola, custom seating and garden lighting.",
       location: "Netherlands",
       timeframe: "Garden renovation project",
+      duration: "6 weeks",
       scope: [
         "Strip-out and excavation",
         "Drainage and linear drain",
@@ -1170,6 +1071,8 @@ export const projectSources: ProjectSource[] = [
       ],
       coverAlt:
         "Finished modern backyard in the Netherlands with grey paving, raised planters, a pergola and garden lighting at dusk.",
+      beforeCoverAlt:
+        "Neglected backyard before the renovation, with uneven paving, weeds and a weathered garden shed.",
     },
   },
 ];
@@ -1195,6 +1098,7 @@ export function localizeProject(source: ProjectSource, locale: Locale) {
   return {
     slug: source.slug,
     cover: source.cover,
+    beforeCover: source.beforeCover,
     ...content,
     gallery,
     gallerySections,

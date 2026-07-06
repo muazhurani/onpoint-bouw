@@ -83,8 +83,12 @@ export default function PhotoFrame({
         )}
       </div>
       {(fig || caption) && (
-        <figcaption className="mt-3 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-slate">
-          {fig && <span className="text-ink">{fig}</span>}
+        <figcaption className="mt-3 text-[0.875rem] leading-[1.6] text-slate">
+          {fig && (
+            <span className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-ink">
+              {fig}
+            </span>
+          )}
           {fig && caption && <span aria-hidden="true"> — </span>}
           {caption}
         </figcaption>

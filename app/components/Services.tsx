@@ -1,6 +1,6 @@
 "use client";
 
-import { Bath, HousePlus, Trees } from "lucide-react";
+import { Bath, Check, HousePlus, Trees } from "lucide-react";
 import { useDictionary } from "./DictionaryProvider";
 
 const ICONS = [HousePlus, Trees, Bath];
@@ -58,12 +58,17 @@ export default function Services() {
           })}
         </div>
 
-        <div className="mt-8 grid gap-3 border-y border-grid-line py-6 md:grid-cols-3">
+        <div className="mt-10 grid gap-6 border-y border-grid-line py-9 md:grid-cols-3 md:gap-8">
           {services.expectations.map((item) => (
-            <div key={item} className="flex gap-3 text-[0.9375rem] leading-[1.6] text-slate">
-              <span aria-hidden="true" className="font-mono text-accent-yellow">
-                +
-              </span>
+            <div
+              key={item}
+              className="flex gap-3.5 text-[1.125rem] font-medium leading-[1.55] text-ink"
+            >
+              <Check
+                aria-hidden="true"
+                strokeWidth={2.5}
+                className="mt-1 h-5 w-5 shrink-0 text-accent-yellow"
+              />
               <span>{item}</span>
             </div>
           ))}

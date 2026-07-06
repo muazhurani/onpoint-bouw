@@ -41,7 +41,7 @@ const nl: Dictionary = {
     subhead:
       "Tuin, badkamer, aanbouw of complete renovatie — wij helpen huiseigenaren in heel Nederland met helder advies, netjes werk en eerlijke communicatie, van het eerste bezoek tot de opruiming.",
     requestQuote: "Offerte aanvragen",
-    call: "Bel +31 6 1468 6059",
+    call: "Bel +31 6 1571 8727",
     stats: [
       { value: "Gratis", label: "vrijblijvende offerte" },
       { value: "Nederland", label: "heel het land" },
@@ -82,6 +82,9 @@ const nl: Dictionary = {
     intro:
       "Tuinen, aanbouwen en badkamers voor particuliere huiseigenaren. Open een project om te zien wat er is gedaan en hoe het is afgerond.",
     viewProject: "Bekijk project",
+    beforeLabel: "Vóór",
+    afterLabel: "Na",
+    beforePlaceholder: "Vóór-foto volgt",
     readouts: [
       { value: "Echte", label: "afgeronde projecten" },
       { value: "Lokaal", label: "heel Nederland" },
@@ -117,6 +120,43 @@ const nl: Dictionary = {
       },
     ],
   },
+  testimonials: {
+    eyebrow: "Wat klanten zeggen",
+    title: "Huiseigenaren over het werken met ons.",
+    intro:
+      "Geen geregisseerde reclamepraat — dit is wat klanten terugkoppelen nadat het werk is opgeleverd.",
+    // TODO: Replace with real customer testimonials (quote, first name, town, project type).
+    items: [
+      {
+        quote:
+          "Vooraf precies uitgelegd wat er zou gebeuren en wat het zou kosten. Het werk was netjes en de tuin lag er eerder bij dan gepland.",
+        name: "Sanne",
+        town: "Amersfoort",
+        projectType: "Achtertuinrenovatie",
+      },
+      {
+        quote:
+          "Eén aanspreekpunt van begin tot eind. Vragen werden dezelfde dag beantwoord en de aanbouw is precies geworden zoals besproken.",
+        name: "Mark",
+        town: "Utrecht",
+        projectType: "Aanbouw",
+      },
+      {
+        quote:
+          "De badkamer was binnen drie weken klaar. Elke avond werd de werkplek opgeruimd — dat maakte het verschil met eerdere klussen.",
+        name: "Fatima",
+        town: "Amsterdam",
+        projectType: "Badkamerrenovatie",
+      },
+    ],
+    // TODO: Replace placeholders — real Google rating, actual years active, real KvK number.
+    trustBar: [
+      { value: "4,9 ★", label: "op Google" },
+      { value: "10+ jaar", label: "actief in de bouw" },
+      { value: "KvK 00000000", label: "geregistreerd" },
+      { value: "Volledig verzekerd", label: "AVB-dekking" },
+    ],
+  },
   trust: {
     eyebrow: "Waarom huiseigenaren voor ons kiezen",
     title: "Geen vage beloftes. Geen verrassende factuur.",
@@ -144,9 +184,24 @@ const nl: Dictionary = {
         body: "We vertellen wat realistisch is, en zeggen het ook als een klus beter door een andere specialist kan worden gedaan.",
       },
     ],
+    // Deliberately no price numbers on the website — pricing is discussed per project.
+    pricing: {
+      title: "Hoe wij met prijzen omgaan",
+      disclaimer:
+        "Elke prijs hangt af van uw woning en uw wensen, dus die bespreken we persoonlijk. Wat vaststaat: elke offerte wordt schriftelijk vastgelegd voordat het werk begint — dat bedrag is wat u betaalt.",
+    },
     aside:
       "Nog geen bezoek nodig? Stuur een paar foto's en wij geven u een eerste indruk. Privéadressen en klantgegevens komen nooit in publieke voorbeelden.",
     requestQuote: "Offerte aanvragen",
+  },
+  whatsapp: {
+    label: "WhatsApp",
+    aria: "Stuur ons een bericht via WhatsApp",
+  },
+  mobileBar: {
+    ariaLabel: "Snel contact",
+    whatsapp: "WhatsApp",
+    call: "Bel ons",
   },
   cta: {
     eyebrow: "Offerte aanvragen",
@@ -154,6 +209,28 @@ const nl: Dictionary = {
     intro:
       "Bel, mail of stuur een paar foto's mee met uw offerteaanvraag. Wij vertellen wat realistisch is, wat het inhoudt en wat de volgende stap is — meestal binnen één werkdag.",
     requestQuote: "Offerte aanvragen",
+    whatsappStart: {
+      title: "Of start direct via WhatsApp",
+      hint: "Kies uw project — WhatsApp opent met een kant-en-klaar bericht.",
+      messageTemplate:
+        "Hallo OnPoint Bouw, ik wil graag een vrijblijvende offerte voor: {type}.",
+    },
+    photoForm: {
+      eyebrow: "Eerste indruk",
+      title: "Stuur een paar foto's, krijg een eerste indruk",
+      intro:
+        "Geen bezoek nodig om te beginnen. Stuur een paar foto's van de ruimte en wij vertellen wat realistisch is.",
+      name: "Naam",
+      contact: "Telefoon of e-mail",
+      message: "Korte omschrijving",
+      photos: "Foto's",
+      photosHint: "Maximaal 5 foto's, elk tot 8 MB.",
+      removePhoto: "Foto verwijderen",
+      submit: "Foto's versturen",
+      sending: "Versturen...",
+      sendError: "Het versturen is niet gelukt.",
+      note: "Direct naar OnPoint verstuurd. Wij reageren binnen één werkdag.",
+    },
   },
   footer: {
     homeAria: "OnPoint Bouw — naar boven",
@@ -262,6 +339,20 @@ const nl: Dictionary = {
     confirmationGreeting: "Hallo {name},",
     confirmationBody:
       "Bedankt voor uw offerteaanvraag. Wij hebben uw projectgegevens ontvangen en reageren binnen één werkdag.",
+    photoLeadSubject: "Foto-aanvraag van {name}",
+    photoLeadHeading: "Nieuwe foto-aanvraag (eerste indruk)",
+    photoValidationError:
+      "Vul uw naam, telefoonnummer of e-mailadres, een kort bericht en minimaal één foto in.",
+    photoTooLarge:
+      "De foto's zijn te groot. Maximaal 5 foto's van elk 8 MB.",
+    photoSuccess:
+      "Foto's verstuurd. Wij geven u binnen één werkdag een eerste indruk.",
+    photoFields: {
+      name: "Naam",
+      contact: "Telefoon / e-mail",
+      message: "Bericht",
+      photos: "Foto's",
+    },
   },
 };
 

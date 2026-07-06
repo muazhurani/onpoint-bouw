@@ -8,6 +8,16 @@ export default function Process() {
   const process = dict.process;
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
+  const [entranceDone, setEntranceDone] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
+
+  // Drop the staggered entrance delays once they have played, so the
+  // scroll-driven active-step highlight responds immediately.
+  useEffect(() => {
+    if (!inView) return;
+    const timer = setTimeout(() => setEntranceDone(true), 1100);
+    return () => clearTimeout(timer);
+  }, [inView]);
 
   useEffect(() => {
     const el = ref.current;
@@ -28,6 +38,36 @@ export default function Process() {
     io.observe(el);
     return () => io.disconnect();
   }, []);
+
+  // Highlight steps progressively as the timeline crosses a reference line
+  // at 60% of the viewport height.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const rect = el.getBoundingClientRect();
+      const stepCount = process.steps.length;
+      const progress = Math.min(
+        Math.max((window.innerHeight * 0.6 - rect.top) / rect.height, 0),
+        0.999
+      );
+      setActiveStep(Math.floor(progress * stepCount));
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [process.steps.length]);
 
   return (
     <section id="process" className="section-pad scroll-mt-24">
@@ -58,33 +98,47 @@ export default function Process() {
           />
 
           <ol className="grid gap-10 md:grid-cols-4 md:gap-8">
-            {process.steps.map((s, i) => (
-              <li key={s.n} className="relative pl-10 md:pl-0">
-                <span
-                  aria-hidden="true"
-                  className={`absolute left-0 top-[0.4em] block h-[15px] w-[15px] rounded-full border-2 border-ink bg-accent-yellow ring-4 ring-paper transition-transform duration-300 ease-out md:static md:mb-6 md:block ${
-                    inView ? "scale-100" : "scale-0"
-                  }`}
-                  style={{ transitionDelay: inView ? `${250 + i * 160}ms` : "0ms" }}
-                />
-                <div
-                  className={`transition-all duration-500 ease-out ${
-                    inView ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
-                  }`}
-                  style={{ transitionDelay: inView ? `${300 + i * 160}ms` : "0ms" }}
-                >
-                  <span className="font-mono text-[0.8125rem] font-medium tracking-[0.08em] text-slate">
-                    {s.n}
-                  </span>
-                  <h3 className="mt-1 font-display text-[1.15rem] font-bold tracking-[-0.01em]">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 text-[0.9375rem] leading-[1.7] text-slate">
-                    {s.body}
-                  </p>
-                </div>
-              </li>
-            ))}
+            {process.steps.map((s, i) => {
+              const isActive = i === activeStep;
+              const isReached = i <= activeStep;
+              return (
+                <li key={s.n} className="relative pl-10 md:pl-0">
+                  <span
+                    aria-hidden="true"
+                    className={`absolute left-0 top-[0.4em] block h-[15px] w-[15px] rounded-full border-2 border-ink ring-4 ring-paper transition-all duration-300 ease-out md:static md:mb-6 md:block ${
+                      inView ? (isActive ? "scale-125" : "scale-100") : "scale-0"
+                    } ${isReached ? "bg-accent-yellow" : "bg-paper"}`}
+                    style={{
+                      transitionDelay:
+                        inView && !entranceDone ? `${250 + i * 160}ms` : "0ms",
+                    }}
+                  />
+                  <div
+                    className={`transition-all duration-500 ease-out ${
+                      inView ? "translate-y-0" : "translate-y-2 opacity-0"
+                    } ${inView ? (isReached ? "opacity-100" : "opacity-55") : ""}`}
+                    style={{
+                      transitionDelay:
+                        inView && !entranceDone ? `${300 + i * 160}ms` : "0ms",
+                    }}
+                  >
+                    <span
+                      className={`font-mono text-[0.8125rem] font-medium tracking-[0.08em] ${
+                        isActive ? "text-ink" : "text-slate"
+                      }`}
+                    >
+                      {s.n}
+                    </span>
+                    <h3 className="mt-1 font-display text-[1.15rem] font-bold tracking-[-0.01em]">
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-[0.9375rem] leading-[1.7] text-slate">
+                      {s.body}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </div>
       </div>

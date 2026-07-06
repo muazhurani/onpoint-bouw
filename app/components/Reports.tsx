@@ -53,6 +53,18 @@ export default function Reports() {
           ))}
         </div>
 
+        <div className="mt-10 border border-grid-line bg-paper p-8">
+          <p className="eyebrow text-slate">
+            <span aria-hidden="true" className="mr-2 text-accent-yellow">
+              +
+            </span>
+            {trust.pricing.title}
+          </p>
+          <p className="mt-4 max-w-[62ch] text-[1rem] leading-[1.7] text-ink">
+            {trust.pricing.disclaimer}
+          </p>
+        </div>
+
         <div className="mt-10 flex flex-col gap-6 border-t border-grid-line pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-[48ch] text-[0.9375rem] leading-[1.7] text-slate">
             {trust.aside}

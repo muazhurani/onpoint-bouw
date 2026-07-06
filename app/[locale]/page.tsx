@@ -3,11 +3,15 @@ import Hero from "@/app/components/Hero";
 import Services from "@/app/components/Services";
 import Projects from "@/app/components/Projects";
 import Process from "@/app/components/Process";
+import Testimonials from "@/app/components/Testimonials";
 import Reports from "@/app/components/Reports";
 import FinalCta from "@/app/components/FinalCta";
+import MobileContactBar from "@/app/components/MobileContactBar";
 import Footer from "@/app/components/Footer";
 import ScrollBlurOnce from "@/app/components/ScrollBlurOnce";
+import ScrollProgress from "@/app/components/ScrollProgress";
 import { getDictionary } from "@/app/lib/dictionaries";
+import { EMAIL, PHONE_TEL } from "@/app/lib/contact";
 import { isLocale, localePath, type Locale } from "@/app/lib/i18n";
 
 type HomePageProps = {
@@ -30,8 +34,8 @@ export default async function Home({ params }: HomePageProps) {
     logo: `${siteUrl}/icon-black.png`,
     image: `${siteUrl}/images/onpoint-residential-renovation-hero.png`,
     description: dict.jsonLd.businessDescription,
-    email: "info@onpointgeo.nl",
-    telephone: "+31614686059",
+    email: EMAIL,
+    telephone: PHONE_TEL,
     address: {
       "@type": "PostalAddress",
       addressCountry: "NL",
@@ -55,25 +59,47 @@ export default async function Home({ params }: HomePageProps) {
     },
   };
 
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "OnPoint Bouw",
+    url: siteUrl,
+    logo: `${siteUrl}/icon-black.png`,
+    email: EMAIL,
+    telephone: PHONE_TEL,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "NL",
+    },
+    // TODO: Add real profile URLs (Google Business, social media) to sameAs.
+    sameAs: [],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessJsonLd).replace(/</g, "\\u003c"),
+          __html: JSON.stringify([localBusinessJsonLd, organizationJsonLd]).replace(
+            /</g,
+            "\\u003c",
+          ),
         }}
       />
       <Nav />
       <ScrollBlurOnce />
+      <ScrollProgress />
       <main>
         <Hero />
         <Services />
         <Projects />
         <Process />
+        <Testimonials />
         <Reports />
         <FinalCta />
       </main>
       <Footer />
+      <MobileContactBar />
     </>
   );
 }

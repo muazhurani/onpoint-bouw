@@ -29,10 +29,10 @@ to `.env.local` and set the mailbox password before testing submissions:
 SMTP_HOST=send.one.com
 SMTP_PORT=465
 SMTP_SECURE=true
-SMTP_USER=info@onpointgeo.nl
+SMTP_USER=info@onpointbouw.nl
 SMTP_PASSWORD=your-one-com-mailbox-password
-SMTP_FROM="OnPoint Bouw <info@onpointgeo.nl>"
-INQUIRY_TO_EMAIL=info@onpointgeo.nl
+SMTP_FROM="OnPoint Bouw <info@onpointbouw.nl>"
+INQUIRY_TO_EMAIL=info@onpointbouw.nl
 ```
 
 IMAP (`imap.one.com:993`) and POP3 (`pop.one.com:995`) are for receiving

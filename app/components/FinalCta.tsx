@@ -1,6 +1,10 @@
 "use client";
 
 import InquiryButton from "./InquiryButton";
+import PhotoInquiryForm from "./PhotoInquiryForm";
+import WhatsAppButton from "./WhatsAppButton";
+import WhatsAppQuickStart from "./WhatsAppQuickStart";
+import { EMAIL, PHONE_DISPLAY, PHONE_TEL } from "@/app/lib/contact";
 import { useDictionary } from "./DictionaryProvider";
 
 export default function FinalCta() {
@@ -28,17 +32,24 @@ export default function FinalCta() {
           >
             {cta.requestQuote}
           </InquiryButton>
+          <WhatsAppButton variant="dark" />
           <div className="flex flex-col gap-1 font-mono text-[0.875rem] tracking-[0.04em]">
-            <a href="tel:+31614686059" className="rounded-sm text-paper/80 transition-colors duration-150 hover:text-accent-yellow">
-              +31 6 1468 6059
+            <a href={`tel:${PHONE_TEL}`} className="rounded-sm text-paper/80 transition-colors duration-150 hover:text-accent-yellow">
+              {PHONE_DISPLAY}
             </a>
             <a
-              href="mailto:info@onpointgeo.nl"
+              href={`mailto:${EMAIL}`}
               className="rounded-sm text-paper/80 transition-colors duration-150 hover:text-accent-yellow"
             >
-              info@onpointgeo.nl
+              {EMAIL}
             </a>
           </div>
+        </div>
+
+        <WhatsAppQuickStart />
+
+        <div className="mt-12 w-full max-w-[720px]">
+          <PhotoInquiryForm />
         </div>
       </div>
     </section>

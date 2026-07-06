@@ -1,4 +1,5 @@
 import { inquiryRecipient, sendMail } from "@/app/lib/email";
+import { EMAIL, PHONE_DISPLAY } from "@/app/lib/contact";
 import { getDictionary } from "@/app/lib/dictionaries";
 import { formatMessage } from "@/app/lib/format-message";
 import type { Locale } from "@/app/lib/i18n";
@@ -96,13 +97,13 @@ export async function POST(request: Request) {
         dict.api.confirmationBody,
         "",
         "OnPoint Bouw",
-        "info@onpointgeo.nl",
-        "+31 6 1468 6059",
+        EMAIL,
+        PHONE_DISPLAY,
       ].join("\n"),
       html: `
         <p>${escapeHtml(formatMessage(dict.api.confirmationGreeting, { name: data.name }))}</p>
         <p>${escapeHtml(dict.api.confirmationBody)}</p>
-        <p>OnPoint Bouw<br />info@onpointgeo.nl<br />+31 6 1468 6059</p>
+        <p>OnPoint Bouw<br />${EMAIL}<br />${PHONE_DISPLAY}</p>
       `,
     });
 

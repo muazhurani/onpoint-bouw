@@ -3,7 +3,9 @@ import type SMTPTransport from "nodemailer/lib/smtp-transport";
 
 type MailAttachment = {
   filename: string;
-  path: string;
+  path?: string;
+  content?: Buffer;
+  contentType?: string;
 };
 
 type SendMailInput = {
@@ -58,7 +60,7 @@ function mailTransport() {
 }
 
 export function inquiryRecipient() {
-  return process.env.INQUIRY_TO_EMAIL?.trim() || "info@onpointgeo.nl";
+  return process.env.INQUIRY_TO_EMAIL?.trim() || "info@onpointbouw.nl";
 }
 
 export function mailFrom() {

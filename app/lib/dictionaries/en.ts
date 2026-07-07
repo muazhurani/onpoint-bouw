@@ -152,8 +152,8 @@ const en: Dictionary = {
     // TODO: Replace placeholders — real Google rating, actual years active, real KvK number.
     trustBar: [
       { value: "4.9 ★", label: "on Google" },
-      { value: "10+ years", label: "in the building trade" },
-      { value: "KvK 00000000", label: "registered" },
+      { value: "4+ years", label: "in the building trade" },
+      { value: "KvK 89685644", label: "registered" },
       { value: "Fully insured", label: "liability cover" },
     ],
   },

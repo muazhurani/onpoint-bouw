@@ -152,8 +152,8 @@ const nl: Dictionary = {
     // TODO: Replace placeholders — real Google rating, actual years active, real KvK number.
     trustBar: [
       { value: "4,9 ★", label: "op Google" },
-      { value: "10+ jaar", label: "actief in de bouw" },
-      { value: "KvK 00000000", label: "geregistreerd" },
+      { value: "4+ jaar", label: "actief in de bouw" },
+      { value: "KvK 89685644", label: "geregistreerd" },
       { value: "Volledig verzekerd", label: "AVB-dekking" },
     ],
   },

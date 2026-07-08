@@ -196,7 +196,7 @@ export const projectSources: ProjectSource[] = [
         "Een complete woningupgrade: vernieuwde leefruimtes binnen, een nieuwe uitbreiding van de salon met tuintoegang, en een achtertuin opnieuw ingericht met bestrating, niveaus en beplanting.",
       location: "Nederland",
       timeframe: "Verbouwing, aanbouw en tuinproject",
-      duration: "10 weken",
+      duration: "4 weken",
       scope: [
         "Interieurverbouwing en afwerking",
         "Salonuitbreiding met openslaande deuren",
@@ -225,9 +225,9 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Renovation and garden",
       summary:
         "A full home upgrade: refreshed living spaces inside, a new extension to the salon with garden access, and a backyard rebuilt with paving, levels and planting.",
-      location: "Netherlands",
+      location: "Eindhoven,Netherlands",
       timeframe: "Renovation, extension and garden project",
-      duration: "10 weeks",
+      duration: "4 weeks",
       scope: [
         "Interior renovation and finishing",
         "Salon extension with patio doors",
@@ -493,9 +493,9 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Verbouwing en tuin",
       summary:
         "Een complete woningvernieuwing: achteraanbouw en tuin, vloerverwarming met marmeren vloeren, toilet- en badkamerrenovatie, gipsplaatafwerking en algemeen interieurwerk.",
-      location: "Nederland",
+      location: "Eindhoven, Nederland",
       timeframe: "Verbouwing en tuinproject",
-      duration: "12 weken",
+      duration: "7 weken",
       scope: [
         "Achteraanbouw en dakwerk",
         "Tuinbestrating, beplanting en buitenverlichting",
@@ -528,9 +528,9 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Renovation and garden",
       summary:
         "A full home renovation: rear extension and garden, underfloor heating with marble floors, toilet and bathroom renovation, gypsum board finishes and general interior work.",
-      location: "Netherlands",
+      location: "Eindhoven, Netherlands",
       timeframe: "Renovation and garden project",
-      duration: "12 weeks",
+      duration: "7 weeks",
       scope: [
         "Rear extension and roofing",
         "Garden paving, planting and outdoor lighting",
@@ -657,9 +657,9 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Verbouwing en tuin",
       summary:
         "Badkamer en toilet volledig gerenoveerd, woonkamer en leefruimtes vernieuwd met nieuwe vloeren en afwerking, en de tuin opnieuw ingericht met bestrating en verlichting.",
-      location: "Nederland",
+      location: "Eindhoven, Nederland",
       timeframe: "Verbouwing en tuinproject",
-      duration: "8 weken",
+      duration: "4 weken",
       scope: [
         "Toilet- en badkamerrenovatie",
         "Woonkamer- en leefruimteverbouwing",
@@ -689,9 +689,9 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Renovation and garden",
       summary:
         "Bathroom and toilet fully renovated, living room and interior spaces refreshed with new flooring and finishes, and the garden rebuilt with paving and lighting.",
-      location: "Netherlands",
+      location: "Eindhoven, Netherlands",
       timeframe: "Renovation and garden project",
-      duration: "8 weeks",
+      duration: "4 weeks",
       scope: [
         "Toilet and bathroom renovation",
         "Living room and interior renovation",
@@ -783,9 +783,9 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Aanbouw",
       summary:
         "Een lichtere keuken-woonruimte met een kleine aanbouw aan de achterzijde, nieuwe tuindeuren, grijs porselein terras en een net toilet beneden — zonder de voorkant van het huis te veranderen.",
-      location: "Nederland",
+      location: "Nederland, Tilburg",
       timeframe: "Keukenaanbouwproject",
-      duration: "9 weken",
+      duration: "6 weken",
       scope: [
         "Aanbouw aan de keuken",
         "Stalen latei en passend metselwerk",
@@ -815,9 +815,9 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Extension",
       summary:
         "A brighter kitchen-diner with a small rear extension, new patio doors, grey porcelain patio and a proper downstairs toilet — without changing the front of the house.",
-      location: "Netherlands",
+      location: "Netherlands, Tilburg",
       timeframe: "Kitchen extension project",
-      duration: "9 weeks",
+      duration: "6 weeks",
       scope: [
         "Rear kitchen extension",
         "Steel lintel and matching brickwork",
@@ -898,7 +898,7 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Interieur en maatwerk",
       summary:
         "Een op maat gemaakte opbergkast onder de trap: van rommelige nis naar drie hoge kasten en laden die perfect de helling van de trap volgen.",
-      location: "Nederland",
+      location: "Nederland, 's-Hertogenbosch",
       timeframe: "Maatwerk timmerwerkproject",
       duration: "1 daag",
       scope: [
@@ -930,7 +930,7 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Interior and custom work",
       summary:
         "A bespoke storage cupboard under the stairs: from a cluttered nook to three tall doors and drawers that follow the slope of the staircase.",
-      location: "Netherlands",
+      location: "Netherlands, 's-Hertogenbosch",
       timeframe: "Custom carpentry project",
       duration: "1 day",
       scope: [
@@ -1013,9 +1013,9 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Tuin en bestrating",
       summary:
         "Een complete achtertuintransformatie: van verwaarloosde tegels en rommel naar een strak terras, verhoogde plantenbakken, pergola, maatwerk zithoek en tuinverlichting.",
-      location: "Nederland",
+      location: "Nederland, Arnhem",
       timeframe: "Tuinrenovatieproject",
-      duration: "6 weken",
+      duration: "1 week",
       scope: [
         "Sloop en graafwerk",
         "Drainage en lijnafvoer",
@@ -1046,9 +1046,9 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Garden and paving",
       summary:
         "A full backyard transformation: from tired paving and clutter to a clean patio, raised planters, pergola, custom seating and garden lighting.",
-      location: "Netherlands",
+      location: "Netherlands, Arnhem",
       timeframe: "Garden renovation project",
-      duration: "6 weeks",
+      duration: "1 week",
       scope: [
         "Strip-out and excavation",
         "Drainage and linear drain",

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import { DictionaryProvider } from "@/app/components/DictionaryProvider";
 import GoogleAnalytics from "@/app/components/GoogleAnalytics";
+import VercelAnalytics from "@/app/components/VercelAnalytics";
 import { getDictionary } from "@/app/lib/dictionaries";
 import {
   defaultLocale,
@@ -169,6 +170,7 @@ export default async function LocaleLayout({
     >
       <body className="bg-paper font-sans text-ink">
         <GoogleAnalytics />
+        <VercelAnalytics />
         <DictionaryProvider dict={dict} locale={locale}>
           {children}
         </DictionaryProvider>

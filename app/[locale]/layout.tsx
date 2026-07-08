@@ -112,7 +112,22 @@ export async function generateMetadata({
       },
     },
     icons: {
+      shortcut: ["/favicon.ico"],
       icon: [
+        {
+          url: "/favicon.ico",
+          type: "image/x-icon",
+        },
+        {
+          url: "/favicon-32x32.png",
+          sizes: "32x32",
+          type: "image/png",
+        },
+        {
+          url: "/favicon-16x16.png",
+          sizes: "16x16",
+          type: "image/png",
+        },
         {
           url: "/favicon-black.png",
           sizes: "512x512",
@@ -133,6 +148,7 @@ export async function generateMetadata({
         },
       ],
     },
+    manifest: "/site.webmanifest",
   };
 }
 

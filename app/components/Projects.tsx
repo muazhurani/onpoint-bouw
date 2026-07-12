@@ -66,7 +66,7 @@ export default function Projects() {
               </p>
 
               <ul className="mt-4 flex flex-wrap gap-2">
-                {[project.location, project.eyebrow, project.duration].map(
+                {[project.location, project.eyebrow].map(
                   (tag) => (
                     <li
                       key={tag}

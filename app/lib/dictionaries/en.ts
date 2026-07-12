@@ -2,9 +2,9 @@ import type { Dictionary } from "./types";
 
 const en: Dictionary = {
   meta: {
-    title: "OnPoint Bouw | Renovation & Construction in the Netherlands",
+    title: "OnPoint Bouw | Renovations, Extensions & Gardens",
     description:
-      "Builder across the Netherlands for home renovations, extensions, bathrooms, garden paving and patios. Clear quotes, tidy work and honest advice — request a free, no-obligation quote.",
+      "OnPoint Bouw renovates homes, extensions, bathrooms and gardens across the Netherlands. See real projects, understand the process and discuss your plans.",
     keywords: [
       "construction company Netherlands",
       "home renovation Netherlands",
@@ -27,96 +27,91 @@ const en: Dictionary = {
       { label: "Services", hash: "services" },
       { label: "Projects", hash: "projects" },
       { label: "Process", hash: "process" },
-      { label: "Trust", hash: "trust" },
-      { label: "Quote", hash: "quote" },
+      { label: "Agreements", hash: "trust" },
+      { label: "Contact", hash: "quote" },
     ],
     requestQuote: "Request a quote",
   },
   hero: {
     imageAlt:
       "Builders working on a home extension and garden patio at a Dutch residential property.",
-    eyebrow: "Renovations · Extensions · Gardens · Netherlands",
-    h1Before: "Home building work, done",
-    h1Highlight: "properly.",
+    eyebrow: "Renovations · Extensions · Gardens · Bathrooms",
+    h1Before: "From house extension to complete",
+    h1Highlight: "renovation.",
     subhead:
-      "Garden, bathroom, extension or full renovation — we help homeowners across the Netherlands with clear advice, tidy work and honest communication, from the first visit to the final clean-up.",
+      "OnPoint Bouw delivers renovations, bathrooms, extensions and gardens, with one point of contact and clear agreements from start to handover.",
     requestQuote: "Request a quote",
     call: "Call +31 6 1571 8727",
     stats: [
-      { value: "Free", label: "no-obligation quote" },
-      { value: "Netherlands", label: "nationwide" },
+      { value: "6", label: "projects to view" },
+      { value: "Written", label: "quote and scope" },
       { value: "One", label: "point of contact" },
     ],
   },
   services: {
-    eyebrow: "How we can help",
-    title: "Straightforward building work for normal homes.",
+    eyebrow: "Services",
+    title: "Building work in and around your home.",
     intro:
-      "Most customers come to us with a practical problem: more space, a better garden, a tired bathroom, or work that needs finishing. We make the plan simple and keep the job moving.",
+      "We deliver complete renovations as well as individual parts of a project. First we assess the home, the required finish and which activities need to connect.",
     items: [
       {
         n: "01",
-        title: "Renovations and extensions",
-        body: "More space, better layout, a new rear extension, or an older room that needs proper attention. We help turn the idea into a realistic job.",
+        title: "Extensions & home renovation",
+        body: "From a new opening or layout to floors, walls and final finishes. We first check what the home allows and record the agreed work.",
       },
       {
         n: "02",
-        title: "Gardens and paving",
-        body: "Paving, patios, steps, drainage, raised borders and outdoor seating areas made for everyday use — not just a nice photo.",
+        title: "Gardens, patios & paving",
+        body: "Paving, patios, drainage, steps, planters and lighting, with attention to the base, water runoff and practical everyday use.",
       },
       {
         n: "03",
-        title: "Bathrooms and finishing",
-        body: "Bathrooms, tiling, plastering, fixtures, small repairs and finish work where straight lines and clean details make the difference.",
+        title: "Bathrooms, tiling & custom work",
+        body: "Waterproofing, services, tiling, sanitary ware and finishing, plus practical custom work where a standard solution does not fit.",
       },
     ],
     expectations: [
-      "We tell you what is realistic before you commit.",
-      "We keep the work area as manageable as possible.",
-      "We explain choices that affect price or planning.",
+      "The scope is written down before work starts.",
+      "Choices that affect cost or timing are discussed first.",
+      "You have one direct point of contact.",
     ],
   },
   projects: {
-    eyebrow: "Recent work",
-    title: "Recent residential work across the Netherlands.",
+    eyebrow: "Projects",
+    title: "View our recent projects.",
     intro:
-      "Gardens, extensions and bathrooms for private homeowners. Open a project to see what was involved and how it was finished.",
+      "Each project shows the work, photographs and finished result. Use the before-and-after switch or open the project page for more detail.",
     viewProject: "View project",
     beforeLabel: "Before",
     afterLabel: "After",
     beforePlaceholder: "Before photo coming",
-    readouts: [
-      { value: "Real", label: "finished projects" },
-      { value: "Local", label: "across the Netherlands" },
-      { value: "Clear", label: "scope and pricing" },
-      { value: "Tidy", label: "clean handover" },
-    ],
+    sliderLabel: "Compare before and after",
   },
   process: {
-    eyebrow: "How we work",
-    title: "What happens after you call.",
+    eyebrow: "Process",
+    title: "How a project works.",
     intro:
-      "A homeowner should not need to manage a building project like a contractor. We keep the next step clear at each stage.",
+      "From the first assessment to handover, we keep the work, agreements and next step clear.",
     steps: [
       {
         n: "01",
-        title: "Visit & scope",
-        body: "We look at the space, listen to what you want changed and check practical details before pricing the work.",
+        title: "First assessment",
+        body: "Send your requirements, location and a few photos. We review the request and explain what information is still needed.",
       },
       {
         n: "02",
-        title: "Clear quote",
-        body: "You receive a straightforward quote with the main choices, planning assumptions and what is included.",
+        title: "Measure & agree",
+        body: "On site we confirm dimensions, access, materials and the work required. You then receive a written quote.",
       },
       {
         n: "03",
-        title: "Build neatly",
-        body: "We protect the home where needed, keep the work area manageable and communicate as the project moves.",
+        title: "Build & coordinate",
+        body: "We carry out the work in a logical sequence and discuss choices that affect price, timing or finish.",
       },
       {
         n: "04",
-        title: "Finish & handover",
-        body: "The final details are checked with you, the area is cleaned up and the work is handed over properly.",
+        title: "Check & hand over",
+        body: "We review the final details together, explain anything that needs care and leave the work ready to use.",
       },
     ],
   },
@@ -125,7 +120,6 @@ const en: Dictionary = {
     title: "Homeowners on working with us.",
     intro:
       "No staged marketing lines — this is the feedback customers give after the work is handed over.",
-    // TODO: Replace with real customer testimonials (quote, first name, town, project type).
     items: [
       {
         quote:
@@ -149,49 +143,80 @@ const en: Dictionary = {
         projectType: "Bathroom renovation",
       },
     ],
-    // TODO: Replace placeholders — real Google rating, actual years active, real KvK number.
     trustBar: [
-      { value: "4.9 ★", label: "on Google" },
+      { value: "4.7 ★", label: "on Google" },
       { value: "4+ years", label: "in the building trade" },
       { value: "KvK 89685644", label: "registered" },
       { value: "Fully insured", label: "liability cover" },
     ],
   },
-  trust: {
-    eyebrow: "Why homeowners choose us",
-    title: "No vague promises. No mystery invoice.",
+  proof: {
+    eyebrow: "Projects in detail",
+    title: "More than the finished result.",
     intro:
-      "Before you say yes, you should understand the work, the rough timing and what affects the price. Most people just want a builder they can trust in and around their home — so that is how we work.",
-    points: [
+      "Where available, the project pages show the space before work started, several construction stages and the finished result.",
+    items: [
       {
         n: "01",
-        title: "Clear quotes",
-        body: "You get the scope, the main choices and what is included in writing — before any work starts. No mystery invoice at the end.",
+        title: "The starting point",
+        body: "The before photographs show which space, layout or finish was changed.",
+        label: "Before",
       },
       {
         n: "02",
-        title: "One point of contact",
-        body: "You deal with us directly, from the first visit to the final handover. No chasing, no being passed between people.",
+        title: "The work behind it",
+        body: "Stages such as structure, drainage, underfloor heating and waterproofing show how the work was built up.",
+        label: "During",
       },
       {
         n: "03",
-        title: "Respect for your home",
-        body: "We protect floors and access, keep the work area as manageable as possible and leave it clean when we finish.",
+        title: "The finished result",
+        body: "The final photographs show the completed space, materials and details of the work carried out.",
+        label: "After",
+      },
+    ],
+    trustBar: [
+      { value: "6 cases", label: "published projects" },
+      { value: "Before / during / after", label: "shown in sequence" },
+      { value: "Scope", label: "listed per project" },
+      { value: "Site photos", label: "from completed work" },
+    ],
+  },
+  trust: {
+    eyebrow: "Agreements",
+    title: "Clear agreements before work starts.",
+    intro:
+      "Before starting, we record the work, the main choices and what the price is based on.",
+    points: [
+      {
+        n: "01",
+        title: "Defined scope",
+        body: "The quote states the work, main materials and assumptions on which the price is based.",
+      },
+      {
+        n: "02",
+        title: "Changes discussed first",
+        body: "If the situation changes or you choose something different, we explain the effect before carrying out additional work.",
+      },
+      {
+        n: "03",
+        title: "Direct contact",
+        body: "From the first assessment to handover, you remain in direct contact with the same point of contact.",
       },
       {
         n: "04",
-        title: "Honest advice",
-        body: "We tell you what is realistic, and we say when a job is better handled by another specialist instead of pretending.",
+        title: "Built around a lived-in home",
+        body: "We discuss access and floor protection in advance and keep the work area as manageable as possible.",
       },
     ],
     // Deliberately no price numbers on the website — pricing is discussed per project.
     pricing: {
-      title: "How we handle pricing",
+      title: "What the price is based on",
       disclaimer:
-        "Every price depends on your home and your wishes, so we discuss it in person. What is fixed: every quote is put in writing before work starts — that amount is what you pay.",
+        "The price is based on the agreed work and the visible situation. If demolition reveals a hidden issue, we discuss the options and any additional work before continuing.",
     },
     aside:
-      "Not ready for a site visit? Send a few photos and we can give you a first idea. Private addresses and client details are always kept out of public examples.",
+      "For an initial assessment, include a few photos, your location and approximate dimensions with the request.",
     requestQuote: "Request a quote",
   },
   whatsapp: {
@@ -205,21 +230,21 @@ const en: Dictionary = {
   },
   cta: {
     eyebrow: "Request a quote",
-    title: "Want us to look at your project?",
+    title: "Tell us about your project.",
     intro:
-      "Call, email, or send a few photos with your quote request. We'll tell you what's realistic, what it involves and the sensible next step — usually within one working day.",
+      "Describe the work and tell us where the property is. A few photos and approximate dimensions help us assess the request more quickly.",
     requestQuote: "Request a quote",
     whatsappStart: {
-      title: "Or start directly via WhatsApp",
-      hint: "Pick your project — WhatsApp opens with a ready-made message.",
+      title: "Start via WhatsApp",
+      hint: "Choose the type of work, then add your location, requirements and any useful photos.",
       messageTemplate:
-        "Hi OnPoint Bouw, I'd like a free quote for: {type}.",
+        "Hi OnPoint Bouw, I would like to discuss this project: {type}.",
     },
     photoForm: {
-      eyebrow: "First idea",
-      title: "Send a few photos, get a first idea",
+      eyebrow: "Initial assessment",
+      title: "Send photos of the space",
       intro:
-        "No site visit needed to get started. Send a few photos of the space and we'll tell you what's realistic.",
+        "An overview, a detail photo and approximate dimensions help us assess your request.",
       name: "Name",
       contact: "Phone or email",
       message: "Short description",
@@ -229,13 +254,13 @@ const en: Dictionary = {
       submit: "Send photos",
       sending: "Sending...",
       sendError: "Could not send the request.",
-      note: "Sent directly to OnPoint. We reply within one working day.",
+      note: "Sent directly to OnPoint Bouw. We usually reply within one working day.",
     },
   },
   footer: {
     homeAria: "OnPoint Bouw — back to top",
     tagline:
-      "Renovations, extensions, gardens and bathrooms for private homeowners across the Netherlands.",
+      "Renovations, extensions, bathrooms and gardens for private homes across the Netherlands.",
     pages: "Pages",
     contact: "Contact",
     country: "Netherlands",
@@ -244,26 +269,26 @@ const en: Dictionary = {
   inquiry: {
     title: "Request a quote",
     eyebrow: "Project details",
-    submit: "Send quote request",
+    submit: "Send request",
     sending: "Sending...",
-    note: "Sent directly to OnPoint. No email app needed.",
-    success: "Quote request sent. We will come back within one working day.",
+    note: "Sent directly to OnPoint Bouw. We reply personally.",
+    success: "Project details received. We will come back within one working day.",
     sendError: "Could not send the request.",
     close: "Close",
     name: "Name",
     address: "Address / town",
     email: "Email",
     phone: "Phone",
-    projectType: "Project type",
+    projectType: "What needs doing?",
     preferredStart: "Preferred start",
-    message: "Message",
+    message: "What would you like to change?",
     projectTypes: [
-      "Renovation",
       "House extension",
+      "Home renovation",
       "Garden / patio",
-      "Bathroom",
+      "Bathroom / toilet",
       "Paving",
-      "Repairs / finishing",
+      "Custom work / finishing",
     ],
   },
   gallery: {
@@ -291,6 +316,8 @@ const en: Dictionary = {
     galleryAfter: "After",
     morePhotosPending: "More photos from this project are being added.",
     swipeHint: "Swipe or use the arrows to browse the photos.",
+    dragHint: "Drag the handle to compare before and after.",
+    galleryMore: "More photos",
     similarCta:
       "Planning something similar? Send us a few photos and we'll tell you what is realistic before any work starts.",
     requestQuote: "Request a quote",

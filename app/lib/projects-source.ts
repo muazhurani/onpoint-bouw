@@ -6,8 +6,6 @@ export type ProjectContent = {
   summary: string;
   location: string;
   timeframe: string;
-  /** Shown as a tag chip on the project card, e.g. "7 weken" */
-  duration: string;
   scope: string[];
   description: string[];
   keywords: string[];
@@ -28,6 +26,13 @@ export type GallerySectionSource = {
   items: GalleryItemSource[];
 };
 
+export type GalleryPairSource = {
+  before: string;
+  after: string;
+  nl: { label: string; beforeAlt: string; afterAlt: string };
+  en: { label: string; beforeAlt: string; afterAlt: string };
+};
+
 export type ProjectSource = {
   slug: string;
   cover: string;
@@ -35,12 +40,13 @@ export type ProjectSource = {
   beforeCover?: string;
   gallery?: GalleryItemSource[];
   gallerySections?: GallerySectionSource[];
+  /** Before/after pairs rendered as comparison sliders on the detail page */
+  galleryPairs?: GalleryPairSource[];
   nl: ProjectContent;
   en: ProjectContent;
 };
 
 export const projectSources: ProjectSource[] = [
-  // TODO: Replace placeholder `duration` values below with real project durations.
   {
     slug: "garden-patio",
     cover: "/images/garden-patio/garden-patio-exterior.png",
@@ -52,12 +58,12 @@ export const projectSources: ProjectSource[] = [
       {
         src: "/images/garden-patio/garden-patio-exterior.png",
         nl: {
-          alt: "Aanbouw aan de salon met openslaande deuren naar een vernieuwde tuin met grijze bestrating en kunstgras.",
-          label: "Salon en tuin",
+          alt: "Woonkameruitbouw met openslaande deuren naar een vernieuwde tuin met grijze bestrating en kunstgras.",
+          label: "Woonkamer en tuin",
         },
         en: {
-          alt: "Rear salon extension with patio doors opening onto a rebuilt garden with grey paving and artificial grass.",
-          label: "Salon and garden",
+          alt: "Rear living room extension with patio doors opening onto a rebuilt garden with grey paving and artificial grass.",
+          label: "Living room and garden",
         },
       },
       {
@@ -85,12 +91,12 @@ export const projectSources: ProjectSource[] = [
       {
         src: "/images/garden-patio/garden-patio-feature-wall.png",
         nl: {
-          alt: "Afgewerkte accentwand in de salon met houten latten, marmeren tv-paneel en ingebouwde zitbank.",
-          label: "Accentwand salon",
+          alt: "Afgewerkte accentwand in de woonkamer met houten latten, marmeren tv-paneel en ingebouwde zitbank.",
+          label: "Accentwand woonkamer",
         },
         en: {
-          alt: "Finished feature wall in the salon with wood slat panelling, marble TV panel and built-in bench seating.",
-          label: "Salon feature wall",
+          alt: "Finished living room feature wall with wood slat panelling, marble TV panel and built-in bench seating.",
+          label: "Living room feature wall",
         },
       },
       {
@@ -167,11 +173,11 @@ export const projectSources: ProjectSource[] = [
       {
         src: "/images/garden-patio/garden-patio-before-extension-shell.png",
         nl: {
-          alt: "Salonuitbreiding in ruwbouwfase, met houten dakconstructie, glazen schuifdeur en onafgewerkt terras.",
+          alt: "Woonkameruitbouw in ruwbouwfase, met houten dakconstructie, glazen schuifdeur en onafgewerkt terras.",
           label: "Aanbouw in ruwbouw",
         },
         en: {
-          alt: "Salon extension at shell stage, with timber roof structure, sliding glass door and unfinished patio.",
+          alt: "Living room extension at shell stage, with timber roof structure, sliding glass door and unfinished patio.",
           label: "Extension shell",
         },
       },
@@ -190,64 +196,62 @@ export const projectSources: ProjectSource[] = [
       },
     ],
     nl: {
-      title: "Salonuitbreiding, interieurverbouwing en tuin",
+      title: "Woonkameruitbouw, interieur en tuin",
       eyebrow: "Verbouwing en tuin",
       summary:
-        "Een complete woningupgrade: vernieuwde leefruimtes binnen, een nieuwe uitbreiding van de salon met tuintoegang, en een achtertuin opnieuw ingericht met bestrating, niveaus en beplanting.",
-      location: "Nederland",
+        "Meer leefruimte aan de achterzijde, vernieuwde ruimtes binnen en een tuin die opnieuw is opgebouwd met bestrating, gecorrigeerde niveaus en beplanting.",
+      location: "Eindhoven, Nederland",
       timeframe: "Verbouwing, aanbouw en tuinproject",
-      duration: "4 weken",
       scope: [
         "Interieurverbouwing en afwerking",
-        "Salonuitbreiding met openslaande deuren",
+        "Woonkameruitbouw met openslaande deuren",
         "Terrasbestrating en niveaus",
         "Tuinontwerp en drainage",
       ],
       description: [
-        "De eigenaren wilden meer bruikbare ruimte zonder de verbinding met de tuin te verliezen. Binnen vernieuwden we de leefruimtes met nieuwe vloeren, verlichting en afwerkingswerk zodat de woning weer open en netjes afgewerkt aanvoelde.",
-        "We bouwden een aanbouw aan de salon, met grote openslaande deuren die direct op de tuin uitkomen. Dat gaf het gezin meer leefruimte en een duidelijke overgang van binnen naar buiten.",
+        "De eigenaren wilden meer bruikbare ruimte zonder de verbinding met de tuin te verliezen. Binnen vernieuwden we vloeren, verlichting en afwerking, zodat de leefruimtes weer één geheel vormen.",
+        "Aan de woonkamer bouwden we een uitbouw met grote openslaande deuren naar de tuin. Zo ontstond meer vloeroppervlak en een directe overgang van binnen naar buiten.",
         "Buiten pakten we de tuin goed aan: nieuwe bestrating, gecorrigeerde niveaus voor drainage, kunstgras en plantenborders, en een indeling die het hele jaar door makkelijk te onderhouden is.",
       ],
       keywords: [
         "woningverbouwing Nederland",
-        "salonuitbreiding Nederland",
+        "woonkameruitbouw Nederland",
         "interieurverbouwing Nederland",
         "tuinrenovatie Nederland",
         "terras bestrating Nederland",
       ],
       coverAlt:
-        "Salonuitbreiding en vernieuwde tuin bij een bakstenen woning in Nederland, met terrasbestrating, tuindeuren en een afgewerkte achtertuin.",
+        "Woonkameruitbouw en vernieuwde tuin bij een bakstenen woning in Nederland, met terrasbestrating, tuindeuren en een afgewerkte achtertuin.",
       beforeCoverAlt:
         "Originele achtertuin vóór de renovatie, met grasveld, tegelterras en beplanting langs de woning.",
     },
     en: {
-      title: "Salon extension, interior renovation and garden",
+      title: "Living room extension, interior and garden",
       eyebrow: "Renovation and garden",
       summary:
-        "A full home upgrade: refreshed living spaces inside, a new extension to the salon with garden access, and a backyard rebuilt with paving, levels and planting.",
-      location: "Eindhoven,Netherlands",
+        "More living space at the rear, refreshed interiors and a garden rebuilt with new paving, corrected levels and planting.",
+      location: "Eindhoven, Netherlands",
       timeframe: "Renovation, extension and garden project",
-      duration: "4 weeks",
       scope: [
         "Interior renovation and finishing",
-        "Salon extension with patio doors",
+        "Living room extension with patio doors",
         "Patio paving and levels",
         "Garden landscaping and drainage",
       ],
       description: [
-        "The owners wanted more usable space without losing the connection to the garden. Inside, we refreshed the living areas with new flooring, lighting and finish work so the home felt open and properly finished again.",
-        "We built a rear extension to the salon, with large patio doors that open straight onto the garden. That gave the family more room to live in and a clear step from inside to outside.",
-        "Outside, we fixed the garden properly: new paving, corrected levels for drainage, artificial grass and planting borders, and a layout that is easy to maintain through the year.",
+        "The owners wanted more usable space without losing the connection to the garden. Inside, we renewed the flooring, lighting and finishes so the living areas read as one coherent space.",
+        "We added a living room extension with large patio doors opening onto the garden. This created more floor area and a direct transition between inside and out.",
+        "Outside, we rebuilt the garden with new paving, corrected levels for drainage, artificial grass and planting borders in a layout that is easier to maintain.",
       ],
       keywords: [
         "home renovation Netherlands",
-        "salon extension Netherlands",
+        "living room extension Netherlands",
         "interior renovation Netherlands",
         "garden renovation Netherlands",
         "patio paving Netherlands",
       ],
       coverAlt:
-        "Salon extension and renovated garden at a brick home in the Netherlands, with patio paving, garden doors and a finished backyard.",
+        "Living room extension and renovated garden at a brick home in the Netherlands, with patio paving, garden doors and a finished backyard.",
       beforeCoverAlt:
         "Original backyard before the renovation, with a lawn, tiled patio and planting along the house.",
     },
@@ -495,7 +499,6 @@ export const projectSources: ProjectSource[] = [
         "Een complete woningvernieuwing: achteraanbouw en tuin, vloerverwarming met marmeren vloeren, toilet- en badkamerrenovatie, gipsplaatafwerking en algemeen interieurwerk.",
       location: "Eindhoven, Nederland",
       timeframe: "Verbouwing en tuinproject",
-      duration: "7 weken",
       scope: [
         "Achteraanbouw en dakwerk",
         "Tuinbestrating, beplanting en buitenverlichting",
@@ -530,7 +533,6 @@ export const projectSources: ProjectSource[] = [
         "A full home renovation: rear extension and garden, underfloor heating with marble floors, toilet and bathroom renovation, gypsum board finishes and general interior work.",
       location: "Eindhoven, Netherlands",
       timeframe: "Renovation and garden project",
-      duration: "7 weeks",
       scope: [
         "Rear extension and roofing",
         "Garden paving, planting and outdoor lighting",
@@ -659,7 +661,6 @@ export const projectSources: ProjectSource[] = [
         "Badkamer en toilet volledig gerenoveerd, woonkamer en leefruimtes vernieuwd met nieuwe vloeren en afwerking, en de tuin opnieuw ingericht met bestrating en verlichting.",
       location: "Eindhoven, Nederland",
       timeframe: "Verbouwing en tuinproject",
-      duration: "4 weken",
       scope: [
         "Toilet- en badkamerrenovatie",
         "Woonkamer- en leefruimteverbouwing",
@@ -691,7 +692,6 @@ export const projectSources: ProjectSource[] = [
         "Bathroom and toilet fully renovated, living room and interior spaces refreshed with new flooring and finishes, and the garden rebuilt with paving and lighting.",
       location: "Eindhoven, Netherlands",
       timeframe: "Renovation and garden project",
-      duration: "4 weeks",
       scope: [
         "Toilet and bathroom renovation",
         "Living room and interior renovation",
@@ -783,9 +783,8 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Aanbouw",
       summary:
         "Een lichtere keuken-woonruimte met een kleine aanbouw aan de achterzijde, nieuwe tuindeuren, grijs porselein terras en een net toilet beneden — zonder de voorkant van het huis te veranderen.",
-      location: "Nederland, Tilburg",
+      location: "Tilburg, Nederland",
       timeframe: "Keukenaanbouwproject",
-      duration: "6 weken",
       scope: [
         "Aanbouw aan de keuken",
         "Stalen latei en passend metselwerk",
@@ -815,9 +814,8 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Extension",
       summary:
         "A brighter kitchen-diner with a small rear extension, new patio doors, grey porcelain patio and a proper downstairs toilet — without changing the front of the house.",
-      location: "Netherlands, Tilburg",
+      location: "Tilburg, Netherlands",
       timeframe: "Kitchen extension project",
-      duration: "6 weeks",
       scope: [
         "Rear kitchen extension",
         "Steel lintel and matching brickwork",
@@ -898,9 +896,8 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Interieur en maatwerk",
       summary:
         "Een op maat gemaakte opbergkast onder de trap: van rommelige nis naar drie hoge kasten en laden die perfect de helling van de trap volgen.",
-      location: "Nederland, 's-Hertogenbosch",
+      location: "'s-Hertogenbosch, Nederland",
       timeframe: "Maatwerk timmerwerkproject",
-      duration: "1 daag",
       scope: [
         "Inmeten en ontwerp op maat",
         "Kastconstructie onder de trap",
@@ -930,9 +927,8 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Interior and custom work",
       summary:
         "A bespoke storage cupboard under the stairs: from a cluttered nook to three tall doors and drawers that follow the slope of the staircase.",
-      location: "Netherlands, 's-Hertogenbosch",
+      location: "'s-Hertogenbosch, Netherlands",
       timeframe: "Custom carpentry project",
-      duration: "1 day",
       scope: [
         "Survey and bespoke design",
         "Under-stair cabinet construction",
@@ -1013,9 +1009,8 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Tuin en bestrating",
       summary:
         "Een complete achtertuintransformatie: van verwaarloosde tegels en rommel naar een strak terras, verhoogde plantenbakken, pergola, maatwerk zithoek en tuinverlichting.",
-      location: "Nederland, Arnhem",
+      location: "Arnhem, Nederland",
       timeframe: "Tuinrenovatieproject",
-      duration: "1 week",
       scope: [
         "Sloop en graafwerk",
         "Drainage en lijnafvoer",
@@ -1046,9 +1041,8 @@ export const projectSources: ProjectSource[] = [
       eyebrow: "Garden and paving",
       summary:
         "A full backyard transformation: from tired paving and clutter to a clean patio, raised planters, pergola, custom seating and garden lighting.",
-      location: "Netherlands, Arnhem",
+      location: "Arnhem, Netherlands",
       timeframe: "Garden renovation project",
-      duration: "1 week",
       scope: [
         "Strip-out and excavation",
         "Drainage and linear drain",
@@ -1075,6 +1069,410 @@ export const projectSources: ProjectSource[] = [
         "Neglected backyard before the renovation, with uneven paving, weeds and a weathered garden shed.",
     },
   },
+  {
+    slug: "garden-renovations",
+    cover: "/images/garden-renovations/garden-marble-tiles-lawn-after.png",
+    beforeCover:
+      "/images/garden-renovations/garden-marble-tiles-lawn-before.png",
+    galleryPairs: [
+      {
+        before: "/images/garden-renovations/garden-marble-tiles-lawn-before.png",
+        after: "/images/garden-renovations/garden-marble-tiles-lawn-after.png",
+        nl: {
+          label: "Tegels en kunstgras",
+          beforeAlt:
+            "Verouderde tuin vóór de renovatie, met kapotte natuurstenen bestrating, mos en onkruid.",
+          afterAlt:
+            "Vernieuwde stadstuin met marmerlook keramische tegels en een strak kunstgrasgazon tussen houten schuttingen.",
+        },
+        en: {
+          label: "Tiles and artificial grass",
+          beforeAlt:
+            "Tired garden before the renovation, with broken natural stone paving, moss and weeds.",
+          afterAlt:
+            "Renovated city garden with marble-look ceramic tiles and a neat artificial grass lawn between wooden fences.",
+        },
+      },
+      {
+        before:
+          "/images/garden-renovations/garden-accent-tiles-planter-before.png",
+        after:
+          "/images/garden-renovations/garden-accent-tiles-planter-after.png",
+        nl: {
+          label: "Accenttegels en plantenbak",
+          beforeAlt:
+            "Versleten en begroeide bestrating vóór de heraanleg van de tuin.",
+          afterAlt:
+            "Afgewerkte tuin met lichte bestrating, decoratieve accenttegels, verhoogde plantenbak en een kunstgrasstrook.",
+        },
+        en: {
+          label: "Accent tiles and planter",
+          beforeAlt: "Worn, overgrown paving before the garden rebuild.",
+          afterAlt:
+            "Finished garden with light paving, decorative accent tiles, a raised planter and a strip of artificial grass.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/courtyard-accent-tiles-before.png",
+        after: "/images/garden-renovations/courtyard-accent-tiles-after.png",
+        nl: {
+          label: "Siertegel-tapijt",
+          beforeAlt:
+            "Stadstuin vóór de renovatie, met kale grond, puin en opgebroken bestrating.",
+          afterAlt:
+            "Stadstuin na de renovatie, met een ingelegd tapijt van Delfts blauwe siertegels in lichte keramische bestrating.",
+        },
+        en: {
+          label: "Pattern tile inlay",
+          beforeAlt:
+            "Courtyard before the renovation, with bare soil, rubble and broken-up paving.",
+          afterAlt:
+            "Courtyard garden after the renovation, with an inlaid carpet of Delft-blue pattern tiles set in light ceramic paving.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/front-garden-planters-before.png",
+        after: "/images/garden-renovations/front-garden-planters-after.png",
+        nl: {
+          label: "Voortuin met plantenbakken",
+          beforeAlt:
+            "Voortuin vóór de verbouwing, met donkere tegels, een uitgebloeide haag en opgeslagen materiaal.",
+          afterAlt:
+            "Vernieuwde voortuin met witte bestrating, gemetselde plantenbakken met beplanting en nieuwe traptreden naar de voordeur.",
+        },
+        en: {
+          label: "Front garden planters",
+          beforeAlt:
+            "Front garden before the works, with dark slabs, a dried-out hedge and stored materials.",
+          afterAlt:
+            "Renovated front garden with white paving, built planters with fresh planting and new steps to the front door.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/garden-two-tone-tiles-before.png",
+        after: "/images/garden-renovations/garden-two-tone-tiles-after.png",
+        nl: {
+          label: "Twee-kleurig terras",
+          beforeAlt:
+            "Oude gebakken klinkers met onkruid en verzakkingen vóór de nieuwe bestrating.",
+          afterAlt:
+            "Afgewerkt terras met een strak vlak van donkere en lichte keramische tegels naast een kunstgrasgazon.",
+        },
+        en: {
+          label: "Two-tone patio",
+          beforeAlt:
+            "Old brick pavers with weeds and settlement before the new paving was laid.",
+          afterAlt:
+            "Finished patio with a clean plane of dark and light ceramic tiles next to an artificial grass lawn.",
+        },
+      },
+      {
+        before:
+          "/images/garden-renovations/garden-artificial-grass-trampoline-before.png",
+        after:
+          "/images/garden-renovations/garden-artificial-grass-trampoline-after.png",
+        nl: {
+          label: "Kunstgras met trampoline",
+          beforeAlt:
+            "Opbreken van de oude betonnen ondergrond in de achtertuin tijdens de sloopfase.",
+          afterAlt:
+            "Kindvriendelijke achtertuin na de renovatie, met kunstgras en een verzonken trampoline.",
+        },
+        en: {
+          label: "Grass with trampoline",
+          beforeAlt:
+            "Breaking out the old concrete base in the backyard during the strip-out phase.",
+          afterAlt:
+            "Family-friendly backyard after the renovation, with artificial grass and a sunken trampoline.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/waterside-terrace-before.png",
+        after: "/images/garden-renovations/waterside-terrace-after.png",
+        nl: {
+          label: "Terras aan het water",
+          beforeAlt:
+            "Terras aan het water vóór de renovatie, met verweerde tegels en losse plantenpotten.",
+          afterAlt:
+            "Nieuw aangelegd terras aan het water, met grote keramische tegels, kunstgras en een sierlijke tuinboog.",
+        },
+        en: {
+          label: "Waterside terrace",
+          beforeAlt:
+            "Waterside patio before the renovation, with weathered slabs and loose plant pots.",
+          afterAlt:
+            "Newly laid waterside terrace with large ceramic tiles, artificial grass and a decorative garden arch.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/garden-veranda-before.png",
+        after: "/images/garden-renovations/garden-veranda-after.png",
+        nl: {
+          label: "Tuin met overkapping",
+          beforeAlt:
+            "Achtertuin vóór de heraanleg, met begroeide gebakken klinkers en achterstallig groen.",
+          afterAlt:
+            "Achtertuin met nieuwe overkapping, lichte bestrating en groenstroken langs de gemetselde tuinmuur.",
+        },
+        en: {
+          label: "Garden with veranda",
+          beforeAlt:
+            "Backyard before the rebuild, with overgrown brick paving and neglected planting.",
+          afterAlt:
+            "Backyard with a new veranda canopy, light paving and planting strips along the brick garden wall.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/garden-raised-bed-before.png",
+        after: "/images/garden-renovations/garden-raised-bed-after.png",
+        nl: {
+          label: "Verhoogde border",
+          beforeAlt:
+            "Kale tuin met puin en zand vóór de aanleg van de nieuwe bestrating en border.",
+          afterAlt:
+            "Vernieuwde tuin met keramische bestrating en een verhoogde border, klaar voor beplanting.",
+        },
+        en: {
+          label: "Raised border",
+          beforeAlt:
+            "Bare garden with rubble and sand before the new paving and border were built.",
+          afterAlt:
+            "Renovated garden with ceramic paving and a raised border, ready for planting.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/garden-lounge-corner-before.png",
+        after: "/images/garden-renovations/garden-lounge-corner-after.png",
+        nl: {
+          label: "Zithoek",
+          beforeAlt:
+            "Kale grond met bladafval langs de tuinmuur vóór de aanleg van de zithoek.",
+          afterAlt:
+            "Afgewerkte zithoek in de tuin, van boven gezien, met nieuwe wandtegels, grindstrook en loungeset.",
+        },
+        en: {
+          label: "Lounge corner",
+          beforeAlt:
+            "Bare soil and leaf litter along the garden wall before the lounge corner was built.",
+          afterAlt:
+            "Finished garden lounge corner seen from above, with new wall tiling, a gravel strip and lounge seating.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/garden-path-before.png",
+        after: "/images/garden-renovations/garden-path-after.png",
+        nl: {
+          label: "Nieuw looppad",
+          beforeAlt:
+            "Uitgegraven strook door het gazon als voorbereiding voor het nieuwe looppad.",
+          afterAlt:
+            "Nieuw looppad van grote antracietkleurige tegels met strakke opsluitbanden door de tuin.",
+        },
+        en: {
+          label: "New garden path",
+          beforeAlt:
+            "Strip excavated through the lawn in preparation for the new walkway.",
+          afterAlt:
+            "New walkway of large anthracite tiles with clean edging bands running through the garden.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/front-garden-border-before.png",
+        after: "/images/garden-renovations/front-garden-border-after.png",
+        nl: {
+          label: "Voortuin opgeknapt",
+          beforeAlt:
+            "Overwoekerde voortuin met uitgegroeide struiken vóór de opknapbeurt.",
+          afterAlt:
+            "Voortuin na de opknapbeurt, met gesnoeide beplanting, kunstgrasstrook en nette bestratingsranden.",
+        },
+        en: {
+          label: "Front garden refreshed",
+          beforeAlt:
+            "Overgrown front garden with sprawling shrubs before the refresh.",
+          afterAlt:
+            "Front garden after the refresh, with trimmed planting, an artificial grass strip and tidy paving borders.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/garden-gazebo-paving-before.png",
+        after: "/images/garden-renovations/garden-gazebo-paving-after.png",
+        nl: {
+          label: "Bestrating en prieel",
+          beforeAlt:
+            "Verwaarloosde achtertuin met mos, bladafval en oude tegels vóór de renovatie.",
+          afterAlt:
+            "Achtertuin na de renovatie, met grijze keramische bestrating, kunstgras en een tuinprieel.",
+        },
+        en: {
+          label: "Paving and gazebo",
+          beforeAlt:
+            "Neglected backyard with moss, leaf litter and old slabs before the renovation.",
+          afterAlt:
+            "Backyard after the renovation, with grey ceramic paving, artificial grass and a garden gazebo.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/side-path-paving-before.png",
+        after: "/images/garden-renovations/side-path-paving-after.png",
+        nl: {
+          label: "Zijpad bestraat",
+          beforeAlt:
+            "Zijpad langs de woning uitgevlakt met straatzand, klaar voor de nieuwe tegels.",
+          afterAlt:
+            "Nieuw bestraat zijpad langs de woning, met grote grijze tegels en een strakke haagrand.",
+        },
+        en: {
+          label: "Side path paved",
+          beforeAlt:
+            "Side path along the house levelled with paving sand, ready for the new tiles.",
+          afterAlt:
+            "Newly paved side path along the house, with large grey tiles and a clean hedge line.",
+        },
+      },
+      {
+        before:
+          "/images/garden-renovations/garden-grass-tile-steps-before.png",
+        after: "/images/garden-renovations/garden-grass-tile-steps-after.png",
+        nl: {
+          label: "Kunstgras met staptegels",
+          beforeAlt:
+            "Achtertuin tijdens het grondwerk, met uitgegraven ondergrond en opgebroken tegels.",
+          afterAlt:
+            "Achtertuin met kunstgras en staptegels na de heraanleg, direct aan de achtergevel.",
+        },
+        en: {
+          label: "Grass with stepping tiles",
+          beforeAlt:
+            "Backyard during groundworks, with excavated subsoil and lifted slabs.",
+          afterAlt:
+            "Backyard with artificial grass and stepping tiles after the rebuild, right off the rear elevation.",
+        },
+      },
+      {
+        before:
+          "/images/garden-renovations/garden-grass-sand-infill-before.png",
+        after: "/images/garden-renovations/garden-grass-sand-infill-after.png",
+        nl: {
+          label: "Kunstgras gelegd",
+          beforeAlt:
+            "Geëgaliseerde ondergrond in de achtertuin, voorbereid voor kunstgras en bestrating.",
+          afterAlt:
+            "Vers gelegd kunstgras met invulzand naast natuursteen bestrating in de achtertuin.",
+        },
+        en: {
+          label: "Artificial grass laid",
+          beforeAlt:
+            "Levelled base in the backyard, prepared for artificial grass and paving.",
+          afterAlt:
+            "Freshly laid artificial grass with sand infill next to natural stone paving in the backyard.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/garden-mossy-paving-before.png",
+        after:
+          "/images/garden-renovations/garden-white-tiles-grass-after.png",
+        nl: {
+          label: "Smalle stadstuin",
+          beforeAlt:
+            "Smalle stadstuin vóór de renovatie, met kapotte flagstones vol mos en onkruid.",
+          afterAlt:
+            "Smalle stadstuin na de renovatie, met lichte bestrating, kunstgrasstrook en verhoogde plantenbak.",
+        },
+        en: {
+          label: "Narrow city garden",
+          beforeAlt:
+            "Narrow city garden before the renovation, with broken flagstones covered in moss and weeds.",
+          afterAlt:
+            "Narrow city garden after the renovation, with light paving, an artificial grass strip and a raised planter.",
+        },
+      },
+      {
+        before: "/images/garden-renovations/garden-old-tiles-before.png",
+        after: "/images/garden-renovations/garden-grey-tiles-after.png",
+        nl: {
+          label: "Keramisch terras",
+          beforeAlt:
+            "Achtertuin vóór de heraanleg, met verouderde betontegels en opgeslagen spullen.",
+          afterAlt:
+            "Ruim terras met grote grijze keramische tegels over de volle breedte van de achtertuin.",
+        },
+        en: {
+          label: "Ceramic patio",
+          beforeAlt:
+            "Backyard before the rebuild, with dated concrete slabs and stored belongings.",
+          afterAlt:
+            "Spacious patio with large grey ceramic tiles across the full width of the backyard.",
+        },
+      },
+    ],
+    nl: {
+      title: "Tuinrenovaties: bestrating, kunstgras en schuttingen",
+      eyebrow: "Tuin en bestrating",
+      summary:
+        "Een selectie tuinprojecten: oude, verzakte tuinen omgebouwd naar strakke buitenruimtes met keramische bestrating, kunstgras, borders, schuttingen en overkappingen.",
+      location: "Regio Eindhoven, Nederland",
+      timeframe: "Doorlopende tuinprojecten",
+      scope: [
+        "Sloop, grondwerk en afvoer",
+        "Keramische en natuursteen bestrating",
+        "Kunstgras en gazonranden",
+        "Verhoogde borders en plantenbakken",
+        "Schuttingen en erfafscheidingen",
+        "Overkappingen en pergola's",
+      ],
+      description: [
+        "Deze pagina bundelt een reeks tuinen die we van begin tot eind hebben aangepakt. Het startpunt is bijna altijd hetzelfde: verzakte of kapotte bestrating, onkruid, slechte afwatering en een tuin die niet meer gebruikt wordt.",
+        "Per tuin beginnen we met sloop- en grondwerk: oude bestrating eruit, de ondergrond uitgraven en egaliseren, en waar nodig drainage aanleggen. Daarna bouwen we op met een stevig zandbed en grootformaat keramische of natuurstenen tegels.",
+        "Afhankelijk van de wensen combineren we de bestrating met kunstgras, verhoogde borders, siertegels, nieuwe schuttingen of een overkapping. Het resultaat is telkens een onderhoudsarme tuin die direct vanaf de achterdeur bruikbaar is.",
+      ],
+      keywords: [
+        "tuinrenovatie Nederland",
+        "tuin bestrating Nederland",
+        "kunstgras aanleggen Nederland",
+        "schutting plaatsen Nederland",
+        "terras aanleggen Nederland",
+        "tuinaanleg Eindhoven",
+      ],
+      coverAlt:
+        "Vernieuwde stadstuin in Nederland met marmerlook keramische tegels en een strak kunstgrasgazon.",
+      beforeCoverAlt:
+        "Verouderde tuin vóór de renovatie, met kapotte natuurstenen bestrating, mos en onkruid.",
+    },
+    en: {
+      title: "Garden renovations: paving, artificial grass and fencing",
+      eyebrow: "Garden and paving",
+      summary:
+        "A selection of garden projects: tired, sunken gardens rebuilt into clean outdoor spaces with ceramic paving, artificial grass, borders, fencing and canopies.",
+      location: "Eindhoven region, Netherlands",
+      timeframe: "Ongoing garden projects",
+      scope: [
+        "Strip-out, groundworks and disposal",
+        "Ceramic and natural stone paving",
+        "Artificial grass and lawn edging",
+        "Raised borders and planters",
+        "Fencing and boundaries",
+        "Canopies and pergolas",
+      ],
+      description: [
+        "This page brings together a series of gardens we rebuilt from start to finish. The starting point is almost always the same: sunken or broken paving, weeds, poor drainage and a garden that no longer gets used.",
+        "For each garden we start with strip-out and groundworks: old paving removed, the base excavated and levelled, and drainage added where needed. We then build up a solid sand bed and lay large-format ceramic or natural stone tiles.",
+        "Depending on the brief, we combine the paving with artificial grass, raised borders, decorative tiles, new fencing or a canopy. The result is always a low-maintenance garden that is usable straight from the back door.",
+      ],
+      keywords: [
+        "garden renovation Netherlands",
+        "garden paving Netherlands",
+        "artificial grass installation Netherlands",
+        "fence installation Netherlands",
+        "patio installation Netherlands",
+        "garden landscaping Eindhoven",
+      ],
+      coverAlt:
+        "Renovated city garden in the Netherlands with marble-look ceramic tiles and a neat artificial grass lawn.",
+      beforeCoverAlt:
+        "Tired garden before the renovation, with broken natural stone paving, moss and weeds.",
+    },
+  },
 ];
 
 function localizeGalleryItems(items: GalleryItemSource[], locale: Locale) {
@@ -1094,6 +1492,11 @@ export function localizeProject(source: ProjectSource, locale: Locale) {
   const gallery = source.gallery
     ? localizeGalleryItems(source.gallery, locale)
     : (gallerySections?.flatMap((section) => section.items) ?? []);
+  const galleryPairs = source.galleryPairs?.map((pair) => ({
+    before: pair.before,
+    after: pair.after,
+    ...pair[locale],
+  }));
 
   return {
     slug: source.slug,
@@ -1102,5 +1505,6 @@ export function localizeProject(source: ProjectSource, locale: Locale) {
     ...content,
     gallery,
     gallerySections,
+    galleryPairs,
   };
 }

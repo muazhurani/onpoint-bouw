@@ -16,6 +16,14 @@ export type ProjectGallerySection = {
   items: ProjectGalleryItem[];
 };
 
+export type ProjectGalleryPair = {
+  before: string;
+  after: string;
+  label: string;
+  beforeAlt: string;
+  afterAlt: string;
+};
+
 export type Project = {
   slug: string;
   title: string;
@@ -23,7 +31,6 @@ export type Project = {
   summary: string;
   location: string;
   timeframe: string;
-  duration: string;
   scope: string[];
   description: string[];
   keywords: string[];
@@ -33,6 +40,7 @@ export type Project = {
   beforeCoverAlt?: string;
   gallery: ProjectGalleryItem[];
   gallerySections?: ProjectGallerySection[];
+  galleryPairs?: ProjectGalleryPair[];
 };
 
 export function getProjects(locale: Locale): Project[] {

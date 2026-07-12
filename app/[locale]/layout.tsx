@@ -6,14 +6,12 @@ import GoogleAnalytics from "@/app/components/GoogleAnalytics";
 import VercelAnalytics from "@/app/components/VercelAnalytics";
 import { getDictionary } from "@/app/lib/dictionaries";
 import {
-  defaultLocale,
   isLocale,
   locales,
   openGraphLocale,
   type Locale,
 } from "@/app/lib/i18n";
-
-const siteUrl = "https://onpointgeo.nl";
+import { SITE_URL } from "@/app/lib/site";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -61,7 +59,7 @@ export async function generateMetadata({
   const canonical = `/${rawLocale}`;
 
   return {
-    metadataBase: new URL(siteUrl),
+    metadataBase: new URL(SITE_URL),
     applicationName: "OnPoint Bouw",
     title: {
       default: dict.meta.title,

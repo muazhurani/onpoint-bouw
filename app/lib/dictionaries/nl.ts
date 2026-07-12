@@ -2,9 +2,9 @@ import type { Dictionary } from "./types";
 
 const nl: Dictionary = {
   meta: {
-    title: "OnPoint Bouw | Verbouwing & Bouw in Nederland",
+    title: "OnPoint Bouw | Verbouwing, Aanbouw & Tuin",
     description:
-      "Aannemer in heel Nederland voor woningverbouwingen, aanbouwen, badkamers, tuinbestrating en patio's. Duidelijke offertes, netjes werk en eerlijk advies — vraag een vrijblijvende offerte aan.",
+      "OnPoint Bouw realiseert verbouwingen, aanbouwen, badkamers en tuinen in Nederland. Bekijk echte projecten, onze werkwijze en bespreek uw plannen.",
     keywords: [
       "bouwbedrijf Nederland",
       "verbouwing Nederland",
@@ -27,96 +27,91 @@ const nl: Dictionary = {
       { label: "Diensten", hash: "services" },
       { label: "Projecten", hash: "projects" },
       { label: "Werkwijze", hash: "process" },
-      { label: "Vertrouwen", hash: "trust" },
-      { label: "Offerte", hash: "quote" },
+      { label: "Afspraken", hash: "trust" },
+      { label: "Contact", hash: "quote" },
     ],
     requestQuote: "Offerte aanvragen",
   },
   hero: {
     imageAlt:
       "Bouwers aan het werk aan een woninguitbreiding en tuinpatio bij een Nederlandse woning.",
-    eyebrow: "Verbouwingen · Aanbouwen · Tuinen · Nederland",
-    h1Before: "Bouwwerk aan huis, goed",
-    h1Highlight: "geregeld.",
+    eyebrow: "Verbouwingen · Aanbouwen · Tuinen · Badkamers",
+    h1Before: "Van aanbouw tot complete",
+    h1Highlight: "renovatie.",
     subhead:
-      "Tuin, badkamer, aanbouw of complete renovatie — wij helpen huiseigenaren in heel Nederland met helder advies, netjes werk en eerlijke communicatie, van het eerste bezoek tot de opruiming.",
+      "OnPoint Bouw verzorgt verbouwingen, badkamers, aanbouwen en tuinen. Met één aanspreekpunt, duidelijke afspraken en een heldere planning van start tot oplevering.",
     requestQuote: "Offerte aanvragen",
     call: "Bel +31 6 1571 8727",
     stats: [
-      { value: "Gratis", label: "vrijblijvende offerte" },
-      { value: "Nederland", label: "heel het land" },
-      { value: "Eén", label: "aanspreekpunt" },
+      { value: "6", label: "projecten om te bekijken" },
+      { value: "Schriftelijk", label: "offerte en werkzaamheden" },
+      { value: "Eén", label: "vast aanspreekpunt" },
     ],
   },
   services: {
-    eyebrow: "Hoe wij helpen",
-    title: "Eerlijk bouwwerk voor normale woningen.",
+    eyebrow: "Diensten",
+    title: "Werk in en rond uw woning.",
     intro:
-      "De meeste klanten komen met een praktisch probleem: meer ruimte, een betere tuin, een verouderde badkamer of werk dat af moet. Wij maken het plan helder en houden de klus in beweging.",
+      "Wij verzorgen complete verbouwingen en afzonderlijke onderdelen. Vooraf bekijken we de woning, de gewenste afwerking en welke werkzaamheden op elkaar moeten aansluiten.",
     items: [
       {
         n: "01",
-        title: "Verbouwingen en aanbouwen",
-        body: "Meer ruimte, betere indeling, een nieuwe aanbouw of een oudere kamer die echt aandacht nodig heeft. Wij helpen het idee om te zetten in een realistische klus.",
+        title: "Aanbouw & woningverbouwing",
+        body: "Van een nieuwe doorbraak of indeling tot vloeren, wanden en afwerking. We bekijken eerst wat de woning toelaat en leggen de werkzaamheden vooraf vast.",
       },
       {
         n: "02",
-        title: "Tuinen en bestrating",
-        body: "Bestrating, terrassen, trappen, drainage, verhoogde borders en buitenplekken die gemaakt zijn voor dagelijks gebruik — niet alleen voor een mooie foto.",
+        title: "Tuin, terras & bestrating",
+        body: "Bestrating, terrassen, drainage, trappen, plantenbakken en verlichting. We letten op een goede ondergrond, afwatering en praktisch dagelijks gebruik.",
       },
       {
         n: "03",
-        title: "Badkamers en afwerking",
-        body: "Badkamers, tegelwerk, stucwerk, sanitair, kleine reparaties en afwerkingswerk waar rechte lijnen en nette details het verschil maken.",
+        title: "Badkamer, tegelwerk & maatwerk",
+        body: "Waterdichting, leidingwerk, tegelwerk, sanitair en afwerking. Ook voor praktisch maatwerk wanneer een standaardoplossing niet goed past.",
       },
     ],
     expectations: [
-      "We vertellen wat realistisch is voordat u ja zegt.",
-      "We houden de werkplek zo overzichtelijk mogelijk.",
-      "We leggen keuzes uit die de prijs of planning beïnvloeden.",
+      "De scope staat op papier vóór de start.",
+      "Keuzes met invloed op prijs of planning bespreken we eerst.",
+      "U heeft één direct aanspreekpunt.",
     ],
   },
   projects: {
-    eyebrow: "Recent werk",
-    title: "Recent woningbouwprojecten in heel Nederland.",
+    eyebrow: "Projecten",
+    title: "Bekijk onze recente projecten.",
     intro:
-      "Tuinen, aanbouwen en badkamers voor particuliere huiseigenaren. Open een project om te zien wat er is gedaan en hoe het is afgerond.",
+      "Bij ieder project ziet u de werkzaamheden, de foto's en het eindresultaat. Gebruik de schakelaar voor vóór en na, of open de projectpagina voor meer details.",
     viewProject: "Bekijk project",
     beforeLabel: "Vóór",
     afterLabel: "Na",
     beforePlaceholder: "Vóór-foto volgt",
-    readouts: [
-      { value: "Echte", label: "afgeronde projecten" },
-      { value: "Lokaal", label: "heel Nederland" },
-      { value: "Duidelijk", label: "scope en prijs" },
-      { value: "Netjes", label: "schone oplevering" },
-    ],
+    sliderLabel: "Vergelijk vóór en na",
   },
   process: {
     eyebrow: "Werkwijze",
-    title: "Wat gebeurt er nadat u belt.",
+    title: "Zo verloopt een project.",
     intro:
-      "Een huiseigenaar hoeft een bouwproject niet als aannemer te managen. Wij houden bij elke stap duidelijk wat de volgende is.",
+      "Van de eerste beoordeling tot de oplevering houden we de werkzaamheden, afspraken en volgende stap duidelijk.",
     steps: [
       {
         n: "01",
-        title: "Bezoek en scope",
-        body: "We bekijken de ruimte, luisteren naar wat u wilt veranderen en controleren praktische details voordat we de werkzaamheden prijzen.",
+        title: "Eerste beoordeling",
+        body: "Stuur uw wensen, plaats en een paar foto's. We bekijken de aanvraag en geven aan welke informatie nog nodig is.",
       },
       {
         n: "02",
-        title: "Duidelijke offerte",
-        body: "U ontvangt een heldere offerte met de belangrijkste keuzes, planning en wat erbij is inbegrepen.",
+        title: "Inmeten & afspreken",
+        body: "Op locatie controleren we maten, bereikbaarheid, materialen en werkzaamheden. Daarna ontvangt u een schriftelijke offerte.",
       },
       {
         n: "03",
-        title: "Netjes bouwen",
-        body: "We beschermen de woning waar nodig, houden de werkplek overzichtelijk en communiceren terwijl het project vordert.",
+        title: "Bouwen & afstemmen",
+        body: "We voeren het werk in een logische volgorde uit en bespreken keuzes die invloed hebben op prijs, planning of afwerking.",
       },
       {
         n: "04",
-        title: "Afronden en opleveren",
-        body: "De laatste details worden met u doorgenomen, het werkgebied wordt opgeruimd en alles wordt netjes opgeleverd.",
+        title: "Controleren & opleveren",
+        body: "We lopen de laatste details samen na, leggen uit wat onderhoud vraagt en laten het werk klaar voor gebruik achter.",
       },
     ],
   },
@@ -125,7 +120,6 @@ const nl: Dictionary = {
     title: "Huiseigenaren over het werken met ons.",
     intro:
       "Geen geregisseerde reclamepraat — dit is wat klanten terugkoppelen nadat het werk is opgeleverd.",
-    // TODO: Replace with real customer testimonials (quote, first name, town, project type).
     items: [
       {
         quote:
@@ -149,49 +143,80 @@ const nl: Dictionary = {
         projectType: "Badkamerrenovatie",
       },
     ],
-    // TODO: Replace placeholders — real Google rating, actual years active, real KvK number.
     trustBar: [
-      { value: "4,9 ★", label: "op Google" },
+      { value: "4.7 ★", label: "op Google" },
       { value: "4+ jaar", label: "actief in de bouw" },
       { value: "KvK 89685644", label: "geregistreerd" },
       { value: "Volledig verzekerd", label: "AVB-dekking" },
     ],
   },
-  trust: {
-    eyebrow: "Waarom huiseigenaren voor ons kiezen",
-    title: "Geen vage beloftes. Geen verrassende factuur.",
+  proof: {
+    eyebrow: "Projecten in beeld",
+    title: "Meer dan alleen het eindresultaat.",
     intro:
-      "Voordat u ja zegt, moet u het werk, de globale planning en wat de prijs beïnvloedt begrijpen. De meeste mensen willen gewoon een bouwer die ze kunnen vertrouwen in en rond hun huis — zo werken wij.",
-    points: [
+      "Op de projectpagina's tonen we waar mogelijk de situatie vóór de start, een aantal bouwfasen en het afgewerkte resultaat.",
+    items: [
       {
         n: "01",
-        title: "Duidelijke offertes",
-        body: "U krijgt de scope, de belangrijkste keuzes en wat erbij hoort schriftelijk — voordat er werk begint. Geen verrassende factuur achteraf.",
+        title: "De beginsituatie",
+        body: "De foto's van vóór de start laten zien welke ruimte, indeling of afwerking is aangepakt.",
+        label: "Vóór",
       },
       {
         n: "02",
-        title: "Eén aanspreekpunt",
-        body: "U heeft rechtstreeks met ons te maken, van het eerste bezoek tot de oplevering. Geen achtervolgen, geen doorverwijzen.",
+        title: "Het werk erachter",
+        body: "Bouwfasen zoals constructie, drainage, vloerverwarming en waterdichting laten zien hoe het werk is opgebouwd.",
+        label: "Tijdens",
       },
       {
         n: "03",
-        title: "Respect voor uw woning",
-        body: "We beschermen vloeren en doorgangen, houden de werkplek zo overzichtelijk mogelijk en laten alles schoon achter als we klaar zijn.",
+        title: "Het afgewerkte resultaat",
+        body: "De eindfoto's tonen de afgewerkte ruimte, materialen en details van het uitgevoerde werk.",
+        label: "Na",
+      },
+    ],
+    trustBar: [
+      { value: "6 projecten", label: "uitgebreid vastgelegd" },
+      { value: "Vóór / tijdens / na", label: "in volgorde getoond" },
+      { value: "Scope", label: "per project benoemd" },
+      { value: "Projectfoto's", label: "van uitgevoerd werk" },
+    ],
+  },
+  trust: {
+    eyebrow: "Afspraken",
+    title: "Duidelijke afspraken vóór de start.",
+    intro:
+      "Voor de start leggen we vast wat er wordt uitgevoerd, welke keuzes zijn gemaakt en waarop de prijs is gebaseerd.",
+    points: [
+      {
+        n: "01",
+        title: "Afgebakende scope",
+        body: "In de offerte staan de werkzaamheden, de belangrijkste materialen en de uitgangspunten waarop de prijs is gebaseerd.",
+      },
+      {
+        n: "02",
+        title: "Meerwerk eerst bespreken",
+        body: "Verandert de situatie of kiest u iets anders, dan leggen we de gevolgen uit voordat we aanvullend werk uitvoeren.",
+      },
+      {
+        n: "03",
+        title: "Direct contact",
+        body: "Van de eerste beoordeling tot de oplevering heeft u rechtstreeks contact met hetzelfde aanspreekpunt.",
       },
       {
         n: "04",
-        title: "Eerlijk advies",
-        body: "We vertellen wat realistisch is, en zeggen het ook als een klus beter door een andere specialist kan worden gedaan.",
+        title: "Werken in een bewoond huis",
+        body: "We bespreken toegang en vloerbescherming vooraf en houden de werkplek tijdens de werkzaamheden zo overzichtelijk mogelijk.",
       },
     ],
     // Deliberately no price numbers on the website — pricing is discussed per project.
     pricing: {
-      title: "Hoe wij met prijzen omgaan",
+      title: "Waar de prijs op is gebaseerd",
       disclaimer:
-        "Elke prijs hangt af van uw woning en uw wensen, dus die bespreken we persoonlijk. Wat vaststaat: elke offerte wordt schriftelijk vastgelegd voordat het werk begint — dat bedrag is wat u betaalt.",
+        "De prijs is gebaseerd op de afgesproken werkzaamheden en de zichtbare situatie. Als tijdens sloopwerk een verborgen probleem naar voren komt, bespreken we de opties en het eventuele meerwerk voordat we verdergaan.",
     },
     aside:
-      "Nog geen bezoek nodig? Stuur een paar foto's en wij geven u een eerste indruk. Privéadressen en klantgegevens komen nooit in publieke voorbeelden.",
+      "Wilt u eerst weten of uw plan haalbaar is? Stuur een paar foto's, uw plaats en globale maten mee met de aanvraag.",
     requestQuote: "Offerte aanvragen",
   },
   whatsapp: {
@@ -205,21 +230,21 @@ const nl: Dictionary = {
   },
   cta: {
     eyebrow: "Offerte aanvragen",
-    title: "Wilt u dat wij naar uw project kijken?",
+    title: "Bespreek uw project met ons.",
     intro:
-      "Bel, mail of stuur een paar foto's mee met uw offerteaanvraag. Wij vertellen wat realistisch is, wat het inhoudt en wat de volgende stap is — meestal binnen één werkdag.",
+      "Vertel wat u wilt laten uitvoeren en waar de woning staat. Met een paar foto's en globale maten kunnen we de aanvraag sneller beoordelen.",
     requestQuote: "Offerte aanvragen",
     whatsappStart: {
-      title: "Of start direct via WhatsApp",
-      hint: "Kies uw project — WhatsApp opent met een kant-en-klaar bericht.",
+      title: "Start via WhatsApp",
+      hint: "Kies het type werk en voeg daarna uw plaats, wensen en eventueel foto's toe.",
       messageTemplate:
-        "Hallo OnPoint Bouw, ik wil graag een vrijblijvende offerte voor: {type}.",
+        "Hallo OnPoint Bouw, ik wil graag dit project bespreken: {type}.",
     },
     photoForm: {
-      eyebrow: "Eerste indruk",
-      title: "Stuur een paar foto's, krijg een eerste indruk",
+      eyebrow: "Eerste beoordeling",
+      title: "Stuur foto's van de ruimte",
       intro:
-        "Geen bezoek nodig om te beginnen. Stuur een paar foto's van de ruimte en wij vertellen wat realistisch is.",
+        "Een overzichtsfoto, een detailfoto en globale maten helpen ons om uw aanvraag goed te beoordelen.",
       name: "Naam",
       contact: "Telefoon of e-mail",
       message: "Korte omschrijving",
@@ -229,13 +254,13 @@ const nl: Dictionary = {
       submit: "Foto's versturen",
       sending: "Versturen...",
       sendError: "Het versturen is niet gelukt.",
-      note: "Direct naar OnPoint verstuurd. Wij reageren binnen één werkdag.",
+      note: "Direct naar OnPoint Bouw verstuurd. Wij reageren meestal binnen één werkdag.",
     },
   },
   footer: {
     homeAria: "OnPoint Bouw — naar boven",
     tagline:
-      "Verbouwingen, aanbouwen, tuinen en badkamers voor particuliere huiseigenaren in heel Nederland.",
+      "Verbouwingen, aanbouwen, badkamers en tuinen voor particuliere woningen in Nederland.",
     pages: "Pagina's",
     contact: "Contact",
     country: "Nederland",
@@ -244,26 +269,26 @@ const nl: Dictionary = {
   inquiry: {
     title: "Offerte aanvragen",
     eyebrow: "Projectgegevens",
-    submit: "Offerteaanvraag versturen",
+    submit: "Aanvraag versturen",
     sending: "Versturen...",
-    note: "Direct naar OnPoint verstuurd. Geen e-mailapp nodig.",
-    success: "Offerteaanvraag verstuurd. Wij reageren binnen één werkdag.",
+    note: "Direct naar OnPoint Bouw verstuurd. Wij reageren persoonlijk.",
+    success: "Projectgegevens ontvangen. Wij reageren binnen één werkdag.",
     sendError: "Het versturen is niet gelukt.",
     close: "Sluiten",
     name: "Naam",
     address: "Adres / plaats",
     email: "E-mail",
     phone: "Telefoon",
-    projectType: "Type project",
+    projectType: "Wat moet er gebeuren?",
     preferredStart: "Gewenste start",
-    message: "Bericht",
+    message: "Wat wilt u veranderen?",
     projectTypes: [
-      "Verbouwing",
-      "Aanbouw",
+      "Aanbouw / uitbouw",
+      "Woningverbouwing",
       "Tuin / terras",
-      "Badkamer",
+      "Badkamer / toilet",
       "Bestrating",
-      "Reparaties / afwerking",
+      "Maatwerk / afwerking",
     ],
   },
   gallery: {
@@ -291,6 +316,8 @@ const nl: Dictionary = {
     galleryAfter: "Na",
     morePhotosPending: "Meer foto's van dit project worden toegevoegd.",
     swipeHint: "Veeg of gebruik de pijlen om door de foto's te bladeren.",
+    dragHint: "Sleep de schuif om vóór en na te vergelijken.",
+    galleryMore: "Meer beelden",
     similarCta:
       "Plant u iets vergelijkbaars? Stuur ons een paar foto's en wij vertellen wat realistisch is voordat er werk begint.",
     requestQuote: "Offerte aanvragen",

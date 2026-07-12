@@ -3,7 +3,7 @@ import Hero from "@/app/components/Hero";
 import Services from "@/app/components/Services";
 import Projects from "@/app/components/Projects";
 import Process from "@/app/components/Process";
-import Testimonials from "@/app/components/Testimonials";
+import Proof from "@/app/components/Proof";
 import Reports from "@/app/components/Reports";
 import FinalCta from "@/app/components/FinalCta";
 import MobileContactBar from "@/app/components/MobileContactBar";
@@ -13,6 +13,8 @@ import ScrollProgress from "@/app/components/ScrollProgress";
 import { getDictionary } from "@/app/lib/dictionaries";
 import { EMAIL, PHONE_TEL } from "@/app/lib/contact";
 import { isLocale, localePath, type Locale } from "@/app/lib/i18n";
+import { SITE_URL } from "@/app/lib/site";
+import Testimonials from "@/app/components/Testimonials";
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;
@@ -24,15 +26,13 @@ export default async function Home({ params }: HomePageProps) {
 
   const locale = rawLocale as Locale;
   const dict = getDictionary(locale);
-  const siteUrl = "https://onpointgeo.nl";
-
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     name: "OnPoint Bouw",
-    url: `${siteUrl}${localePath(locale)}`,
-    logo: `${siteUrl}/icon-black.png`,
-    image: `${siteUrl}/images/onpoint-residential-renovation-hero.png`,
+    url: `${SITE_URL}${localePath(locale)}`,
+    logo: `${SITE_URL}/icon-black.png`,
+    image: `${SITE_URL}/images/onpoint-residential-renovation-hero.png`,
     description: dict.jsonLd.businessDescription,
     email: EMAIL,
     telephone: PHONE_TEL,
@@ -63,8 +63,8 @@ export default async function Home({ params }: HomePageProps) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "OnPoint Bouw",
-    url: siteUrl,
-    logo: `${siteUrl}/icon-black.png`,
+    url: SITE_URL,
+    logo: `${SITE_URL}/icon-black.png`,
     email: EMAIL,
     telephone: PHONE_TEL,
     address: {

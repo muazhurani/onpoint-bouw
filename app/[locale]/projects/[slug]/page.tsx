@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import BeforeAfterSlider from "@/app/components/BeforeAfterSlider";
 import InquiryButton from "@/app/components/InquiryButton";
 import ProjectGallery from "@/app/components/ProjectGallery";
 import { CornerTicks } from "@/app/components/PhotoFrame";
@@ -10,6 +11,7 @@ import { getDictionary } from "@/app/lib/dictionaries";
 import { PHONE_TEL } from "@/app/lib/contact";
 import { isLocale, localePath, type Locale } from "@/app/lib/i18n";
 import { getAllProjectParams, getProject } from "@/app/lib/projects";
+import { SITE_URL } from "@/app/lib/site";
 
 type ProjectPageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -18,8 +20,6 @@ type ProjectPageProps = {
 export function generateStaticParams() {
   return getAllProjectParams();
 }
-
-const siteUrl = "https://onpointgeo.nl";
 
 export async function generateMetadata({ params }: ProjectPageProps) {
   const { locale: rawLocale, slug } = await params;
@@ -73,12 +73,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) notFound();
 
   const hasPendingGalleryPhotos = project.gallery.some((item) => !item.src);
+  const hasGalleryPairs = (project.galleryPairs?.length ?? 0) > 0;
   const page = dict.projectPage;
   const gallerySectionTitles = {
     before: page.galleryBefore,
     after: page.galleryAfter,
   } as const;
-  const projectUrl = `${siteUrl}${localePath(locale, `/projects/${project.slug}`)}`;
+  const projectUrl = `${SITE_URL}${localePath(locale, `/projects/${project.slug}`)}`;
 
   const projectJsonLd = {
     "@context": "https://schema.org",
@@ -86,12 +87,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     name: project.title,
     description: project.summary,
     url: projectUrl,
-    image: `${siteUrl}${project.cover}`,
+    image: `${SITE_URL}${project.cover}`,
     keywords: project.keywords.join(", "),
     creator: {
       "@type": "HomeAndConstructionBusiness",
       name: "OnPoint Bouw",
-      url: siteUrl,
+      url: SITE_URL,
       areaServed: page.areaServed,
     },
     locationCreated: {
@@ -108,13 +109,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         "@type": "ListItem",
         position: 1,
         name: page.breadcrumbHome,
-        item: `${siteUrl}${localePath(locale)}`,
+        item: `${SITE_URL}${localePath(locale)}`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: page.breadcrumbProjects,
-        item: `${siteUrl}${localePath(locale, "/#projects")}`,
+        item: `${SITE_URL}${localePath(locale, "/#projects")}`,
       },
       {
         "@type": "ListItem",
@@ -249,7 +250,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ))}
               </div>
 
-              {project.gallery.length > 0 ? (
+              {project.gallery.length > 0 || hasGalleryPairs ? (
                 <div className="mt-12">
                   <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                     <p className="eyebrow text-slate">
@@ -264,9 +265,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <p className="max-w-[36ch] text-[0.875rem] leading-[1.6] text-slate">
                       {hasPendingGalleryPhotos
                         ? page.morePhotosPending
-                        : page.swipeHint}
+                        : hasGalleryPairs
+                          ? page.dragHint
+                          : page.swipeHint}
                     </p>
                   </div>
+                  {hasGalleryPairs ? (
+                    <div className="mt-8 grid gap-x-6 gap-y-8 sm:grid-cols-2">
+                      {project.galleryPairs?.map((pair) => (
+                        <figure key={pair.after} className="min-w-0">
+                          <BeforeAfterSlider
+                            beforeSrc={pair.before}
+                            beforeAlt={pair.beforeAlt}
+                            afterSrc={pair.after}
+                            afterAlt={pair.afterAlt}
+                            label={pair.label}
+                          />
+                          <figcaption className="mt-3 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.08em] text-slate">
+                            {pair.label}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  ) : null}
                   {project.gallerySections?.length ? (
                     project.gallerySections.map((section, sectionIndex) => (
                       <div
@@ -285,9 +306,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                         <ProjectGallery items={section.items} />
                       </div>
                     ))
-                  ) : (
-                    <ProjectGallery items={project.gallery} />
-                  )}
+                  ) : project.gallery.length > 0 ? (
+                    <div className={hasGalleryPairs ? "mt-14" : undefined}>
+                      {hasGalleryPairs ? (
+                        <p className="eyebrow text-slate">
+                          <span
+                            aria-hidden="true"
+                            className="mr-2 text-accent-yellow"
+                          >
+                            +
+                          </span>
+                          {page.galleryMore}
+                        </p>
+                      ) : null}
+                      <ProjectGallery items={project.gallery} />
+                    </div>
+                  ) : null}
                 </div>
               ) : null}
 

@@ -23,13 +23,19 @@ export type NavLink = {
   hash: string;
 };
 
+export type EvidenceItem = {
+  n: string;
+  title: string;
+  body: string;
+  label: string;
+};
+
 export type TestimonialItem = {
   quote: string;
   name: string;
   town: string;
   projectType: string;
 };
-
 
 export type Dictionary = {
   meta: {
@@ -72,7 +78,7 @@ export type Dictionary = {
     beforeLabel: string;
     afterLabel: string;
     beforePlaceholder: string;
-    readouts: StatItem[];
+    sliderLabel: string;
   };
   process: {
     eyebrow: string;
@@ -85,6 +91,13 @@ export type Dictionary = {
     title: string;
     intro: string;
     items: TestimonialItem[];
+    trustBar: StatItem[];
+  };
+  proof: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: EvidenceItem[];
     trustBar: StatItem[];
   };
   trust: {
@@ -187,6 +200,8 @@ export type Dictionary = {
     galleryAfter: string;
     morePhotosPending: string;
     swipeHint: string;
+    dragHint: string;
+    galleryMore: string;
     similarCta: string;
     requestQuote: string;
     breadcrumbHome: string;

@@ -1,6 +1,7 @@
 import type { Locale } from "@/app/lib/i18n";
 import { locales } from "@/app/lib/i18n";
 import {
+  getPublishedProjectSources,
   localizeProject,
   projectSources,
 } from "@/app/lib/projects-source";
@@ -44,18 +45,22 @@ export type Project = {
 };
 
 export function getProjects(locale: Locale): Project[] {
-  return projectSources.map((source) => localizeProject(source, locale));
+  return getPublishedProjectSources().map((source) =>
+    localizeProject(source, locale),
+  );
 }
 
 export function getProject(slug: string, locale: Locale): Project | undefined {
-  const source = projectSources.find((project) => project.slug === slug);
+  const source = projectSources.find(
+    (project) => project.slug === slug && !project.hidden,
+  );
   if (!source) return undefined;
   return localizeProject(source, locale);
 }
 
 export function getAllProjectParams(): { locale: Locale; slug: string }[] {
   return locales.flatMap((locale) =>
-    projectSources.map((project) => ({ locale, slug: project.slug })),
+    getPublishedProjectSources().map((project) => ({ locale, slug: project.slug })),
   );
 }
 

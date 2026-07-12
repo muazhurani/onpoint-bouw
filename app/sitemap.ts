@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { locales, localePath } from "@/app/lib/i18n";
-import { projectSources } from "@/app/lib/projects-source";
+import { getPublishedProjectSources } from "@/app/lib/projects-source";
 import { SITE_URL } from "@/app/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     `${SITE_URL}/images/rear-extension/rear-extension-patio-evening.png`,
     `${SITE_URL}/images/kitchen-extension/kitchen-extension-exterior-finished.png`,
     `${SITE_URL}/images/under-stair-storage/under-stair-storage-finished.png`,
-    `${SITE_URL}/images/backyard-garden-renovation/backyard-garden-finished-evening.png`,
   ];
 
   const homePages = locales.map((locale) => ({
@@ -29,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const projectPages = locales.flatMap((locale) =>
-    projectSources.map((project) => ({
+    getPublishedProjectSources().map((project) => ({
       url: `${SITE_URL}${localePath(locale, `/projects/${project.slug}`)}`,
       lastModified: new Date("2026-06-25"),
       changeFrequency: "monthly" as const,

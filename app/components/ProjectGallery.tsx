@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, ImageIcon, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { TouchEvent as ReactTouchEvent } from "react";
 import { CornerTicks } from "./PhotoFrame";
 import { useDictionary } from "./DictionaryProvider";
 import { formatMessage } from "@/app/lib/format-message";
@@ -39,6 +40,7 @@ export default function ProjectGallery({
   const [index, setIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  const touchIsMultiTouch = useRef(false);
   const didSwipe = useRef(false);
 
   const photoCount = photos.length;
@@ -74,12 +76,26 @@ export default function ProjectGallery({
     };
   }, [lightboxOpen, goPrev, goNext]);
 
-  function onTouchStart(clientX: number) {
-    touchStartX.current = clientX;
+  function onTouchStart(event: ReactTouchEvent) {
+    // A pinch-zoom gesture involves two or more fingers. Bail out entirely
+    // so a finger lifting mid-pinch is never mistaken for a swipe.
+    if (event.touches.length > 1) {
+      touchStartX.current = null;
+      touchIsMultiTouch.current = true;
+      return;
+    }
+    touchIsMultiTouch.current = false;
+    touchStartX.current = event.touches[0]?.clientX ?? null;
   }
 
-  function onTouchEnd(clientX: number) {
+  function onTouchEnd(event: ReactTouchEvent) {
+    if (touchIsMultiTouch.current) {
+      touchIsMultiTouch.current = false;
+      touchStartX.current = null;
+      return;
+    }
     if (touchStartX.current === null) return;
+    const clientX = event.changedTouches[0]?.clientX ?? touchStartX.current;
     const delta = clientX - touchStartX.current;
     touchStartX.current = null;
     if (Math.abs(delta) < 40) return;
@@ -121,12 +137,8 @@ export default function ProjectGallery({
             }}
             className="group relative block h-[min(56vw,280px)] w-full overflow-hidden text-left sm:h-[320px] sm:max-h-[360px] wide:h-[380px] wide:max-h-[400px]"
             aria-label={formatMessage(gallery.viewFullSize, { label: current.label })}
-            onTouchStart={(event) =>
-              onTouchStart(event.touches[0]?.clientX ?? 0)
-            }
-            onTouchEnd={(event) =>
-              onTouchEnd(event.changedTouches[0]?.clientX ?? 0)
-            }
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
           >
             <Image
               key={current.src}
@@ -218,12 +230,8 @@ export default function ProjectGallery({
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) setLightboxOpen(false);
           }}
-          onTouchStart={(event) =>
-            onTouchStart(event.touches[0]?.clientX ?? 0)
-          }
-          onTouchEnd={(event) =>
-            onTouchEnd(event.changedTouches[0]?.clientX ?? 0)
-          }
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
           <div
             role="dialog"
